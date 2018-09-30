@@ -93,6 +93,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddTourDetails.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
     <Content Include="assets\css\plugins.css" />
     <Content Include="assets\css\print.css" />
@@ -584,6 +585,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddTourDetails.aspx.cs">
+      <DependentUpon>AddTourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddTourDetails.aspx.designer.cs">
+      <DependentUpon>AddTourDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

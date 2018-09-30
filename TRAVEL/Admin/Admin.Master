@@ -241,5 +241,13 @@
     <!-- start: CORE JAVASCRIPTS  -->
     <script src="../assets/js/main.js"></script>
 
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            SVExamples.init();
+            TableData.init();
+        });
+		</script>
+
 </body>
 </html>
