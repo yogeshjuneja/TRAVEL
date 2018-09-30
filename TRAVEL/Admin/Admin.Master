@@ -1,0 +1,245 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="TRAVEL.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SL accounts</title>
+    <!-- start: META -->
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- end: META -->
+    <!-- start: MAIN CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,200,100,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/iCheck/skins/all.css">
+    <link rel="stylesheet" href="../assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../assets/plugins/animate.css/animate.min.css">
+    <!-- end: MAIN CSS -->
+    <!-- start: CSS REQUIRED FOR SUBVIEW CONTENTS -->
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.transitions.css">
+    <link rel="stylesheet" href="../assets/plugins/summernote/dist/summernote.css">
+    <link rel="stylesheet" href="../assets/plugins/fullcalendar/fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" href="../assets/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="../assets/plugins/DataTables/media/css/DT_bootstrap.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <!-- end: CSS REQUIRED FOR THIS SUBVIEW CONTENTS-->
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2.css" />
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CORE CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles-responsive.css">
+    <link rel="stylesheet" href="../assets/css/plugins.css">
+    <link rel="stylesheet" href="../assets/css/themes/theme-style8.css" type="text/css" id="skin_color">
+    <link rel="stylesheet" href="../assets/css/print.css" type="text/css" media="print" />
+    <!-- end: CORE CSS -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+     <form runat="server">
+        <!-- start: SLIDING BAR (SB) -->
+
+        <!-- end: SLIDING BAR -->
+        <div class="main-wrapper">
+            <!-- start: TOPBAR -->
+            <header class="topbar navbar navbar-inverse navbar-fixed-top inner">
+                <!-- start: TOPBAR CONTAINER -->
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="sb-toggle-left hidden-md hidden-lg" href="#main-navbar">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <!-- start: LOGO -->
+                        <a class="navbar-brand" href="index-2.html">
+                            <div>
+                                <h3 style="margin-top: 0% !important">TRAVEL</h3>
+                            </div>
+                        </a>
+                        <!-- end: LOGO -->
+                    </div>
+                    <%--<div class="topbar-tools">
+                        <!-- start: TOP NAVIGATION MENU -->
+                        <ul class="nav navbar-right">
+                            <!-- start: USER DROPDOWN -->
+                            <li class="dropdown current-user">
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+                                    <img src="../assets/images/avatar-1-small.jpg" class="img-circle" alt="">
+                                    <span class="username hidden-xs">Peter Clark</span> <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-dark">
+                                    <li>
+                                        <a href="pages_user_profile.html">My Profile
+										</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages_calendar.html">My Calendar
+										</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages_messages.html">My Messages (3)
+										</a>
+                                    </li>
+                                    <li>
+                                        <a href="login_lock_screen.html">Lock Screen
+										</a>
+                                    </li>
+                                    <li>
+                                        <a href="login_login.html">Log Out
+										</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- end: USER DROPDOWN -->
+                           
+                        </ul>
+                        <!-- end: TOP NAVIGATION MENU -->
+                    </div>--%>
+                </div>
+                <!-- end: TOPBAR CONTAINER -->
+            </header>
+            <!-- end: TOPBAR -->
+            <!-- start: PAGESLIDE LEFT -->
+            <a class="closedbar inner hidden-sm hidden-xs" href="#"></a>
+            <nav id="pageslide-left" class="pageslide inner">
+                <div class="navbar-content">
+                    <!-- start: SIDEBAR -->
+                    <div class="main-navigation left-wrapper transition-left">
+                        <div class="navigation-toggler hidden-sm hidden-xs">
+                            <a href="#main-navbar" class="sb-toggle-left"></a>
+                        </div>
+                        <div class="user-profile border-top padding-horizontal-10 block">
+                            <div class="inline-block">
+                                <img src="../assets/images/avatar-1.jpg">
+                            </div>
+                            <div class="inline-block">
+                                <h5 class="no-margin">Welcome </h5>
+                                <h4 class="no-margin">Yogesh </h4>
+                                <a class="btn user-options sb_toggle">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- start: MAIN NAVIGATION MENU -->
+                        <ul class="main-navigation-menu">
+                            <li class="active open">
+                                <a href="dashboard.aspx"><i class="fa fa-home"></i><span class="title">Dashboard </span></a>
+                            </li>
+                            <li>
+                                <a href="report.aspx"><i class="fa fa-desktop"></i><span class="title">Add Trip </span></a>
+
+                            </li>
+                            <li>
+                                <a href="addcustomer.aspx"><i class="fa fa-cogs"></i><span class="title">Add Tour </span></a>
+
+                            </li>
+                            <li>
+                                <a href="item_payments.aspx"><i class="fa fa-th-large"></i><span class="title">Add Itinerary </span></a>
+
+                            </li>
+                            
+                        </ul>
+
+                        <!-- end: MAIN NAVIGATION MENU -->
+                    </div>
+                    <!-- end: SIDEBAR -->
+                </div>
+                <div class="slide-tools">
+                    <div class="col-xs-6 text-left no-padding">
+                        <a class="btn btn-sm status" href="#">Status <i class="fa fa-dot-circle-o text-green"></i><span>Online</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 text-right no-padding">
+                        <a class="btn btn-sm log-out text-right" href="login_login.html">
+                            <i class="fa fa-power-off"></i>Log Out
+						</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- end: PAGESLIDE LEFT -->
+            <!-- start: PAGESLIDE RIGHT -->
+
+            <!-- end: PAGESLIDE RIGHT -->
+            <!-- start: MAIN CONTAINER -->
+
+            <!-- end: MAIN CONTAINER -->
+            <!-- start: FOOTER -->
+
+
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="inner">
+            <div class="footer-inner">
+                <div class="pull-left">
+                    Accounts
+				
+                </div>
+                <div class="pull-right">
+                    <span class="go-top"><i class="fa fa-chevron-up"></i></span>
+                </div>
+            </div>
+        </footer>
+
+    </form>
+
+     <script type="text/javascript" src="../assets/plugins/jQuery/jquery-1.11.1.min.js"></script>
+    <script src="../assets/plugins/jQuery/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script src="../assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/plugins/blockUI/jquery.blockUI.js"></script>
+    <script src="../assets/plugins/iCheck/jquery.icheck.min.js"></script>
+    <script src="../assets/plugins/moment/min/moment.min.js"></script>
+    <script src="../assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
+    <script src="../assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <script src="../assets/plugins/bootbox/bootbox.min.js"></script>
+    <script src="../assets/plugins/jquery.scrollTo/jquery.scrollTo.min.js"></script>
+    <script src="../assets/plugins/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+    <script src="../assets/plugins/jquery.appear/jquery.appear.js"></script>
+    <script src="../assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="../assets/plugins/velocity/jquery.velocity.min.js"></script>
+    <script src="../assets/plugins/TouchSwipe/jquery.touchSwipe.min.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR SUBVIEW CONTENTS -->
+    <script src="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <script src="../assets/plugins/jquery-mockjax/jquery.mockjax.js"></script>
+    <script src="../assets/plugins/toastr/toastr.js"></script>
+    <script src="../assets/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+    <script src="../assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+    <script src="../assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+    <script src="../assets/plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+    <script src="../assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
+
+    <script src="../assets/plugins/truncate/jquery.truncate.js"></script>
+    <script src="../assets/plugins/summernote/dist/summernote.min.js"></script>
+    <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../assets/js/subview.js"></script>
+    <script src="../assets/js/subview-examples.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR SUBVIEW CONTENTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script type="text/javascript" src="../assets/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/table-data.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CORE JAVASCRIPTS  -->
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
