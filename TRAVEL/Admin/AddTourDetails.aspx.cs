@@ -17,7 +17,7 @@ namespace TRAVEL.Admin
             if(!IsPostBack)
             {
                 InitialRowPackageDetails();
-                InitialRowIternary();
+                InitialRowIternary();    
             }
         }
 
