@@ -241,7 +241,7 @@
 													
                                                 <hr>
 
-                                                <h4 class="panel-title">Package Details <span class="text-bold"></span></h4>
+                                                <h4 class="panel-title">Iternary Details <span class="text-bold"></span></h4>
                                                 <br />
                                             </div>
                                         </div>

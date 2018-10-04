@@ -53,8 +53,8 @@ namespace TRAVEL.Admin
             {
                 dtIternaryDetails.Columns.Add("ItnryDtlsID", typeof(Int32));
                 dtIternaryDetails.Columns.Add("ItnryMainH", typeof(string));
-                dtIternaryDetails.Columns.Add("ItnrySubH", typeof(bool));
-                dtIternaryDetails.Columns.Add("ItnryImage", typeof(bool));
+                dtIternaryDetails.Columns.Add("ItnrySubH", typeof(string));
+                dtIternaryDetails.Columns.Add("ItnryImage", typeof(string));
                 DataRow dr = null;
                 dr = dtIternaryDetails.NewRow();
                 dr["ItnryDtlsID"] = 0;
@@ -79,7 +79,6 @@ namespace TRAVEL.Admin
             try
             {
                 RestorePreviousData();
-
                 DataRow dr = dtPackageDetails.NewRow();
                 dr["PackageDetailsID"] = 0;
                 dr["Description"] = "";
@@ -115,7 +114,7 @@ namespace TRAVEL.Admin
 
         private void RestorePreviousDataIternary()
         {
-            dtPackageDetails = (DataTable)ViewState["vwIternaryDetails"];
+            dtIternaryDetails = (DataTable)ViewState["vwIternaryDetails"];
             int i = 0;
             foreach (GridViewRow gvRow in gvIternary.Rows)
             {
@@ -183,7 +182,24 @@ namespace TRAVEL.Admin
 
         protected void btnAddMoreIernary_Click(object sender, EventArgs e)
         {
+            try
+            {
+                RestorePreviousDataIternary();
+                DataRow dr = dtIternaryDetails.NewRow();
+                dr["ItnryDtlsID"] = 0;
+                dr["ItnryMainH"] = "";
+                dr["ItnrySubH"] = "";
+                dr["ItnryImage"] = "";
+                dtIternaryDetails.Rows.Add(dr);
+                ViewState["vwIternaryDetails"] = dtIternaryDetails;
+                gvIternary.DataSource = dtIternaryDetails;
+                gvIternary.DataBind();
+            }
+            catch (Exception ex)
+            {
 
+                throw;
+            }
         }
     }
 }
