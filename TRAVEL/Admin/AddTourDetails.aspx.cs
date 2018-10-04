@@ -11,16 +11,18 @@ namespace TRAVEL.Admin
     public partial class AddTourDetails : System.Web.UI.Page
     {
         DataTable dtPackageDetails = new DataTable();
+        DataTable dtIternaryDetails = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-                InitialRow();
+                InitialRowPackageDetails();
+                InitialRowIternary();
             }
         }
 
 
-        private void InitialRow()
+        private void InitialRowPackageDetails()
         {
             try
             {
@@ -36,6 +38,33 @@ namespace TRAVEL.Admin
                 ViewState["vwPackageDetails"] = dtPackageDetails;
                 gvPackageDetails.DataSource = dtPackageDetails;
                 gvPackageDetails.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void InitialRowIternary()
+        {
+            try
+            {
+                dtIternaryDetails.Columns.Add("ItnryDtlsID", typeof(Int32));
+                dtIternaryDetails.Columns.Add("ItnryMainH", typeof(string));
+                dtIternaryDetails.Columns.Add("ItnrySubH", typeof(bool));
+                dtIternaryDetails.Columns.Add("ItnryImage", typeof(bool));
+                DataRow dr = null;
+                dr = dtIternaryDetails.NewRow();
+                dr["ItnryDtlsID"] = 0;
+                dr["ItnryMainH"] = "";
+                dr["ItnrySubH"] = "";
+                dr["ItnryImage"] = "";
+                dtIternaryDetails.Rows.Add(dr);
+                ViewState["vwIternaryDetails"] = dtIternaryDetails;
+                gvIternary.DataSource = dtIternaryDetails;
+                gvIternary.DataBind();
 
             }
             catch (Exception ex)
@@ -84,6 +113,20 @@ namespace TRAVEL.Admin
             }
         }
 
+        private void RestorePreviousDataIternary()
+        {
+            dtPackageDetails = (DataTable)ViewState["vwIternaryDetails"];
+            int i = 0;
+            foreach (GridViewRow gvRow in gvIternary.Rows)
+            {
+                dtIternaryDetails.Rows[i]["ItnryDtlsID"] = ((HiddenField)gvRow.FindControl("hfIID")).Value;
+                dtIternaryDetails.Rows[i]["ItnryMainH"] = ((TextBox)gvRow.FindControl("txtHeading")).Text;
+                dtIternaryDetails.Rows[i]["ItnrySubH"] = ((TextBox)gvRow.FindControl("txtDescription")).Text;
+                dtIternaryDetails.Rows[i]["ItnryImage"] = ((FileUpload)gvRow.FindControl("fuIternary")).FileName;
+                i++;
+            }
+        }
+
         protected void gvPackageDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -107,9 +150,40 @@ namespace TRAVEL.Admin
             }
             catch (Exception ex)
             {
+                throw;
+            }
+        }
+
+        protected void gvIternary_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                switch (e.CommandName)
+                {
+                    case "iDelete":
+                        {
+                            if (gvIternary.Rows.Count > 1)
+                            {
+                                RestorePreviousDataIternary();
+                                int index = Convert.ToInt32(e.CommandArgument);
+                                dtIternaryDetails.Rows.RemoveAt(index);
+                                gvIternary.DataSource = dtIternaryDetails;
+                                gvIternary.DataBind();
+                            }
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
 
                 throw;
             }
+        }
+
+        protected void btnAddMoreIernary_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

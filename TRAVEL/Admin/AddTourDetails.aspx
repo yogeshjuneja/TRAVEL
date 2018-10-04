@@ -234,6 +234,86 @@
 
 
 
+                                       <div class="row">
+                                        <div class="col-md-12">
+                                            <div>
+                                                <span class="symbol required"></span>Required Fields
+													
+                                                <hr>
+
+                                                <h4 class="panel-title">Package Details <span class="text-bold"></span></h4>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <%--Iternary DETAILS--%>
+
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                        <ContentTemplate>
+                                      
+                                    <div>
+                                        <asp:GridView ID="gvIternary" OnRowCommand="gvIternary_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                            <Columns>
+
+                                                <asp:TemplateField HeaderText="S#">
+                                                    <ItemTemplate>
+                                                    <%#Container.DataItemIndex+1 %>
+                                                        <asp:HiddenField ID="hfIID" runat="server" Value='<%#Eval("ItnryDtlsID") %>' />
+
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Heading">
+                                                    <ItemTemplate>
+                                                        <asp:TextBox ID="txtHeading" Text='<%#Eval("ItnryMainH") %>' runat="server" CssClass="form-control" placeholder="Main"></asp:TextBox>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Description">
+                                                    <ItemTemplate>
+                                                        <asp:TextBox ID="txtDescription" Text='<%#Eval("ItnrySubH") %>' runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Image">
+                                                    <ItemTemplate>
+                                                        <asp:FileUpload ID="fuIternary" runat="server" />
+                                                    </ItemTemplate>
+
+                                                    <FooterTemplate>
+
+                                                       <asp:LinkButton ID="btnAddMoreIernary" OnClick="btnAddMoreIernary_Click" runat="server" CssClass="btn btn-green add-row">Add New <i class="fa fa-plus"></i></asp:LinkButton>
+                                                    </FooterTemplate>
+                                                </asp:TemplateField>
+
+
+                                                <asp:TemplateField HeaderText="Delete">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Container.DataItemIndex %>'  CssClass="btn btn-xs btn-red tooltips">
+                                                            <i class="fa fa-times fa fa-white"></i>
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+
+                                                </asp:TemplateField>
+
+                                                
+                                            </Columns>
+
+                                            
+
+
+
+
+                                        </asp:GridView>
+                                    </div>
+                                  
+                                      </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+
+
 
                                     <div class="row">
                                         <div class="col-md-12">
