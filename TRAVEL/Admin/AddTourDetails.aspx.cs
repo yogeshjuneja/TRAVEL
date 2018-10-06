@@ -5,22 +5,55 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLLTRAVEL;
+using System.Configuration;
 
 namespace TRAVEL.Admin
 {
     public partial class AddTourDetails : System.Web.UI.Page
     {
+
         DataTable dtPackageDetails = new DataTable();
         DataTable dtIternaryDetails = new DataTable();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 InitialRowPackageDetails();
                 InitialRowIternary();
+                BindTourDropDown();
+                BindTripDropDown();
             }
         }
 
+        void BindTourDropDown()
+        {
+            try
+            {
+                BLLTravel objBLLTravel = new BLLTravel() { Sptype = 1 };
+                DataTable dt = objBLLTravel.ExecuteDataSet(objBLLTravel).Tables[0];
+                CommonFunction.BindDDL(dt, "TourPlace", "TourID", ref ddlTourPlace);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        void BindTripDropDown()
+        {
+            try
+            {
+                BLLTrip objBLLTrip = new BLLTrip() { Sptype = 1 };
+                DataTable dt = objBLLTrip.ExecuteDataSet(objBLLTrip).Tables[0];
+                CommonFunction.BindDDL(dt, "TripName", "TripTypeID", ref ddlTripType);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         private void InitialRowPackageDetails()
         {
@@ -55,13 +88,13 @@ namespace TRAVEL.Admin
                 dtIternaryDetails.Columns.Add("ItnryMainH", typeof(string));
                 dtIternaryDetails.Columns.Add("ItnrySubH", typeof(string));
                 dtIternaryDetails.Columns.Add("ItnryImage", typeof(string));
-                DataRow dr = null;
-                dr = dtIternaryDetails.NewRow();
-                dr["ItnryDtlsID"] = 0;
-                dr["ItnryMainH"] = "";
-                dr["ItnrySubH"] = "";
-                dr["ItnryImage"] = "";
-                dtIternaryDetails.Rows.Add(dr);
+                //DataRow dr = null;
+                //dr = dtIternaryDetails.NewRow();
+                //dr["ItnryDtlsID"] = 0;
+                //dr["ItnryMainH"] = "";
+                //dr["ItnrySubH"] = "";
+                //dr["ItnryImage"] = "";
+                //dtIternaryDetails.Rows.Add(dr);
                 ViewState["vwIternaryDetails"] = dtIternaryDetails;
                 gvIternary.DataSource = dtIternaryDetails;
                 gvIternary.DataBind();
@@ -119,9 +152,9 @@ namespace TRAVEL.Admin
             foreach (GridViewRow gvRow in gvIternary.Rows)
             {
                 dtIternaryDetails.Rows[i]["ItnryDtlsID"] = ((HiddenField)gvRow.FindControl("hfIID")).Value;
-                dtIternaryDetails.Rows[i]["ItnryMainH"] = ((TextBox)gvRow.FindControl("txtHeading")).Text;
-                dtIternaryDetails.Rows[i]["ItnrySubH"] = ((TextBox)gvRow.FindControl("txtDescription")).Text;
-                dtIternaryDetails.Rows[i]["ItnryImage"] = ((FileUpload)gvRow.FindControl("fuIternary")).FileName;
+                dtIternaryDetails.Rows[i]["ItnryMainH"] = ((Label)gvRow.FindControl("lblHeading")).Text;
+                dtIternaryDetails.Rows[i]["ItnrySubH"] = ((Label)gvRow.FindControl("lblDescription")).Text;
+                dtIternaryDetails.Rows[i]["ItnryImage"] = ((HiddenField)gvRow.FindControl("hfImg")).Value;
                 i++;
             }
         }
@@ -130,11 +163,11 @@ namespace TRAVEL.Admin
         {
             try
             {
-                switch(e.CommandName)
+                switch (e.CommandName)
                 {
                     case "iDelete":
                         {
-                            if(gvPackageDetails.Rows.Count>1)
+                            if (gvPackageDetails.Rows.Count > 1)
                             {
                                 RestorePreviousData();
                                 int index = Convert.ToInt32(e.CommandArgument);
@@ -161,14 +194,11 @@ namespace TRAVEL.Admin
                 {
                     case "iDelete":
                         {
-                            if (gvIternary.Rows.Count > 1)
-                            {
-                                RestorePreviousDataIternary();
-                                int index = Convert.ToInt32(e.CommandArgument);
-                                dtIternaryDetails.Rows.RemoveAt(index);
-                                gvIternary.DataSource = dtIternaryDetails;
-                                gvIternary.DataBind();
-                            }
+                            RestorePreviousDataIternary();
+                            int index = Convert.ToInt32(e.CommandArgument);
+                            dtIternaryDetails.Rows.RemoveAt(index);
+                            gvIternary.DataSource = dtIternaryDetails;
+                            gvIternary.DataBind();
                             break;
                         }
                 }
@@ -201,5 +231,7 @@ namespace TRAVEL.Admin
                 throw;
             }
         }
+
+
     }
 }

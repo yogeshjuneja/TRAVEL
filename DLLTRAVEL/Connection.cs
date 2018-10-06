@@ -12,7 +12,7 @@ namespace DLLTRAVEL
         {
             get
             {
-                return ConfigurationSettings.AppSettings["TRAVElDB"].ToString();
+                return "Server=yogeshyj.database.windows.net;uid=yogeshdb;pwd=itsmeyj$0910;Initial Catalog=TRAVELDB;Integrated Security=False";
             }
         }
     }   
