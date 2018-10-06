@@ -42,10 +42,10 @@
                         <ol class="breadcrumb">
                             <li>
                                 <a href="#">Dashboard
-										</a>
+                                </a>
                             </li>
                             <li class="active">ADD TOUR
-									</li>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -179,62 +179,62 @@
 
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
-                                      
-                                    <div>
-                                        <asp:GridView ID="gvPackageDetails" OnRowCommand="gvPackageDetails_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
-                                            <Columns>
 
-                                                <asp:TemplateField HeaderText="S#">
-                                                    <ItemTemplate>
-                                                    <%#Container.DataItemIndex+1 %>
-                                                        <asp:HiddenField ID="hfPID" runat="server" Value='<%#Eval("PackageDetailsID") %>' />
+                                            <div>
+                                                <asp:GridView ID="gvPackageDetails" OnRowCommand="gvPackageDetails_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                                    <Columns>
 
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="S#">
+                                                            <ItemTemplate>
+                                                                <%#Container.DataItemIndex+1 %>
+                                                                <asp:HiddenField ID="hfPID" runat="server" Value='<%#Eval("PackageDetailsID") %>' />
 
-                                                <asp:TemplateField HeaderText="Detail">
-                                                    <ItemTemplate>
-                                                        <asp:TextBox ID="txtDetails" Text='<%#Eval("Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                <asp:TemplateField HeaderText="Include">
-                                                    <ItemTemplate>
-                                                        <asp:CheckBox ID="chkInclude" Checked='<%# Convert.ToBoolean(Eval("IncluExcluType")) %>' runat="server" CssClass="flat-grey selectall" />
-                                                    </ItemTemplate>
+                                                        <asp:TemplateField HeaderText="Detail">
+                                                            <ItemTemplate>
+                                                                <asp:TextBox ID="txtDetails" Text='<%#Eval("Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                    <FooterTemplate>
+                                                        <asp:TemplateField HeaderText="Include">
+                                                            <ItemTemplate>
+                                                                <asp:CheckBox ID="chkInclude" Checked='<%# Convert.ToBoolean(Eval("IncluExcluType")) %>' runat="server" CssClass="flat-grey selectall" />
+                                                            </ItemTemplate>
 
-                                                       <asp:LinkButton ID="btnAddMore" OnClick="btnAddMore_Click" runat="server" CssClass="btn btn-green add-row">Add New <i class="fa fa-plus"></i></asp:LinkButton>
-                                                    </FooterTemplate>
-                                                </asp:TemplateField>
+                                                            <FooterTemplate>
 
-                                                <asp:TemplateField HeaderText="Delete">
-                                                    <ItemTemplate>
-                                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Container.DataItemIndex %>'  CssClass="btn btn-xs btn-red tooltips">
+                                                                <asp:LinkButton ID="btnAddMore" OnClick="btnAddMore_Click" runat="server" CssClass="btn btn-green add-row">Add New <i class="fa fa-plus"></i></asp:LinkButton>
+                                                            </FooterTemplate>
+                                                        </asp:TemplateField>
+
+                                                        <asp:TemplateField HeaderText="Delete">
+                                                            <ItemTemplate>
+                                                                <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Container.DataItemIndex %>' CssClass="btn btn-xs btn-red tooltips">
                                                             <i class="fa fa-times fa fa-white"></i>
-                                                        </asp:LinkButton>
-                                                    </ItemTemplate>
+                                                                </asp:LinkButton>
+                                                            </ItemTemplate>
 
-                                                </asp:TemplateField>
+                                                        </asp:TemplateField>
 
-                                                
-                                            </Columns>
 
-                                            
+                                                    </Columns>
 
 
 
 
-                                        </asp:GridView>
-                                    </div>
-                                  
-                                      </ContentTemplate>
+
+
+                                                </asp:GridView>
+                                            </div>
+
+                                        </ContentTemplate>
                                     </asp:UpdatePanel>
 
 
 
-                                       <div class="row">
+                                    <div class="row">
                                         <div class="col-md-12">
                                             <div>
                                                 <span class="symbol required"></span>Required Fields
@@ -250,16 +250,16 @@
 
                                     <%--Iternary DETAILS--%>
 
-                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                        <ContentTemplate>
-                                      
+                                    <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                        <ContentTemplate>--%>
+
                                     <div>
-                                        <asp:GridView ID="gvIternary" OnRowCommand="gvIternary_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                        <asp:GridView ID="gvIternary" ShowHeader="true" ShowHeaderWhenEmpty="true" OnRowCommand="gvIternary_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
                                             <Columns>
 
                                                 <asp:TemplateField HeaderText="S#">
                                                     <ItemTemplate>
-                                                    <%#Container.DataItemIndex+1 %>
+                                                        <%#Container.DataItemIndex+1 %>
                                                         <asp:HiddenField ID="hfIID" runat="server" Value='<%#Eval("ItnryDtlsID") %>' />
 
                                                     </ItemTemplate>
@@ -267,50 +267,63 @@
 
                                                 <asp:TemplateField HeaderText="Heading">
                                                     <ItemTemplate>
-                                                        <asp:TextBox ID="txtHeading" Text='<%#Eval("ItnryMainH") %>' runat="server" CssClass="form-control" placeholder="Main"></asp:TextBox>
+
+                                                        <asp:Label ID="lblHeading" runat="server" Text='<%#Eval("ItnryMainH") %>'></asp:Label>
                                                     </ItemTemplate>
+                                                    <HeaderTemplate>
+                                                        <asp:TextBox ID="txtHeading" runat="server" CssClass="form-control" placeholder="Main"></asp:TextBox>
+
+                                                    </HeaderTemplate>
                                                 </asp:TemplateField>
 
                                                 <asp:TemplateField HeaderText="Description">
                                                     <ItemTemplate>
+                                                        <asp:Label ID="lblDescription" runat="server" Text='<%#Eval("ItnryMainH") %>'></asp:Label>
+                                                    </ItemTemplate>
+
+                                                    <HeaderTemplate>
                                                         <asp:TextBox ID="txtDescription" Text='<%#Eval("ItnrySubH") %>' runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
-                                                    </ItemTemplate>
+                                                    </HeaderTemplate>
                                                 </asp:TemplateField>
 
-                                                <asp:TemplateField HeaderText="Image">
+
+                                                <asp:TemplateField HeaderText="Description">
                                                     <ItemTemplate>
-                                                        <asp:FileUpload ID="fuIternary" runat="server" />
+                                                        <img src="ItnryImage" height="50" width="50" />
+                                                        <asp:HiddenField ID="hfImg" runat="server" Value='<%#Eval("ItnryImage") %>' />
                                                     </ItemTemplate>
+                                                    <HeaderTemplate>
+                                                        <asp:FileUpload ID="fleIternary" runat="server" />
+                                                    </HeaderTemplate>
 
-                                                    <FooterTemplate>
-
-                                                       <asp:LinkButton ID="btnAddMoreIernary" OnClick="btnAddMoreIernary_Click" runat="server" CssClass="btn btn-green add-row">Add New <i class="fa fa-plus"></i></asp:LinkButton>
-                                                    </FooterTemplate>
                                                 </asp:TemplateField>
-
 
                                                 <asp:TemplateField HeaderText="Delete">
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Container.DataItemIndex %>'  CssClass="btn btn-xs btn-red tooltips">
+                                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Container.DataItemIndex %>' CssClass="btn btn-xs btn-red tooltips">
                                                             <i class="fa fa-times fa fa-white"></i>
                                                         </asp:LinkButton>
                                                     </ItemTemplate>
+                                                    <HeaderTemplate>
+                                                        <asp:LinkButton ID="btnAddMore" OnClick="btnAddMoreIernary_Click" runat="server" CssClass="btn btn-green add-row">Upload <i class="fa fa-plus"></i></asp:LinkButton>
+                                                    </HeaderTemplate>
+
 
                                                 </asp:TemplateField>
 
-                                                
+
                                             </Columns>
 
-                                            
+
 
 
 
 
                                         </asp:GridView>
                                     </div>
-                                  
-                                      </ContentTemplate>
-                                    </asp:UpdatePanel>
+
+                                    <%--  </ContentTemplate>
+                                    </asp:UpdatePanel>--%>
 
 
 
@@ -334,19 +347,19 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
+                        <!-- end: FORM VALIDATION 1 PANEL -->
                     </div>
-                    <!-- end: FORM VALIDATION 1 PANEL -->
                 </div>
-            </div>
 
-            <!-- end: PAGE CONTENT-->
+                <!-- end: PAGE CONTENT-->
+            </div>
+            <div class="subviews">
+                <div class="subviews-container"></div>
+            </div>
         </div>
-        <div class="subviews">
-            <div class="subviews-container"></div>
-        </div>
-    </div>
-    <!-- end: PAGE -->
+        <!-- end: PAGE -->
     </div>
 
 </asp:Content>
