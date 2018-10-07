@@ -582,7 +582,9 @@
     <Content Include="assets\plugins\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
     <Content Include="assets\plugins\wysihtml5\wysihtml5.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AddTourDetails.aspx.cs">
@@ -614,7 +616,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLLTRAVEL\BLLTRAVEL.csproj">
       <Project>{8f14db6f-be9d-4acc-ac8f-ef5f9db49628}</Project>

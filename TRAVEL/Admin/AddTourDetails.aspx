@@ -95,12 +95,12 @@
                                 <div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="errorHandler alert alert-danger no-display">
+                                           <%-- <div id="divMsg" class="errorHandler alert alert-danger no-display">
                                                 <i class="fa fa-times-sign"></i>You have some form errors. Please check below.
 												
-                                            </div>
-                                            <div class="successHandler alert alert-success no-display">
-                                                <i class="fa fa-ok"></i>Your form validation is successful!
+                                            </div>--%>
+                                            <div id="divMsg" runat="server" class="successHandler alert alert-success no-display">
+                                                <i class="fa fa-ok"></i><asp:Label ID="lblMessage" runat="server" Text="hello"> </asp:Label>
 												
                                             </div>
                                         </div>
@@ -111,6 +111,16 @@
                                                     Trip Type <span class="symbol required"></span>
                                                 </label>
                                                 <asp:DropDownList ID="ddlTripType" runat="server" CssClass="form-control"></asp:DropDownList>
+                                            </div>
+                                        </div>
+
+
+                                         <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Trip Info <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtTourInfo" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -137,6 +147,7 @@
                                                     Days <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtDays" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvDays" ControlToValidate="txtDays" ErrorMessage="Enter Days" runat="server" ValidationGroup="Save" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -145,6 +156,7 @@
                                                     Nights <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtNights" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvNight" ControlToValidate="txtNights" ErrorMessage="Enter Nights" runat="server" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -155,10 +167,7 @@
                                                 <asp:TextBox ID="txtDiscount" runat="server" MaxLength="2" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-
-
-
-
+                                         
                                     </div>
 
                                     <div class="row">
@@ -282,14 +291,14 @@
                                                     </ItemTemplate>
 
                                                     <HeaderTemplate>
-                                                        <asp:TextBox ID="txtDescription" Text='<%#Eval("ItnrySubH") %>' runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDescription"  runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
 
 
                                                 <asp:TemplateField HeaderText="Description">
                                                     <ItemTemplate>
-                                                        <img src="ItnryImage" height="50" width="50" />
+                                                        <img src='<%# "../Upload/"+ Eval("ItnryImage") %>' height="50" width="50" />
                                                         <asp:HiddenField ID="hfImg" runat="server" Value='<%#Eval("ItnryImage") %>' />
                                                     </ItemTemplate>
                                                     <HeaderTemplate>
@@ -305,12 +314,9 @@
                                                         </asp:LinkButton>
                                                     </ItemTemplate>
                                                     <HeaderTemplate>
-                                                        <asp:LinkButton ID="btnAddMore" OnClick="btnAddMoreIernary_Click" runat="server" CssClass="btn btn-green add-row">Upload <i class="fa fa-plus"></i></asp:LinkButton>
+                                                        <asp:LinkButton ID="btnAddMore" OnClick="btnAddMoreIernary_Click" ValidationGroup="Save" runat="server" CssClass="btn btn-green add-row">Upload <i class="fa fa-plus"></i></asp:LinkButton>
                                                     </HeaderTemplate>
-
-
                                                 </asp:TemplateField>
-
 
                                             </Columns>
 
@@ -341,9 +347,13 @@
                                         <div class="col-md-8">
                                         </div>
                                         <div class="col-md-4">
-                                            <button class="btn btn-yellow btn-block" type="submit">
+
+                                            <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click">
+                                                 Submit <i class="fa fa-arrow-circle-right"></i>
+                                            </asp:LinkButton>
+                                         <%--   <button class="btn btn-yellow btn-block" type="submit">
                                                 Register <i class="fa fa-arrow-circle-right"></i>
-                                            </button>
+                                            </button>--%>
                                         </div>
                                     </div>
                                 </div>

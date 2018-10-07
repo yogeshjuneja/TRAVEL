@@ -15,7 +15,7 @@ namespace TRAVEL.Admin
 
         DataTable dtPackageDetails = new DataTable();
         DataTable dtIternaryDetails = new DataTable();
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -51,7 +51,7 @@ namespace TRAVEL.Admin
             }
             catch (Exception ex)
             {
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -76,7 +76,7 @@ namespace TRAVEL.Admin
             catch (Exception ex)
             {
 
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -103,7 +103,7 @@ namespace TRAVEL.Admin
             catch (Exception ex)
             {
 
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -128,7 +128,7 @@ namespace TRAVEL.Admin
             catch (Exception ex)
             {
 
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -182,7 +182,7 @@ namespace TRAVEL.Admin
             }
             catch (Exception ex)
             {
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -206,7 +206,7 @@ namespace TRAVEL.Admin
             catch (Exception ex)
             {
 
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
@@ -214,12 +214,18 @@ namespace TRAVEL.Admin
         {
             try
             {
+                
+
                 RestorePreviousDataIternary();
+                FileUpload fleIternary = gvIternary.HeaderRow.FindControl("fleIternary") as FileUpload;
+                string filename = System.DateTime.Now.Ticks + "_" + fleIternary.FileName;
+                fleIternary.SaveAs(Server.MapPath("~/Upload") +"/"+ filename);
+
                 DataRow dr = dtIternaryDetails.NewRow();
                 dr["ItnryDtlsID"] = 0;
-                dr["ItnryMainH"] = "";
-                dr["ItnrySubH"] = "";
-                dr["ItnryImage"] = "";
+                dr["ItnryMainH"] = ((TextBox)gvIternary.HeaderRow.FindControl("txtHeading")).Text;
+                dr["ItnrySubH"] = ((TextBox)gvIternary.HeaderRow.FindControl("txtDescription")).Text; ;
+                dr["ItnryImage"] = filename;
                 dtIternaryDetails.Rows.Add(dr);
                 ViewState["vwIternaryDetails"] = dtIternaryDetails;
                 gvIternary.DataSource = dtIternaryDetails;
@@ -227,11 +233,58 @@ namespace TRAVEL.Admin
             }
             catch (Exception ex)
             {
-
-                throw;
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
 
 
+        void  ClearControls()
+        {
+            txtTourInfo.Text = "";
+            txtPlace.Text = "";
+            txtDays.Text = "";
+            txtNights.Text = "";
+            ddlTripType.SelectedIndex = 0;
+            ddlTourPlace.SelectedIndex = 0;
+            txtDiscount.Text = "";
+            dtPackageDetails = new DataTable();
+            dtIternaryDetails = new DataTable();
+            InitialRowPackageDetails();
+            InitialRowIternary();
+
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData();
+                objBLLTourDetailsData.Sptype = 1;
+                objBLLTourDetailsData.TourInfo = txtTourInfo.Text;
+                objBLLTourDetailsData.Place = txtPlace.Text;
+                objBLLTourDetailsData.Days = string.IsNullOrEmpty(txtDays.Text) ?0: Convert.ToInt32(txtDays.Text);
+                objBLLTourDetailsData.Nights = Convert.ToInt32(txtNights.Text);
+                objBLLTourDetailsData.TripTypeID = Convert.ToInt32(ddlTripType.SelectedValue);
+                objBLLTourDetailsData.TourID = Convert.ToInt32(ddlTourPlace.SelectedValue);
+                objBLLTourDetailsData.Discount = Convert.ToDecimal(txtDiscount.Text);
+                RestorePreviousData();
+                RestorePreviousDataIternary();
+                objBLLTourDetailsData.dtPackageDetails = dtPackageDetails;
+                objBLLTourDetailsData.dtIternaryDetail = dtIternaryDetails;
+                int reponse = objBLLTourDetailsData.ExecuteNonQuery(objBLLTourDetailsData);
+                if(reponse == -200)
+                {
+                    CommonFunction.Message(divMsg, lblMessage, "Data Saved successfully",1);
+                } 
+                else
+                {
+                    CommonFunction.Message(divMsg, lblMessage, "Unable to Save data",2);
+                }
+                ClearControls();
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
+            }
+        }
     }
 }
