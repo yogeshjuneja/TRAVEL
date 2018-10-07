@@ -22,6 +22,24 @@ namespace TRAVEL.Admin {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// divMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMsg;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
         /// ddlTripType control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace TRAVEL.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTripType;
+        
+        /// <summary>
+        /// txtTourInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTourInfo;
         
         /// <summary>
         /// ddlTourPlace control.
@@ -58,6 +85,15 @@ namespace TRAVEL.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtDays;
         
         /// <summary>
+        /// rfvDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDays;
+        
+        /// <summary>
         /// txtNights control.
         /// </summary>
         /// <remarks>
@@ -65,6 +101,15 @@ namespace TRAVEL.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNights;
+        
+        /// <summary>
+        /// rfvNight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNight;
         
         /// <summary>
         /// txtDiscount control.
@@ -101,5 +146,14 @@ namespace TRAVEL.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvIternary;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
     }
 }
