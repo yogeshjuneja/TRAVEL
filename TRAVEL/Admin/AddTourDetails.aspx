@@ -111,6 +111,8 @@
                                                     Trip Type <span class="symbol required"></span>
                                                 </label>
                                                 <asp:DropDownList ID="ddlTripType" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="rfvTriptype" ControlToValidate="ddlTripType" ErrorMessage="Enter Trip Type" runat="server"
+                                                     ValidationGroup="Save" ForeColor="Red" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
 
@@ -121,6 +123,11 @@
                                                     Trip Info <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtTourInfo" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvTourinfo" ControlToValidate="txtTourInfo" ErrorMessage="Enter Tour Info " runat="server"
+                                                     ValidationGroup="Save" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
+                                                 <asp:RegularExpressionValidator runat="server" id="revTourInfo" controltovalidate="txtTourInfo" 
+                                                    validationexpression="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$"  ErrorMessage="Only Alphabets."  ValidationGroup="Save" />
+
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -130,6 +137,8 @@
                                                 </label>
 
                                                 <asp:DropDownList ID="ddlTourPlace" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="rfvTourPlace" ControlToValidate="ddlTourPlace" ErrorMessage="Enter Tour Place" runat="server"
+                                                     ValidationGroup="Save" ForeColor="Red" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -139,6 +148,10 @@
                                                     Place <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtPlace" runat="server" MaxLength="30" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvPlace" ControlToValidate="txtPlace" ErrorMessage="Enter Place" runat="server"
+                                                     ValidationGroup="Save" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                     <asp:RegularExpressionValidator runat="server" id="revPlace" controltovalidate="txtPlace" 
+                                                    validationexpression="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$"  ErrorMessage="Only Alphabets."  ValidationGroup="Save" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -147,7 +160,11 @@
                                                     Days <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtDays" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="rfvDays" ControlToValidate="txtDays" ErrorMessage="Enter Days" runat="server" ValidationGroup="Save" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="rfvDays" ControlToValidate="txtDays" ErrorMessage="Enter Days" runat="server"
+                                                     ValidationGroup="Save" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" id="revdays" controltovalidate="txtDays" 
+                                                    validationexpression="^[0-9]{2}$" MaxLength="2" ErrorMessage="Enter 2 digit No."  ValidationGroup="Save" />
+
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -156,7 +173,11 @@
                                                     Nights <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtNights" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="rfvNight" ControlToValidate="txtNights" ErrorMessage="Enter Nights" runat="server" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="rfvNight" ControlToValidate="txtNights" ErrorMessage="Enter Nights" runat="server" 
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" id="revnight" controltovalidate="txtNights" 
+                                                    validationexpression="^[0-9]{2}$" ErrorMessage="Enter 2 digit No."  ValidationGroup="Save" MaxLength="2"  />
+                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -165,6 +186,10 @@
                                                     Discount <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtDiscount" runat="server" MaxLength="2" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvDiscount" ControlToValidate="txtNights" ErrorMessage="Enter Discount" runat="server" 
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" id="revDiscount" controltovalidate="txtDiscount" 
+                                                    validationexpression="^([0-9]{1})([0-9]{1})$"  MaxLength="2" ErrorMessage="Enter 2 digit No."  ValidationGroup="Save" />
                                             </div>
                                         </div>
                                          
@@ -204,6 +229,8 @@
                                                         <asp:TemplateField HeaderText="Detail">
                                                             <ItemTemplate>
                                                                 <asp:TextBox ID="txtDetails" Text='<%#Eval("Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="rfvDesc" ControlToValidate="txtDetails" ErrorMessage="Enter Details" runat="server" 
+                                                                      ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 
@@ -281,7 +308,8 @@
                                                     </ItemTemplate>
                                                     <HeaderTemplate>
                                                         <asp:TextBox ID="txtHeading" runat="server" CssClass="form-control" placeholder="Main"></asp:TextBox>
-
+                                                        <asp:RequiredFieldValidator ID="rfvHeading" ControlToValidate="txtHeading" ErrorMessage="Enter Heading" runat="server" 
+                                                                      ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
 
@@ -292,10 +320,13 @@
 
                                                     <HeaderTemplate>
                                                         <asp:TextBox ID="txtDescription"  runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="rfvDescription" ControlToValidate="txtDescription" ErrorMessage="Enter Description" runat="server" 
+                                                              ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator> 
+
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
 
-
+                                           
                                                 <asp:TemplateField HeaderText="Description">
                                                     <ItemTemplate>
                                                         <img src='<%# "../Upload/"+ Eval("ItnryImage") %>' height="50" width="50" />
@@ -303,6 +334,9 @@
                                                     </ItemTemplate>
                                                     <HeaderTemplate>
                                                         <asp:FileUpload ID="fleIternary" runat="server" />
+                                                        <asp:RegularExpressionValidator ID="revfleIternary" runat="server" ErrorMessage="Upload Images only."
+                                                             ValidationExpression="([a-zA-Z0-9\s_\\.\-:]+(.jpg|.png|.jpeg|.gif)$)" ValidationGroup="Submit" ControlToValidate="fleIternary" ForeColor="Red"> </asp:RegularExpressionValidator>
+
                                                     </HeaderTemplate>
 
                                                 </asp:TemplateField>

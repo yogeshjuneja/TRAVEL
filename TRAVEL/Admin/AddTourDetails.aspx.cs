@@ -185,12 +185,12 @@ namespace TRAVEL.Admin
                 CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
-
+         
         protected void gvIternary_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
             {
-                switch (e.CommandName)
+                switch (e.CommandName)  
                 {
                     case "iDelete":
                         {
