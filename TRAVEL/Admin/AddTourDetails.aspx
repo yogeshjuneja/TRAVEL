@@ -117,7 +117,7 @@
                                         </div>
 
 
-                                         <div class="col-md-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
                                                     Trip Info <span class="symbol required"></span>
@@ -215,7 +215,7 @@
                                         <ContentTemplate>
 
                                             <div>
-                                                <asp:GridView ID="gvPackageDetails" OnRowCommand="gvPackageDetails_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                                <asp:GridView ID="gvPackageDetails" OnRowCommand="gvPackageDetails_RowCommand" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false" OnRowDataBound="gvPackageDetails_RowDataBound">
                                                     <Columns>
 
                                                         <asp:TemplateField HeaderText="S#">
@@ -228,7 +228,8 @@
 
                                                         <asp:TemplateField HeaderText="Detail">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="txtDetails" Text='<%#Eval("Description") %>' runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:DropDownList ID="drpDetails" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                                <asp:TextBox ID="txtDetails" Text='<%#Eval("Description") %>' runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="rfvDesc" ControlToValidate="txtDetails" ErrorMessage="Enter Details" runat="server" 
                                                                       ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                                             </ItemTemplate>

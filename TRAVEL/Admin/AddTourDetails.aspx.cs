@@ -62,11 +62,15 @@ namespace TRAVEL.Admin
                 dtPackageDetails.Columns.Add("PackageDetailsID", typeof(Int32));
                 dtPackageDetails.Columns.Add("Description", typeof(string));
                 dtPackageDetails.Columns.Add("IncluExcluType", typeof(bool));
+                dtPackageDetails.Columns.Add("PackageID", typeof(int));
+
+
                 DataRow dr = null;
                 dr = dtPackageDetails.NewRow();
                 dr["PackageDetailsID"] = 0;
                 dr["Description"] = "";
                 dr["IncluExcluType"] = false;
+                dr["PackageID"] = 0;
                 dtPackageDetails.Rows.Add(dr);
                 ViewState["vwPackageDetails"] = dtPackageDetails;
                 gvPackageDetails.DataSource = dtPackageDetails;
@@ -116,6 +120,7 @@ namespace TRAVEL.Admin
                 dr["PackageDetailsID"] = 0;
                 dr["Description"] = "";
                 dr["IncluExcluType"] = false;
+                dr["PackageID"] = false;
                 dtPackageDetails.Rows.Add(dr);
                 ViewState["vwPackageDetails"] = dtPackageDetails;
                 gvPackageDetails.DataSource = dtPackageDetails;
@@ -141,6 +146,7 @@ namespace TRAVEL.Admin
                 dtPackageDetails.Rows[i]["PackageDetailsID"] = ((HiddenField)gvRow.FindControl("hfPID")).Value;
                 dtPackageDetails.Rows[i]["Description"] = ((TextBox)gvRow.FindControl("txtDetails")).Text;
                 dtPackageDetails.Rows[i]["IncluExcluType"] = ((CheckBox)gvRow.FindControl("chkInclude")).Checked;
+                dtPackageDetails.Rows[i]["PackageID"] = ((DropDownList)gvRow.FindControl("drpDetails")).SelectedValue;
                 i++;
             }
         }
@@ -284,6 +290,18 @@ namespace TRAVEL.Admin
             catch (Exception ex)
             {
                 CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
+            }
+        }
+
+        protected void gvPackageDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DropDownList drpDetails = e.Row.FindControl("drpDetails") as DropDownList;
+                BLLM_PackageDetails objBLLM_PackageDetails = new BLLM_PackageDetails() { Sptype=1} ;
+                DataTable dt = objBLLM_PackageDetails.ExecuteDataSet(objBLLM_PackageDetails).Tables[0];
+                CommonFunction.BindDDL(dt, "PackageName", "ID", ref drpDetails);
+                drpDetails.SelectedValue = ((DataTable)ViewState["vwPackageDetails"]).Rows[e.Row.RowIndex]["PackageID"].ToString();
             }
         }
     }
