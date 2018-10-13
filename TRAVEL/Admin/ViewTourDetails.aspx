@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ViewTourDetails.aspx.cs" Inherits="TRAVEL.Admin.ViewTourDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -94,13 +95,14 @@
                                 <div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                           <%-- <div id="divMsg" class="errorHandler alert alert-danger no-display">
+                                            <%-- <div id="divMsg" class="errorHandler alert alert-danger no-display">
                                                 <i class="fa fa-times-sign"></i>You have some form errors. Please check below.
 												
                                             </div>--%>
                                             <div id="divMsg" runat="server" class="successHandler alert alert-success no-display">
-                                                <i class="fa fa-ok"></i><asp:Label ID="lblMessage" runat="server" Text="hello"> </asp:Label>
-												
+                                                <i class="fa fa-ok"></i>
+                                                <asp:Label ID="lblMessage" runat="server" Text="hello"> </asp:Label>
+
                                             </div>
                                         </div>
 
@@ -110,10 +112,10 @@
                                                     Trip Type <span class="symbol required"></span>
                                                 </label>
                                                 <asp:DropDownList ID="ddlTripType" runat="server" CssClass="form-control"></asp:DropDownList>
-                                              
+
                                             </div>
                                         </div>
-                     
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
@@ -121,120 +123,120 @@
                                                 </label>
 
                                                 <asp:DropDownList ID="ddlTourPlace" runat="server" CssClass="form-control"></asp:DropDownList>
-                                            
+
 
                                             </div>
                                         </div>
 
-                                          <div class="row">
-                                        <div class="col-md-12">
-                                            <div>
-                                                <span class="symbol required"></span>Required Fields
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <span class="symbol required"></span>Required Fields
 													
                                                 <hr>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                            </div>
+                                            <div class="col-md-4">
 
-                                            <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click" >
+                                                <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click">
                                                  Save Details
-                                            </asp:LinkButton>
+                                                </asp:LinkButton>
+                                            </div>
                                         </div>
-                                    </div>
                                         </br>
                                        <%-- Tour Details--%>
-                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                        <ContentTemplate>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
 
-                                            <div>
-                                                <asp:GridView ID="grdTourDtls"  runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
-                                                       <Columns>
-                                        <asp:TemplateField HeaderText="S#">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex+1%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                <div>
+                                                    <asp:GridView ID="grdTourDtls" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="S#">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex+1%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
-                                            <ItemTemplate>
-                                             <%#Eval("TourInfo") %>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("TourInfo") %>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Days" SortExpression="Days">
-                                            <ItemTemplate>
-                                             <%#Eval("Days") %>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Days" SortExpression="Days">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("Days") %>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Nights" SortExpression="Nights">
-                                            <ItemTemplate>
-                                                <%#Eval("Nights") %>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Nights" SortExpression="Nights">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("Nights") %>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Discount" SortExpression="Discount">
-                                            <ItemTemplate>
-                                               <%#Eval("Discount")%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="TripName" SortExpression="TripName">
-                                            <ItemTemplate>
-                                               <%#Eval("TripName")%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
-                                            <ItemTemplate>
-                                               <%#Eval("TourInfo")%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Discount" SortExpression="Discount">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("Discount")%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="TripName" SortExpression="TripName">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("TripName")%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("TourInfo")%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                         <asp:TemplateField HeaderText="TourPlace" SortExpression="TourPlace">
-                                            <ItemTemplate>
-                                               <%#Eval("TourPlace")%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="TourPlace" SortExpression="TourPlace">
+                                                                <ItemTemplate>
+                                                                    <%#Eval("TourPlace")%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                         <%-- <asp:TemplateField HeaderText="Edit">
-                                           <ItemTemplate>
-                                              
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Edit">
+                                                                <ItemTemplate>
 
-                                        <asp:TemplateField HeaderText="Delete">
-                                            <ItemTemplate>
-                                                <asp:LinkButton runat="server" ID="btnDelete" CommandName="iDelete" CommandArgument='<%# Eval("UserID")%>'> Delete</asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
+                                                                  <a href='<%#"AddTourDetails.aspx?TID=" + Eval("TourDetailsID") %>' class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                    </Columns>
+                                                            <asp:TemplateField HeaderText="Delete">
+                                                                <ItemTemplate>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
 
-                                                </asp:GridView>
-                                            </div>
+                                                        </Columns>
 
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                                    </asp:GridView>
+                                                </div>
 
-                                  
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+
+
+                                    </div>
                                 </div>
                             </div>
+                            <!-- end: FORM VALIDATION 1 PANEL -->
                         </div>
-                        <!-- end: FORM VALIDATION 1 PANEL -->
                     </div>
-                </div>
 
-                <!-- end: PAGE CONTENT-->
+                    <!-- end: PAGE CONTENT-->
+                </div>
+                <div class="subviews">
+                    <div class="subviews-container"></div>
+                </div>
             </div>
-            <div class="subviews">
-                <div class="subviews-container"></div>
-            </div>
+            <!-- end: PAGE -->
         </div>
-        <!-- end: PAGE -->
-    </div>
 
     </div>
 </asp:Content>

@@ -159,7 +159,7 @@
                                                 <label class="control-label">
                                                     Days <span class="symbol required"></span>
                                                 </label>
-                                                <asp:TextBox ID="txtDays" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtDays" runat="server" MaxLength="2" CssClass="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvDays" ControlToValidate="txtDays" ErrorMessage="Enter Days" runat="server"
                                                      ValidationGroup="Save" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator runat="server" id="revdays" controltovalidate="txtDays" 
@@ -172,7 +172,7 @@
                                                 <label class="control-label">
                                                     Nights <span class="symbol required"></span>
                                                 </label>
-                                                <asp:TextBox ID="txtNights" runat="server" MaxLength="1" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNights" runat="server" MaxLength="2" CssClass="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvNight" ControlToValidate="txtNights" ErrorMessage="Enter Nights" runat="server" 
                                                     ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator runat="server" id="revnight" controltovalidate="txtNights" 
@@ -310,7 +310,7 @@
                                                     <HeaderTemplate>
                                                         <asp:TextBox ID="txtHeading" runat="server" CssClass="form-control" placeholder="Main"></asp:TextBox>
                                                         <asp:RequiredFieldValidator ID="rfvHeading" ControlToValidate="txtHeading" ErrorMessage="Enter Heading" runat="server" 
-                                                                      ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                                                      ForeColor="Red" ValidationGroup="SubmitIter"></asp:RequiredFieldValidator>
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
 
@@ -322,7 +322,7 @@
                                                     <HeaderTemplate>
                                                         <asp:TextBox ID="txtDescription"  runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Decsription"></asp:TextBox>
                                                         <asp:RequiredFieldValidator ID="rfvDescription" ControlToValidate="txtDescription" ErrorMessage="Enter Description" runat="server" 
-                                                              ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator> 
+                                                              ForeColor="Red" ValidationGroup="SubmitIter"></asp:RequiredFieldValidator> 
 
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
@@ -336,7 +336,7 @@
                                                     <HeaderTemplate>
                                                         <asp:FileUpload ID="fleIternary" runat="server" />
                                                         <asp:RegularExpressionValidator ID="revfleIternary" runat="server" ErrorMessage="Upload Images only."
-                                                             ValidationExpression="([a-zA-Z0-9\s_\\.\-:]+(.jpg|.png|.jpeg|.gif)$)" ValidationGroup="Submit" ControlToValidate="fleIternary" ForeColor="Red"> </asp:RegularExpressionValidator>
+                                                             ValidationExpression="([a-zA-Z0-9\s_\\.\-:]+(.jpg|.png|.jpeg|.gif)$)" ValidationGroup="SubmitIter" ControlToValidate="fleIternary" ForeColor="Red"> </asp:RegularExpressionValidator>
 
                                                     </HeaderTemplate>
 
@@ -349,7 +349,7 @@
                                                         </asp:LinkButton>
                                                     </ItemTemplate>
                                                     <HeaderTemplate>
-                                                        <asp:LinkButton ID="btnAddMore" OnClick="btnAddMoreIernary_Click" ValidationGroup="Save" runat="server" CssClass="btn btn-green add-row">Upload <i class="fa fa-plus"></i></asp:LinkButton>
+                                                        <asp:LinkButton ID="btnAddMore" OnClick="btnAddMoreIernary_Click" ValidationGroup="SubmitIter" runat="server" CssClass="btn btn-green add-row">Upload <i class="fa fa-plus"></i></asp:LinkButton>
                                                     </HeaderTemplate>
                                                 </asp:TemplateField>
 
@@ -367,8 +367,6 @@
                                     </asp:UpdatePanel>--%>
 
 
-
-
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div>
@@ -384,7 +382,9 @@
                                         <div class="col-md-4">
 
                                             <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click">
-                                                 Submit <i class="fa fa-arrow-circle-right"></i>
+                                                  <asp:Label ID="lblSubmit" runat="server" Text="Submit"></asp:Label>
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                                
                                             </asp:LinkButton>
                                          <%--   <button class="btn btn-yellow btn-block" type="submit">
                                                 Register <i class="fa fa-arrow-circle-right"></i>

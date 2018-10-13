@@ -31,7 +31,7 @@ namespace BLLTRAVEL
                 SqlParameter[] _params = new SqlParameter[]
                 {
                     new SqlParameter("@Sptype",objBLLTourDetailsData.Sptype),
-                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourID),
+                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourDetailsID),
                     new SqlParameter("@TourInfo",objBLLTourDetailsData.TourInfo),
                     new SqlParameter("@Place",objBLLTourDetailsData.Place),
                     new SqlParameter("@Days",objBLLTourDetailsData.Days),
