@@ -15,18 +15,74 @@ namespace TRAVEL.Admin
 
         DataTable dtPackageDetails = new DataTable();
         DataTable dtIternaryDetails = new DataTable();
+        public Int32 TourID { get { return !String.IsNullOrEmpty(Request.QueryString["TID"]) ? Convert.ToInt32(Request.QueryString["TID"]) : 0; } }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+
+
             {
-                InitialRowPackageDetails();
-                InitialRowIternary();
+               
                 BindTourDropDown();
                 BindTripDropDown();
+
+
+                if (TourID != 0)
+                {
+                    BindDetails();
+                    lblSubmit.Text = "Update";
+                }
+                else
+                {
+                    InitialRowPackageDetails();
+                    InitialRowIternary();
+                    lblSubmit.Text = "Submit";
+                }
+
+
             }
         }
 
+
+
+        void BindDetails()
+        {
+            try
+            {
+                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData() { Sptype = 3 , TourDetailsID=TourID};
+                DataSet dtDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
+                if(dtDataSet.Tables[0].Rows.Count>0)
+                {
+                    ddlTripType.SelectedValue = dtDataSet.Tables[0].Rows[0]["TripTypeID"].ToString();
+                    txtTourInfo.Text = dtDataSet.Tables[0].Rows[0]["TourInfo"].ToString();
+                    ddlTourPlace.SelectedValue = dtDataSet.Tables[0].Rows[0]["TourID"].ToString();
+                    txtPlace.Text = dtDataSet.Tables[0].Rows[0]["Place"].ToString();
+                    txtDays.Text = dtDataSet.Tables[0].Rows[0]["Days"].ToString();
+                    txtNights.Text = dtDataSet.Tables[0].Rows[0]["Nights"].ToString();
+                    txtDiscount.Text = Convert.ToInt32( dtDataSet.Tables[0].Rows[0]["Discount"]).ToString();
+
+                    dtPackageDetails = dtDataSet.Tables[1];
+                    ViewState["vwPackageDetails"] = dtPackageDetails;
+                    gvPackageDetails.DataSource = dtPackageDetails;
+                    gvPackageDetails.DataBind();
+
+                    dtIternaryDetails = dtDataSet.Tables[2];
+                    ViewState["vwIternaryDetails"] = dtIternaryDetails;
+                    gvIternary.DataSource = dtIternaryDetails;
+                    gvIternary.DataBind();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+        }
         void BindTourDropDown()
         {
             try
@@ -59,6 +115,7 @@ namespace TRAVEL.Admin
         {
             try
             {
+               
                 dtPackageDetails.Columns.Add("PackageDetailsID", typeof(Int32));
                 dtPackageDetails.Columns.Add("Description", typeof(string));
                 dtPackageDetails.Columns.Add("IncluExcluType", typeof(bool));
@@ -264,6 +321,7 @@ namespace TRAVEL.Admin
             try
             {
                 BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData();
+                objBLLTourDetailsData.TourDetailsID = TourID;
                 objBLLTourDetailsData.Sptype = 1;
                 objBLLTourDetailsData.TourInfo = txtTourInfo.Text;
                 objBLLTourDetailsData.Place = txtPlace.Text;
@@ -279,13 +337,17 @@ namespace TRAVEL.Admin
                 int reponse = objBLLTourDetailsData.ExecuteNonQuery(objBLLTourDetailsData);
                 if(reponse == -200)
                 {
-                    CommonFunction.Message(divMsg, lblMessage, "Data Saved successfully",1);
+                    CommonFunction.Message(divMsg, lblMessage, TourID==0?"Data Saved successfully":"Data Updated successfully", 1);
+                    if(TourID==0)
+                    {
+                        ClearControls();
+                    }
                 } 
                 else
                 {
                     CommonFunction.Message(divMsg, lblMessage, "Unable to Save data",2);
                 }
-                ClearControls();
+               
             }
             catch (Exception ex)
             {
