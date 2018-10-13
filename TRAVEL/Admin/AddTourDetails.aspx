@@ -14,15 +14,12 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                 &times;
-								
                             </button>
                             <h4 class="modal-title">Panel Configuration</h4>
                         </div>
                         <div class="modal-body">
                             Here will be a configuration form
-							
                         </div>
-
                     </div>
                     <!-- /.modal-content -->
                 </div>
@@ -33,6 +30,7 @@
             <div class="container">
                 <!-- start: PAGE HEADER -->
                 <!-- start: TOOLBAR -->
+
 
                 <!-- end: TOOLBAR -->
                 <!-- end: PAGE HEADER -->
@@ -89,9 +87,6 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-
-
-
                                 <div>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -231,10 +226,6 @@
                                                     </Columns>
 
 
-
-
-
-
                                                 </asp:GridView>
                                             </div>
 
@@ -320,11 +311,6 @@
 
                                             </Columns>
 
-
-
-
-
-
                                         </asp:GridView>
                                     </div>
 
@@ -365,6 +351,7 @@
 
                 <!-- end: PAGE CONTENT-->
             </div>
+
             <div class="subviews">
                 <div class="subviews-container"></div>
             </div>

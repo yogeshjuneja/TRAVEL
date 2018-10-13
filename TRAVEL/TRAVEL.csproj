@@ -85,6 +85,7 @@
     <Content Include="assets\plugins\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="assets\plugins\weather-icons\font\weathericons-regular-webfontd41d.eot" />
     <Content Include="Admin\Admin.Master" />
+    <None Include="Properties\PublishProfiles\yogesh.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
