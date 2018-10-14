@@ -31,7 +31,7 @@ namespace BLLTRAVEL
                 SqlParameter[] _params = new SqlParameter[]
                 {
                     new SqlParameter("@Sptype",objBLLTourDetailsData.Sptype),
-                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourID),
+                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourDetailsID),
                     new SqlParameter("@TourInfo",objBLLTourDetailsData.TourInfo),
                     new SqlParameter("@Place",objBLLTourDetailsData.Place),
                     new SqlParameter("@Days",objBLLTourDetailsData.Days),
@@ -43,10 +43,17 @@ namespace BLLTRAVEL
                     new SqlParameter("@IsActive",objBLLTourDetailsData.Active),
                     new SqlParameter("@Createddate",objBLLTourDetailsData.Createddate),
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
-                    new SqlParameter("@IPaddress",base.IPaddress),
-                    new SqlParameter("@dtPackageDetails",objBLLTourDetailsData.dtPackageDetails),
-                    new SqlParameter("@dtIternaryDetail",objBLLTourDetailsData.dtIternaryDetail),
+                    new SqlParameter("@IPaddress",base.IPaddress)
+                  
+                  
                 };
+                if (Sptype == 1)
+                {
+                    _params[_params.Length] = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
+                    _params[_params.Length + 1] = new SqlParameter("@dtIternaryDetails", objBLLTourDetailsData.dtIternaryDetail);
+                }
+           
+
                 return SqlHelper.ExecuteDataset(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params);
             }
         }

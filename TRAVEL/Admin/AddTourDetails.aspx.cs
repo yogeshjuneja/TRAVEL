@@ -15,18 +15,74 @@ namespace TRAVEL.Admin
 
         DataTable dtPackageDetails = new DataTable();
         DataTable dtIternaryDetails = new DataTable();
+        public Int32 TourID { get { return !String.IsNullOrEmpty(Request.QueryString["TID"]) ? Convert.ToInt32(Request.QueryString["TID"]) : 0; } }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+
+
             {
-                InitialRowPackageDetails();
-                InitialRowIternary();
+               
                 BindTourDropDown();
                 BindTripDropDown();
+
+
+                if (TourID != 0)
+                {
+                    BindDetails();
+                    lblSubmit.Text = "Update";
+                }
+                else
+                {
+                    InitialRowPackageDetails();
+                    InitialRowIternary();
+                    lblSubmit.Text = "Submit";
+                }
+
+
             }
         }
 
+
+
+        void BindDetails()
+        {
+            try
+            {
+                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData() { Sptype = 3 , TourDetailsID=TourID};
+                DataSet dtDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
+                if(dtDataSet.Tables[0].Rows.Count>0)
+                {
+                    ddlTripType.SelectedValue = dtDataSet.Tables[0].Rows[0]["TripTypeID"].ToString();
+                    txtTourInfo.Text = dtDataSet.Tables[0].Rows[0]["TourInfo"].ToString();
+                    ddlTourPlace.SelectedValue = dtDataSet.Tables[0].Rows[0]["TourID"].ToString();
+                    txtPlace.Text = dtDataSet.Tables[0].Rows[0]["Place"].ToString();
+                    txtDays.Text = dtDataSet.Tables[0].Rows[0]["Days"].ToString();
+                    txtNights.Text = dtDataSet.Tables[0].Rows[0]["Nights"].ToString();
+                    txtDiscount.Text = Convert.ToInt32( dtDataSet.Tables[0].Rows[0]["Discount"]).ToString();
+
+                    dtPackageDetails = dtDataSet.Tables[1];
+                    ViewState["vwPackageDetails"] = dtPackageDetails;
+                    gvPackageDetails.DataSource = dtPackageDetails;
+                    gvPackageDetails.DataBind();
+
+                    dtIternaryDetails = dtDataSet.Tables[2];
+                    ViewState["vwIternaryDetails"] = dtIternaryDetails;
+                    gvIternary.DataSource = dtIternaryDetails;
+                    gvIternary.DataBind();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+        }
         void BindTourDropDown()
         {
             try
@@ -59,14 +115,19 @@ namespace TRAVEL.Admin
         {
             try
             {
+               
                 dtPackageDetails.Columns.Add("PackageDetailsID", typeof(Int32));
                 dtPackageDetails.Columns.Add("Description", typeof(string));
                 dtPackageDetails.Columns.Add("IncluExcluType", typeof(bool));
+                dtPackageDetails.Columns.Add("PackageID", typeof(int));
+
+
                 DataRow dr = null;
                 dr = dtPackageDetails.NewRow();
                 dr["PackageDetailsID"] = 0;
                 dr["Description"] = "";
                 dr["IncluExcluType"] = false;
+                dr["PackageID"] = 0;
                 dtPackageDetails.Rows.Add(dr);
                 ViewState["vwPackageDetails"] = dtPackageDetails;
                 gvPackageDetails.DataSource = dtPackageDetails;
@@ -116,6 +177,7 @@ namespace TRAVEL.Admin
                 dr["PackageDetailsID"] = 0;
                 dr["Description"] = "";
                 dr["IncluExcluType"] = false;
+                dr["PackageID"] = false;
                 dtPackageDetails.Rows.Add(dr);
                 ViewState["vwPackageDetails"] = dtPackageDetails;
                 gvPackageDetails.DataSource = dtPackageDetails;
@@ -141,6 +203,7 @@ namespace TRAVEL.Admin
                 dtPackageDetails.Rows[i]["PackageDetailsID"] = ((HiddenField)gvRow.FindControl("hfPID")).Value;
                 dtPackageDetails.Rows[i]["Description"] = ((TextBox)gvRow.FindControl("txtDetails")).Text;
                 dtPackageDetails.Rows[i]["IncluExcluType"] = ((CheckBox)gvRow.FindControl("chkInclude")).Checked;
+                dtPackageDetails.Rows[i]["PackageID"] = ((DropDownList)gvRow.FindControl("drpDetails")).SelectedValue;
                 i++;
             }
         }
@@ -185,12 +248,12 @@ namespace TRAVEL.Admin
                 CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
             }
         }
-
+         
         protected void gvIternary_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
             {
-                switch (e.CommandName)
+                switch (e.CommandName)  
                 {
                     case "iDelete":
                         {
@@ -258,6 +321,7 @@ namespace TRAVEL.Admin
             try
             {
                 BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData();
+                objBLLTourDetailsData.TourDetailsID = TourID;
                 objBLLTourDetailsData.Sptype = 1;
                 objBLLTourDetailsData.TourInfo = txtTourInfo.Text;
                 objBLLTourDetailsData.Place = txtPlace.Text;
@@ -273,17 +337,33 @@ namespace TRAVEL.Admin
                 int reponse = objBLLTourDetailsData.ExecuteNonQuery(objBLLTourDetailsData);
                 if(reponse == -200)
                 {
-                    CommonFunction.Message(divMsg, lblMessage, "Data Saved successfully",1);
+                    CommonFunction.Message(divMsg, lblMessage, TourID==0?"Data Saved successfully":"Data Updated successfully", 1);
+                    if(TourID==0)
+                    {
+                        ClearControls();
+                    }
                 } 
                 else
                 {
                     CommonFunction.Message(divMsg, lblMessage, "Unable to Save data",2);
                 }
-                ClearControls();
+               
             }
             catch (Exception ex)
             {
                 CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
+            }
+        }
+
+        protected void gvPackageDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DropDownList drpDetails = e.Row.FindControl("drpDetails") as DropDownList;
+                BLLM_PackageDetails objBLLM_PackageDetails = new BLLM_PackageDetails() { Sptype=1} ;
+                DataTable dt = objBLLM_PackageDetails.ExecuteDataSet(objBLLM_PackageDetails).Tables[0];
+                CommonFunction.BindDDL(dt, "PackageName", "ID", ref drpDetails);
+                drpDetails.SelectedValue = ((DataTable)ViewState["vwPackageDetails"]).Rows[e.Row.RowIndex]["PackageID"].ToString();
             }
         }
     }

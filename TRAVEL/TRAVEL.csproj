@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ViewTourDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="assets\datepicker\js\jquery.datepick.ext.min.map" />
     <Content Include="assets\datepicker\js\jquery.datepick.lang.min.map" />
@@ -601,6 +602,13 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewTourDetails.aspx.cs">
+      <DependentUpon>ViewTourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewTourDetails.aspx.designer.cs">
+      <DependentUpon>ViewTourDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
