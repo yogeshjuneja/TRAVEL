@@ -47,7 +47,7 @@ namespace BLLTRAVEL
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
                     new SqlParameter("@IPaddress",base.IPaddress),
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
-                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
+                    new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
 
                 };
                 if (Sptype == 1)
@@ -72,21 +72,21 @@ namespace BLLTRAVEL
                     new SqlParameter("@Sptype",objBLLTourDetailsData.Sptype),
                     new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourID),
                     new SqlParameter("@TourInfo",objBLLTourDetailsData.TourInfo),
-                     new SqlParameter("@Place",objBLLTourDetailsData.Place),
+                    new SqlParameter("@Place",objBLLTourDetailsData.Place),
                     new SqlParameter("@Days",objBLLTourDetailsData.Days),
-                     new SqlParameter("@Nights",objBLLTourDetailsData.Nights),
+                    new SqlParameter("@Nights",objBLLTourDetailsData.Nights),
                     new SqlParameter("@Discount",objBLLTourDetailsData.Discount),
-                     new SqlParameter("@Rating",objBLLTourDetailsData.Rating),
+                    new SqlParameter("@Rating",objBLLTourDetailsData.Rating),
                     new SqlParameter("@TripTypeID",objBLLTourDetailsData.TripTypeID),
-                      new SqlParameter("@TourID",objBLLTourDetailsData.TourID),
-                      new SqlParameter("@dtPackageDetails",objBLLTourDetailsData.dtPackageDetails),
-                      new SqlParameter("@dtIternaryDetails",objBLLTourDetailsData.dtIternaryDetail),
+                    new SqlParameter("@TourID",objBLLTourDetailsData.TourID),
+                    new SqlParameter("@dtPackageDetails",objBLLTourDetailsData.dtPackageDetails),
+                    new SqlParameter("@dtIternaryDetails",objBLLTourDetailsData.dtIternaryDetail),
                     new SqlParameter("@IsActive",objBLLTourDetailsData.Active),
                     new SqlParameter("@Createddate",objBLLTourDetailsData.Createddate),
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
                     new SqlParameter("@IPaddress",base.IPaddress),
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
-                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
+                    new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
                 };
                 return Convert.ToInt32(SqlHelper.ExecuteScalar(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params));
             }
