@@ -175,19 +175,44 @@
                                               
                                             </div>
                                         </div>
+
+                                         <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Price <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtPrice" ErrorMessage="Enter Price" runat="server" 
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
                                                     Discount <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtDiscount" runat="server" MaxLength="2" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="rfvDiscount" ControlToValidate="txtNights" ErrorMessage="Enter Discount" runat="server" 
+                                                <asp:RequiredFieldValidator ID="rfvDiscount" ControlToValidate="txtDiscount" ErrorMessage="Enter Discount" runat="server" 
                                                     ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator runat="server" id="revDiscount" controltovalidate="txtDiscount" 
                                                     validationexpression="^([0-9]{1})([0-9]{1})$"  MaxLength="2" ErrorMessage="Enter 2 digit No."  ValidationGroup="Save" />
                                             </div>
                                         </div>
                                          
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Transpotation <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtTranspotation" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvTranspotation" ControlToValidate="txtTranspotation" ErrorMessage="Enter Transpotation" runat="server" 
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                              
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="row">

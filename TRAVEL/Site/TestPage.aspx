@@ -12,7 +12,7 @@
 	<p class="sub-header">Wander Exotic places without getting lost.</p>
 	<a href="#" class="btn btn-lg btn-primary hvr-sweep-to-right">Explore Now</a>
 </div>	
-		</div>
+		</div  
 	</div>
 
 <div class="container">
