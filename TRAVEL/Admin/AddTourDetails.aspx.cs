@@ -61,6 +61,9 @@ namespace TRAVEL.Admin
                     txtDays.Text = dtDataSet.Tables[0].Rows[0]["Days"].ToString();
                     txtNights.Text = dtDataSet.Tables[0].Rows[0]["Nights"].ToString();
                     txtDiscount.Text = Convert.ToInt32( dtDataSet.Tables[0].Rows[0]["Discount"]).ToString();
+                    txtPrice.Text = Convert.ToInt32(dtDataSet.Tables[0].Rows[0]["Price"]).ToString();
+                    txtTranspotation.Text = dtDataSet.Tables[0].Rows[0]["Transpotation"].ToString();
+
 
                     dtPackageDetails = dtDataSet.Tables[1];
                     ViewState["vwPackageDetails"] = dtPackageDetails;
@@ -310,6 +313,8 @@ namespace TRAVEL.Admin
             ddlTripType.SelectedIndex = 0;
             ddlTourPlace.SelectedIndex = 0;
             txtDiscount.Text = "";
+            txtPrice.Text = "";
+            txtTranspotation.Text = "";
             dtPackageDetails = new DataTable();
             dtIternaryDetails = new DataTable();
             InitialRowPackageDetails();
@@ -330,6 +335,8 @@ namespace TRAVEL.Admin
                 objBLLTourDetailsData.TripTypeID = Convert.ToInt32(ddlTripType.SelectedValue);
                 objBLLTourDetailsData.TourID = Convert.ToInt32(ddlTourPlace.SelectedValue);
                 objBLLTourDetailsData.Discount = Convert.ToDecimal(txtDiscount.Text);
+                objBLLTourDetailsData.Price = Convert.ToDecimal(txtPrice.Text);
+                objBLLTourDetailsData.Transpotation = txtTranspotation.Text;
                 RestorePreviousData();
                 RestorePreviousDataIternary();
                 objBLLTourDetailsData.dtPackageDetails = dtPackageDetails;

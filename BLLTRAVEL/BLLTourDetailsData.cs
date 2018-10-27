@@ -20,6 +20,8 @@ namespace BLLTRAVEL
         public decimal Rating { get; set; }
         public int TripTypeID { get; set; }
         public int TourID { get; set; }
+        public decimal Price { get; set; }
+        public string Transpotation { get; set; }
         public DataTable dtPackageDetails { get; set; }
         public DataTable dtIternaryDetail { get; set; }
 
@@ -43,9 +45,10 @@ namespace BLLTRAVEL
                     new SqlParameter("@IsActive",objBLLTourDetailsData.Active),
                     new SqlParameter("@Createddate",objBLLTourDetailsData.Createddate),
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
-                    new SqlParameter("@IPaddress",base.IPaddress)
-                  
-                  
+                    new SqlParameter("@IPaddress",base.IPaddress),
+                    new SqlParameter("@Price",objBLLTourDetailsData.Price),
+                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
+
                 };
                 if (Sptype == 1)
                 {
@@ -81,7 +84,9 @@ namespace BLLTRAVEL
                     new SqlParameter("@IsActive",objBLLTourDetailsData.Active),
                     new SqlParameter("@Createddate",objBLLTourDetailsData.Createddate),
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
-                    new SqlParameter("@IPaddress",base.IPaddress)
+                    new SqlParameter("@IPaddress",base.IPaddress),
+                    new SqlParameter("@Price",objBLLTourDetailsData.Price),
+                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
                 };
                 return Convert.ToInt32(SqlHelper.ExecuteScalar(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params));
             }
