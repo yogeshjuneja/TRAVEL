@@ -193,13 +193,13 @@ namespace TRAVEL.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
         
         /// <summary>
-        /// rfvtxtPrice control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtPrice;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtDiscount control.

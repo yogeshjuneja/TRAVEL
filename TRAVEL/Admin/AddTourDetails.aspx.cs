@@ -325,7 +325,6 @@ namespace TRAVEL.Admin
         {
             try
             {
-                
                 BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData();
                 objBLLTourDetailsData.TourDetailsID = TourID;
                 objBLLTourDetailsData.Sptype = 1;

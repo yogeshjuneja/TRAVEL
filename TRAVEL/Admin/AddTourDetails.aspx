@@ -182,7 +182,7 @@
                                                     Price <span class="symbol required"></span>
                                                 </label>
                                                 <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="rfvtxtPrice" ControlToValidate="txtPrice" ErrorMessage="Enter Price" runat="server" 
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtPrice" ErrorMessage="Enter Price" runat="server" 
                                                     ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
