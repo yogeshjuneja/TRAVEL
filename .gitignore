@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /TRAVEL/Theme/mold_discover
+/TRAVEL/Upload

@@ -12,7 +12,7 @@ namespace DLLTRAVEL
         {
             get
             {
-                return "Server=yogeshyj.database.windows.net;uid=yogeshdb;pwd=itsmeyj$0910;Initial Catalog=TRAVELDB;Integrated Security=False";
+                return "Server=traveldb2810.database.windows.net;uid=yogeshjuneja;pwd=itsmeyj$0910;Initial Catalog=TRAVELDB;Integrated Security=False";
             }
         }
     }   

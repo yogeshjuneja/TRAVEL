@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\PackageMaster.aspx" />
+    <Content Include="Admin\TourMaster.aspx" />
+    <Content Include="Admin\TripTypeMaster.aspx" />
     <Content Include="Admin\ViewTourDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="Admin\assets\datepicker\js\jquery.datepick.ext.min.map" />
@@ -87,9 +90,10 @@
     <Content Include="Admin\assets\plugins\weather-icons\font\weathericons-regular-webfontd41d.eot" />
     <Content Include="Admin\Admin.Master" />
     <None Include="Properties\PublishProfiles\yogesh.pubxml" />
+    <Content Include="Site\Home.aspx" />
+    <Content Include="Site\T.aspx" />
     <Content Include="Site\TestPage.aspx" />
     <Content Include="Site\Travel.Master" />
-    <Content Include="Site\Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -587,6 +591,8 @@
     <Content Include="Admin\assets\plugins\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
     <Content Include="Admin\assets\plugins\wysihtml5\wysihtml5.js" />
     <Content Include="Global.asax" />
+    <Content Include="Site\TripDetail.aspx" />
+    <Content Include="Upload\noimage.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -606,6 +612,27 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PackageMaster.aspx.cs">
+      <DependentUpon>PackageMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PackageMaster.aspx.designer.cs">
+      <DependentUpon>PackageMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TourMaster.aspx.cs">
+      <DependentUpon>TourMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TourMaster.aspx.designer.cs">
+      <DependentUpon>TourMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TripTypeMaster.aspx.cs">
+      <DependentUpon>TripTypeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TripTypeMaster.aspx.designer.cs">
+      <DependentUpon>TripTypeMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ViewTourDetails.aspx.cs">
       <DependentUpon>ViewTourDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -622,12 +649,19 @@
     </Compile>
     <Content Include="App_Code\TopClass.cs" />
     <Compile Include="CommonFunction.cs" />
-    <Compile Include="Site\Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="Site\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="Site\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\T.aspx.cs">
+      <DependentUpon>T.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\T.aspx.designer.cs">
+      <DependentUpon>T.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
@@ -643,6 +677,13 @@
     <Compile Include="Site\Travel.Master.designer.cs">
       <DependentUpon>Travel.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site\TripDetail.aspx.cs">
+      <DependentUpon>TripDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\TripDetail.aspx.designer.cs">
+      <DependentUpon>TripDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -651,7 +692,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Theme\mold_discover\" />
-    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLLTRAVEL\BLLTRAVEL.csproj">

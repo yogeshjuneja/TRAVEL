@@ -77,5 +77,30 @@ namespace TRAVEL.Admin
         {
             BindTourDetails();
         }
+
+        protected void grdTourDtls_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                switch(e.CommandName)
+                {
+                    case "iDelete":
+                        {
+                            BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData();
+                            objBLLTourDetailsData.Sptype = 5;
+                            objBLLTourDetailsData.TourDetailsID = Convert.ToInt32( e.CommandArgument);
+                            int response = objBLLTourDetailsData.ExecuteNonQuery(objBLLTourDetailsData);
+                            if (response == -200)   
+                                BindTourDetails();
+                            break;
+                        }
+                }
+                    
+            }
+            catch (Exception ex) 
+            {
+                CommonFunction.Message(divMsg, lblMessage, ex.ToString(), 2);
+            }
+        }
     }
 }

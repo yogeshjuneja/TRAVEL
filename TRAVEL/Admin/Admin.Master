@@ -137,18 +137,28 @@
                         <!-- start: MAIN NAVIGATION MENU -->
                         <ul class="main-navigation-menu">
                             <li class="active open">
-                                <a href="dashboard.aspx"><i class="fa fa-home"></i><span class="title">Dashboard </span></a>
+                                <a href="#"><i class="fa fa-home"></i><span class="title">Dashboard </span></a>
                             </li>
                             <li>
-                                <a href="report.aspx"><i class="fa fa-desktop"></i><span class="title">Add Trip </span></a>
+                                <a href="AddTourDetails.aspx"><i class="fa fa-desktop"></i><span class="title">Add Trip </span></a>
 
                             </li>
                             <li>
-                                <a href="addcustomer.aspx"><i class="fa fa-cogs"></i><span class="title">Add Tour </span></a>
+                                <a href="TourMaster.aspx"><i class="fa fa-cogs"></i><span class="title">Add Tour </span></a>
 
                             </li>
                             <li>
-                                <a href="item_payments.aspx"><i class="fa fa-th-large"></i><span class="title">Add Itinerary </span></a>
+                                <a href="ViewTourDetails.aspx"><i class="fa fa-th-large"></i><span class="title">View Trip Details</span></a>
+
+                            </li>
+                            
+                             <li>
+                                <a href="TripTypeMaster.aspx"><i class="fa fa-th-large"></i><span class="title">Trip Type</span></a>
+
+                            </li>
+                            
+                             <li>
+                                <a href="PackageMaster.aspx"><i class="fa fa-th-large"></i><span class="title"> Package Details</span></a>
 
                             </li>
                             
@@ -197,7 +207,7 @@
 
     </form>
 
-     <script type="text/javascript" src="assets/plugins/jQuery/jquery-1.11.1.min.js"></script>
+     <%--<script type="text/javascript" src="assets/plugins/jQuery/jquery-1.11.1.min.js"></script>--%>
     <script src="assets/plugins/jQuery/jquery-2.1.1.min.js"></script>
     <!--<![endif]-->
     <script src="assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
