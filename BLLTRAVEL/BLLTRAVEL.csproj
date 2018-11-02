@@ -44,8 +44,10 @@
     <Compile Include="BLLCommon.cs" />
     <Compile Include="BLLM_PackageDetails.cs" />
     <Compile Include="BLLTourDetailsData.cs" />
+    <Compile Include="BLLTourMaster.cs" />
     <Compile Include="BLLTravel.cs" />
     <Compile Include="BLLTrip.cs" />
+    <Compile Include="BLLTripType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

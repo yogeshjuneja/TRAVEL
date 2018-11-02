@@ -67,10 +67,13 @@ namespace BLLTRAVEL
         {
             using (SqlConnection _connection = new SqlConnection(Connection.TRAVELCONN))
             {
+                SqlParameter dtPackageDetails = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
+                SqlParameter dtIternaryDetail = new SqlParameter("@dtIternaryDetail", objBLLTourDetailsData.dtIternaryDetail);
+
                 SqlParameter[] _params = new SqlParameter[]
                 {
                     new SqlParameter("@Sptype",objBLLTourDetailsData.Sptype),
-                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourID),
+                    new SqlParameter("@TourDetailsID",objBLLTourDetailsData.TourDetailsID),
                     new SqlParameter("@TourInfo",objBLLTourDetailsData.TourInfo),
                     new SqlParameter("@Place",objBLLTourDetailsData.Place),
                     new SqlParameter("@Days",objBLLTourDetailsData.Days),
@@ -78,9 +81,9 @@ namespace BLLTRAVEL
                     new SqlParameter("@Discount",objBLLTourDetailsData.Discount),
                     new SqlParameter("@Rating",objBLLTourDetailsData.Rating),
                     new SqlParameter("@TripTypeID",objBLLTourDetailsData.TripTypeID),
-                    new SqlParameter("@TourID",objBLLTourDetailsData.TourID),
-                    new SqlParameter("@dtPackageDetails",objBLLTourDetailsData.dtPackageDetails),
-                    new SqlParameter("@dtIternaryDetails",objBLLTourDetailsData.dtIternaryDetail),
+                      new SqlParameter("@TourID",objBLLTourDetailsData.TourID),
+                      new SqlParameter("@dtPackageDetails",objBLLTourDetailsData.dtPackageDetails),
+                      new SqlParameter("@dtIternaryDetails",objBLLTourDetailsData.dtIternaryDetail),
                     new SqlParameter("@IsActive",objBLLTourDetailsData.Active),
                     new SqlParameter("@Createddate",objBLLTourDetailsData.Createddate),
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
@@ -88,6 +91,18 @@ namespace BLLTRAVEL
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
                 };
+
+                if (objBLLTourDetailsData.dtPackageDetails != null)
+                {
+                    Array.Resize(ref _params, _params.Length+1);
+                    _params[_params.Length-1] = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
+                }
+                if (objBLLTourDetailsData.dtIternaryDetail != null)
+                {
+                    Array.Resize(ref _params, _params.Length+1);
+                    _params[_params.Length-1] = new SqlParameter("@dtIternaryDetails", objBLLTourDetailsData.dtIternaryDetail);
+                }
+                
                 return Convert.ToInt32(SqlHelper.ExecuteScalar(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params));
             }
         }

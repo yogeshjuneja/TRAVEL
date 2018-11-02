@@ -147,13 +147,13 @@
                                                 </asp:LinkButton>
                                             </div>
                                         </div>
-                                        </br>
+<br />
                                        <%-- Tour Details--%>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
 
                                                 <div>
-                                                    <asp:GridView ID="grdTourDtls" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false">
+                                                    <asp:GridView ID="grdTourDtls" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false" OnRowCommand="grdTourDtls_RowCommand">
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="S#">
                                                                 <ItemTemplate>
@@ -204,12 +204,15 @@
                                                             <asp:TemplateField HeaderText="Edit">
                                                                 <ItemTemplate>
 
-                                                                  <a href='<%#"AddTourDetails.aspx?TID=" + Eval("TourDetailsID") %>' class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
+                                                                    <a href='<%#"AddTourDetails.aspx?TID=" + Eval("TourDetailsID") %>' class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
                                                             <asp:TemplateField HeaderText="Delete">
                                                                 <ItemTemplate>
+                                                                    <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Eval("TourDetailsID") %>' CssClass="btn btn-xs btn-red tooltips">
+                                                            <i class="fa fa-times fa fa-white"></i>
+                                                                    </asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
