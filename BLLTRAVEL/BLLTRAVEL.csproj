@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLCommon.cs" />
     <Compile Include="BLLM_PackageDetails.cs" />
+    <Compile Include="BLLReviews.cs" />
     <Compile Include="BLLTourDetailsData.cs" />
     <Compile Include="BLLTourMaster.cs" />
     <Compile Include="BLLTravel.cs" />

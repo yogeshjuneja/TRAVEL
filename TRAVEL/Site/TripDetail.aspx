@@ -96,7 +96,7 @@
                 <ul id="trip-tab" class="nav nav-tabs affix-top" data-spy="affix" data-offset-top="1290">
                     <li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
                     <li class=""><a href="#itenary" data-toggle="tab">Itenary</a></li>
-                    <li class=""><a href="#dateprice" data-toggle="tab">Date &amp; Price</a></li>
+                    <%--  <li class=""><a href="#dateprice" data-toggle="tab">Date &amp; Price</a></li>--%>
                     <li class=""><a href="#reveiws" data-toggle="tab">Reviews</a></li>
                 </ul>
 
@@ -108,7 +108,8 @@
                                 <h3>
                                     <asp:Label ID="lblTourName" runat="server" /></h3>
                                 <p>
-                                    <asp:Label ID="lblTourInfo" runat="server"></asp:Label></p>
+                                    <asp:Label ID="lblTourInfo" runat="server"></asp:Label>
+                                </p>
                                 <%-- <p>Dolor sit amet, consectetur adipisicing elit. Incidunt consequatur iusto odio quis magnam, aut assumenda ipsa magni ea, veritatis, nostrum rerum necessitatibus excepturi eos et nemo iste? Illo temporibus mollitia ducimus aspernatur numquam, sint sunt consequatur rerum aliquam odio!</p>
                                 <p>Consectetur adipisicing elit. Debitis natus eum autem nisi cumque optio. Quis, necessitatibus laboriosam, alias, ea aut atque facere fugiat iusto tenetur minima itaque vero aperiam! Veniam exercitationem, distinctio laborum magnam rerum quia et commodi hic quis suscipit! Molestias, eaque. Incidunt, a, molestias! Veniam, nobis, recusandae.</p>--%>
                                 <%-- <blockquote class="with-icon">
@@ -195,7 +196,7 @@
                                                 <div class="icon-plane"></div>
                                                 <div class="day-number"><%# "Day"+ Eval("Day") %></div>
                                                 <div class="detail">
-                                                   <%#Eval("ItnrySubH") %> 
+                                                    <%#Eval("ItnrySubH") %>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
@@ -267,12 +268,12 @@
                                                     <asp:Repeater ID="rptPkgInclude" runat="server">
                                                         <ItemTemplate>
                                                             <li><span class="icon-tick"></span>
-                                                        <div class="desc"><%#Eval("PackageName")%></div>
-                                                    </li>
+                                                                <div class="desc"><%#Eval("PackageName")%></div>
+                                                            </li>
                                                         </ItemTemplate>
-                                                    </asp:Repeater> 
-                                                    
-                                                   
+                                                    </asp:Repeater>
+
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -290,13 +291,13 @@
 
                                                     <asp:Repeater ID="rptExclude" runat="server">
                                                         <ItemTemplate>
-                                                              <li><span class="icon-cross"></span>
-                                                        <div class="desc"><%#Eval("PackageName")%></div>
-                                                    </li>
+                                                            <li><span class="icon-cross"></span>
+                                                                <div class="desc"><%#Eval("PackageName")%></div>
+                                                            </li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
-                                                  
-                                                   
+
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -308,7 +309,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane" id="dateprice">
+                    <%--<div class="tab-pane" id="dateprice">
                         <div class="table-responsive-wrap">
                             <table class="table table-responsive">
                                 <thead>
@@ -345,7 +346,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="tab-pane" id="reveiws">
                         <div class="review-comment">
@@ -395,16 +396,17 @@
                                             <div class="box-title">Leave a Review</div>
                                             <div class="form-group">
                                                 <label>Full Name</label>
-                                                <input type="text" class="form-control">
+                                               <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Email Address</label>
-                                                <input type="text" class="form-control">
+                                               <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="form-control"></asp:TextBox> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Add Comment</label>
-                                                <textarea class="form-control" rows="6">Comment</textarea>
-                                                <button class="btn btn-primary">Add Comment</button>
+                                              <asp:TextBox ID="txtCommentField" runat="server" CssClass="form-control" placeholder="Comment"></asp:TextBox> 
+                                                <asp:LinkButton ID="btnnSaveComment" runat="server" CssClass="btn btn-primary"></asp:LinkButton> >
+                                                <asp:Button ID="btnSaveCommentt" runat="server" CssClass="btn btn-primary" Text="Add Comment" /> 
                                             </div>
                                         </div>
                                     </div>
@@ -430,18 +432,18 @@
 
                     <asp:Repeater ID="rptImages" runat="server">
                         <ItemTemplate>
-                                <div class="col-sm-3">
-                        <a href="<%#"../Upload/"+Eval("Image") %>" class="gallery-item" data-lightbox="trip-detail-gallery" data-title="Lorem ipsum dolor.">
-                            <img src="<%#"../Upload/"+Eval("Image") %>" class ="img-responsive" style="height:auto;width=100%">
-                            <div class="hover-overlay">
-                                <span class="icon-search"></span>
+                            <div class="col-sm-3">
+                                <a href="<%#"../Upload/"+Eval("Image") %>" class="gallery-item" data-lightbox="trip-detail-gallery" data-title="Lorem ipsum dolor.">
+                                    <img src="<%#"../Upload/"+Eval("Image") %>" class="img-responsive" style="height: auto; width=100%">
+                                    <div class="hover-overlay">
+                                        <span class="icon-search"></span>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                
-                  
+
+
                 </div>
             </div>
             <br>
@@ -575,42 +577,41 @@
                         <div class="preview-img" style="background-image: url('assets/img/home_img/mountain.jpg')"></div>
 
                         <div class="form-wrap">
-                            <form id="ajax-book" method="post" action="http://moldthemes.com/mold_discover/book_trip.php">
-                                <div id="form-messages" class="alert" role="alert" style="display: none;"></div>
-                                <input type="hidden" name="trip" id="trip" value="annapurna">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="" required>
-                                </div>
+                            <div id="form-messages" class="alert" role="alert" style="display: none;"></div>
+                            <input type="hidden" name="trip" id="trip" value="annapurna">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="" required>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number" value="" required>
-                                </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number" value="" required>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Duration</label>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <input type="text" name="from_date" id="from_date" class="form-control datepicker" placeholder="From" value="" required>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="to_date" id="to_date" class="form-control datepicker" placeholder="To" value="" required>
-                                        </div>
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="text" name="from_date" id="from_date" class="form-control datepicker" placeholder="From" value="" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="to_date" id="to_date" class="form-control datepicker" placeholder="To" value="" required>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Number of Person</label>
-                                    <input type="text" name="number_person" id="number_person" class="form-control" value="2" required>
-                                </div>
-                                <button class="btn btn-primary hvr-sweep-to-right">BooK Now</button>
+                            <div class="form-group">
+                                <label>Number of Person</label>
+                                <input type="text" name="number_person" id="number_person" class="form-control" value="2" required>
+                            </div>
+                            <button class="btn btn-primary hvr-sweep-to-right">BooK Now</button>
 
-                            </form>
+
                         </div>
                     </div>
                 </div>
