@@ -38,7 +38,7 @@ namespace TRAVEL.Admin
         {
             try
             {
-                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData() { Sptype = 3, TourDetailsID = TourID };
+                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData() { Sptype =7, TourDetailsID = TourID };
                 DataSet dtDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
                 if (dtDataSet.Tables[0].Rows.Count > 0)
                 {
@@ -51,7 +51,8 @@ namespace TRAVEL.Admin
                     txtDiscount.Text = Convert.ToInt32(dtDataSet.Tables[0].Rows[0]["Discount"]).ToString();
                     txtPrice.Text = Convert.ToInt32(dtDataSet.Tables[0].Rows[0]["Price"]).ToString();
                     txtTranspotation.Text = dtDataSet.Tables[0].Rows[0]["Transpotation"].ToString();
-
+                    txtshrtdesc.Text = dtDataSet.Tables[0].Rows[0]["ShortDesc"].ToString();
+                    drpdifficulty.SelectedValue = dtDataSet.Tables[0].Rows[0]["Difficulty"].ToString();
                     dtPackageDetails = dtDataSet.Tables[1];
                     ViewState["vwPackageDetails"] = dtPackageDetails;
                     gvPackageDetails.DataSource = dtPackageDetails;
@@ -328,6 +329,8 @@ namespace TRAVEL.Admin
                 objBLLTourDetailsData.Discount = Convert.ToDecimal(txtDiscount.Text);
                 objBLLTourDetailsData.Price = Convert.ToDecimal(txtPrice.Text);
                 objBLLTourDetailsData.Transpotation = txtTranspotation.Text;
+                objBLLTourDetailsData.ShortDesc = txtshrtdesc.Text;
+                objBLLTourDetailsData.Difficulty = Convert.ToInt32(drpdifficulty.SelectedValue);
                 RestorePreviousData();
                 RestorePreviousDataIternary();
                 objBLLTourDetailsData.dtPackageDetails = dtPackageDetails;

@@ -147,8 +147,8 @@
                                                 </asp:LinkButton>
                                             </div>
                                         </div>
-<br />
-                                       <%-- Tour Details--%>
+                                        <br />
+                                        <%-- Tour Details--%>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
 

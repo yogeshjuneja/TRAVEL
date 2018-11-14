@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -67,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\PackageMaster.aspx" />
+    <Content Include="Admin\Reviews.aspx" />
     <Content Include="Admin\TourMaster.aspx" />
     <Content Include="Admin\TripTypeMaster.aspx" />
     <Content Include="Admin\ViewTourDetails.aspx" />
@@ -91,6 +96,9 @@
     <Content Include="Admin\Admin.Master" />
     <None Include="Properties\PublishProfiles\yogesh.pubxml" />
     <Content Include="Site\Home.aspx" />
+    <Content Include="Site\images\FilledStar.gif" />
+    <Content Include="Site\images\Star.gif" />
+    <Content Include="Site\images\WaitingStar.gif" />
     <Content Include="Site\T.aspx" />
     <Content Include="Site\TestPage.aspx" />
     <Content Include="Site\Travel.Master" />
@@ -618,6 +626,13 @@
     </Compile>
     <Compile Include="Admin\PackageMaster.aspx.designer.cs">
       <DependentUpon>PackageMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\TourMaster.aspx.cs">
       <DependentUpon>TourMaster.aspx</DependentUpon>

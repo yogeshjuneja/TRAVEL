@@ -25,9 +25,7 @@ namespace TRAVEL.Site
                 DataSet objDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
                 rptTours.DataSource = objDataSet;
                 rptTours.DataBind();
-
-
-
+                
             }
             catch (Exception ex)
             {
