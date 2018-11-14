@@ -24,7 +24,9 @@ namespace BLLTRAVEL
         public string Transpotation { get; set; }
         public DataTable dtPackageDetails { get; set; }
         public DataTable dtIternaryDetail { get; set; }
-
+        public string ShortDesc { get; set; }
+        public int Difficulty { get; set; }
+        
 
         public DataSet ExecuteDataSet(BLLTourDetailsData objBLLTourDetailsData)
         {
@@ -47,7 +49,11 @@ namespace BLLTRAVEL
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
                     new SqlParameter("@IPaddress",base.IPaddress),
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
-                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
+                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation),
+                       new SqlParameter("@ShortDesc",objBLLTourDetailsData.ShortDesc),
+                         new SqlParameter("@Difficulty",objBLLTourDetailsData.Difficulty)
+                       
+
 
                 };
                 if (Sptype == 1)
@@ -87,7 +93,9 @@ namespace BLLTRAVEL
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
                     new SqlParameter("@IPaddress",base.IPaddress),
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
-                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation)
+                     new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation),
+                        new SqlParameter("@ShortDesc",objBLLTourDetailsData.ShortDesc),
+                           new SqlParameter("@Difficulty",objBLLTourDetailsData.Difficulty),
                 };
 
                 if (objBLLTourDetailsData.dtPackageDetails != null)

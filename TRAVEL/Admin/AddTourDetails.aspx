@@ -96,7 +96,7 @@
                                             </div>--%>
                                             <div id="divMsg" runat="server" class="successHandler alert alert-success no-display">
                                                 <i class="fa fa-ok"></i>
-                                                <asp:Label ID="lblMessage" runat="server" Text="hello"> </asp:Label>
+                                                <asp:Label ID="lblMessage" runat="server"> </asp:Label>
 
                                             </div>
                                         </div>
@@ -207,6 +207,35 @@
                                                 </label>
                                                 <asp:TextBox ID="txtTranspotation" runat="server" CssClass="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvTranspotation" ControlToValidate="txtTranspotation" ErrorMessage="Enter Transpotation" runat="server"
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
+
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Short Description <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtshrtdesc" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvtxtshrtdesc" ControlToValidate="txtshrtdesc" ErrorMessage="Enter  Short Description" runat="server"
+                                                    ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
+
+                                              <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Difficulty <span class="symbol required"></span>
+                                                </label>
+                                              <asp:DropDownList ID="drpdifficulty" runat="server" CssClass="form-control">
+                                                  <asp:ListItem Value="-1" Text="Select"></asp:ListItem>
+                                                  <asp:ListItem Value="0" Text="Normal"></asp:ListItem>
+                                                   <asp:ListItem Value="1" Text="Average"></asp:ListItem>
+                                                   <asp:ListItem Value="2" Text="Hard"></asp:ListItem>
+                                              </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="rfvDifficulty" ControlToValidate="drpdifficulty" ErrorMessage="Enter Difficulty" runat="server"
                                                     ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
 
                                             </div>

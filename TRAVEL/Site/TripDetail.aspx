@@ -1,9 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/Travel.Master" AutoEventWireup="true" CodeBehind="TripDetail.aspx.cs" Inherits="TRAVEL.Site.TripDetail" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .no-display {
+            display: none;
+        }
+
+        .Star {
+            background-image: url(images/Star.gif);
+            height: 17px;
+            width: 17px;
+        }
+
+        .WaitingStar {
+            background-image: url(images/WaitingStar.gif);
+            height: 17px;
+            width: 17px;
+        }
+
+        .FilledStar {
+            background-image: url(images/FilledStar.gif);
+            height: 17px;
+            width: 17px;
+        }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="carousel slide carousel-fade with-overlay full-height stick-top" id="carousel" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -18,9 +43,9 @@
             <div class="item" style="background-image: url('assets/img/trip_detail/4.jpg');">
             </div>
             <div class="carousel-caption center-txt">
-                <h1 class="main-header">Annapurna Circuit Trek</h1>
-                <hr>
-                <h4 class="sub-header">The Annapurna Circuit is a trek within the Annapurna mountain range of central Nepal. The total length of the route varies between 160–230 km.</h4>
+                <h1 class="main-header" id="tripheading" runat="server"></h1>
+                <hr />
+                <h4 class="sub-header" id="shortdesc" runat="server"></h4>
             </div>
         </div>
 
@@ -51,7 +76,7 @@
                         <span class="icon-calendar"></span>
                         <div class="txt">
                             <p>Trip Days</p>
-                            <h3>18 Days</h3>
+                            <h3><asp:Label ID="lbltripdays" runat="server"></asp:Label></h3>
                         </div>
                     </div>
                 </div>
@@ -69,15 +94,17 @@
                         <span class="icon-easy"></span>
                         <div class="txt">
                             <p>Difficulty</p>
-                            <h3>Hard</h3>
+                            <h3><asp:Label ID="lbldifficulty" runat="server"></asp:Label></h3>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="main-price">
-                <div>Starting From</div>
-                <div class="price">USD 212</div>
+                
+                <div class="price">
+                    <asp:Label ID="lblPrice" runat="server"></asp:Label>
+                </div>
                 <button class="btn btn-primary btn-lg hvr-sweep-to-right" data-toggle="modal" data-target="#myModal">Book Now</button>
             </div>
             <ul class="social-icon">
@@ -177,7 +204,10 @@
                                             <span class="icon-bus"></span>
                                             <div class="detail">
                                                 <div class="title">Transportation</div>
-                                                <div class="desc">Bus, Jeep</div>
+                                                <div class="desc">
+                                                    <asp:Label ID="lblTransaportation" runat="server"></asp:Label>
+
+                                                </div>
                                             </div>
                                         </li>
                                     </ul>
@@ -354,64 +384,70 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="media-list review-comment">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img src="assets/img/team/1-sm.jpg" class="media-object" alt=""></a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Kim L. Burney</h4>
-                                                <div class="rating">
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star-empty"></span>
-                                                </div>
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img src="assets/img/team/2-sm.jpg" class="media-object" alt=""></a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Shing Ch'in</h4>
-                                                <div class="rating">
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star"></span>
-                                                    <span class="icon-star-empty"></span>
-                                                </div>
-                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
-                                            </div>
-                                        </li>
+
+                                        <asp:Repeater ID="rptReviews" runat="server">
+                                            <ItemTemplate>
+                                                <li class="media">
+
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><%#Eval("Name") %></h4>
+                                                        <div class="rating">
+                                                            <%#StarsCountString(Convert.ToInt32(Eval("Rating"))) %>
+                                                        </div>
+                                                        <p><%#Eval("ReviewInfo") %></p>
+                                                    </div>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
+
                                     </ul>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="add-comment">
-                                        <div class="border-box">
-                                            <div class="box-title">Leave a Review</div>
-                                            <div class="form-group">
-                                                <label>Full Name</label>
-                                               <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox> 
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Email Address</label>
-                                               <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="form-control"></asp:TextBox> 
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Add Comment</label>
-                                              <asp:TextBox ID="txtCommentField" runat="server" CssClass="form-control" placeholder="Comment"></asp:TextBox> 
-                                                <asp:LinkButton ID="btnnSaveComment" runat="server" CssClass="btn btn-primary"></asp:LinkButton> >
-                                                <asp:Button ID="btnSaveCommentt" runat="server" CssClass="btn btn-primary" Text="Add Comment" /> 
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
+                                <asp:UpdatePanel ID="upd1" runat="server">
+                                    <ContentTemplate>
+                                        <div class="col-sm-6">
+                                            <div class="add-comment">
+                                                <div class="border-box">
+                                                    <div class="box-title">Leave a Review</div>
+                                                    <div class="form-group">
+                                                        <label>Full Name</label>
+                                                        <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Email Address</label>
+                                                        <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Rating</label>
+
+                                                        <asp:Rating ID="Rating1" AutoPostBack="true" runat="server"
+                                                            StarCssClass="Star" WaitingStarCssClass="WaitingStar" EmptyStarCssClass="Star"
+                                                            FilledStarCssClass="FilledStar">
+                                                        </asp:Rating>
+                                                    </div>
+                                                    <br />
+                                                    <div class="form-group">
+                                                        <label>Add Comment</label>
+                                                        <asp:TextBox ID="txtCommentField" runat="server" CssClass="form-control" placeholder="Comment"></asp:TextBox>
+                                                        <asp:LinkButton ID="btnnSaveComment" runat="server" OnClick="btnnSaveComment_Click" CssClass="btn btn-primary" Text="Add Comment"></asp:LinkButton>
+
+                                                        <br />
+                                                        <div id="divMsg" runat="server" class="successHandler alert alert-success no-display">
+                                                            <i class="fa fa-ok"></i>
+                                                            <asp:Label ID="lblMessage" runat="server"> </asp:Label>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
 
 
@@ -439,6 +475,7 @@
                                         <span class="icon-search"></span>
                                     </div>
                                 </a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -448,12 +485,12 @@
             </div>
             <br>
             <br>
-            <div class="section-title center">
+           <%-- <div class="section-title center">
                 <h3>Find Map</h3>
             </div>
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37319.30096857599!2d-111.50394094053527!3d44.81298564157587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5351e55555555555%3A0xaca8f930348fe1bb!2sYellowstone+National+Park!5e0!3m2!1sen!2snp!4v1493435077252" style="width: 100%; border: 0" height="450" allowfullscreen></iframe>
-            </div>
+            </div>--%>
 
         </div>
 
@@ -466,100 +503,45 @@
                 <h3>Similar Trips</h3>
             </div>
             <div class="row item">
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_1.jpg');">
-                            <div class="item-overlay">
-                                <a href="#"><span class="icon-binocular"></span></a>
-                            </div>
-                        </div>
-                        <div class="item-desc">
-                            <div class="item-info">
-                                <span class="icon-hard"></span>
-                                <h4 class="title"><a href="#">Routeburn Track</a></h4>
-                            </div>
-
-                            <div class="sub-title">
-                                <span class="location">New Zealand</span>
-                                <span class="grade">Difficult</span>
-                            </div>
-
-                            <div class="item-detail">
-                                <div class="left">
-                                    <div class="day"><span class="icon-sun"></span>3 Days</div>
-                                    <div class="night"><span class="icon-moon"></span>2 Nights</div>
+                 <asp:Repeater ID="rptTours" runat="server">
+                    <ItemTemplate>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="item-grid">
+                                <div class="item-img" style="<%#"background-image: url('../../Upload/"+Eval("ImagePath")+"');"%>">
+                                    <div class="item-overlay">
+                                        <a href='<%#"TripDetail.aspx?TID="+Eval("TourDetailsID") %>'><span class="icon-binocular"></span></a>
+                                    </div>
                                 </div>
-                                <div class="right">
-                                    <div class="price">USD 121</div>
-                                    <a href="#" class="btn btn-primary hvr-sweep-to-right">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_2.jpg');">
-                            <div class="item-overlay">
-                                <a href="#"><span class="icon-binocular"></span></a>
-                            </div>
-                        </div>
-                        <div class="item-desc">
-                            <div class="item-info">
-                                <span class="icon-hard"></span>
-                                <h4 class="title"><a href="#">Fitz Roy Trek</a></h4>
-                            </div>
+                                <div class="item-desc">
+                                    <div class="item-info">
+                                        <span class="icon-easy"></span>
+                                        <h4 class="title"><a href="#"><%#Eval("Place") %></a></h4>
+                                          <span class="location"><%#Eval("TourPlace") %></span>
+                                    </div>
 
-                            <div class="sub-title">
-                                <span class="location">Patagonia, Argentina</span>
-                                <span class="grade">Difficult</span>
-                            </div>
+                                    <div class="sub-title">
+                                        <span class="location"><%#Eval("TripName") %></span>
+                                        <span class="grade">Easy</span>
+                                    </div>
 
-                            <div class="item-detail">
-                                <div class="left">
-                                    <div class="day"><span class="icon-sun"></span>3 Days</div>
-                                    <div class="night"><span class="icon-moon"></span>2 Nights</div>
-                                </div>
-                                <div class="right">
-                                    <div class="price">USD 121</div>
-                                    <a href="#" class="btn btn-primary hvr-sweep-to-right">Book Now</a>
+                                    
+
+                                    <div class="item-detail">
+                                        <div class="left">
+                                            <div class="day"><span class="icon-sun"></span><%#Eval("Days") %> Days</div>
+                                            <div class="night"><span class="icon-moon"></span><%#Eval("Nights") %> Nights</div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="price">INR <%#Eval("Price") %></div>
+                                            <a href='<%#"TripDetail.aspx?TID="+Eval("TourDetailsID") %>' class="btn btn-primary hvr-sweep-to-right">Book Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_3.jpg');">
-                            <div class="item-overlay">
-                                <a href="#"><span class="icon-binocular"></span></a>
-                            </div>
-                        </div>
-                        <div class="item-desc">
-                            <div class="item-info">
-                                <span class="icon-hard"></span>
-                                <h4 class="title"><a href="#">Annapurna Circuit</a></h4>
-                            </div>
 
-                            <div class="sub-title">
-                                <span class="location">Nepal</span>
-                                <span class="grade">Difficult</span>
-                            </div>
-
-                            <div class="item-detail">
-                                <div class="left">
-                                    <div class="day"><span class="icon-sun"></span>3 Days</div>
-                                    <div class="night"><span class="icon-moon"></span>2 Nights</div>
-                                </div>
-                                <div class="right">
-                                    <div class="price">USD 121</div>
-                                    <a href="#" class="btn btn-primary hvr-sweep-to-right">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </div>
