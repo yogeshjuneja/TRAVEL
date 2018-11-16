@@ -151,18 +151,18 @@
                                 <div class="border-box">
                                     <div class="box-title">Trip Overview</div>
                                     <ul class="trip-overview">
-                                        <li>
+                                     <%--   <li>
                                             <span class="icon-road-sign"></span>
                                             <div class="detail">
                                                 <div class="title">Trip profile</div>
                                                 <div class="desc">21 Day Trip 14 days point-to-point trekdiv nights</div>
                                             </div>
-                                        </li>
+                                        </li>--%>
                                         <li>
                                             <span class="icon-dollar"></span>
                                             <div class="detail">
                                                 <div class="title">Cost</div>
-                                                <div class="desc">USD 422</div>
+                                                <div class="desc"> <asp:Label ID="lblcost" runat="server"></asp:Label></div>
                                             </div>
                                         </li>
                                         <li>
@@ -172,34 +172,34 @@
                                                 <div class="desc">Camping</div>
                                             </div>
                                         </li>
-                                        <li>
+                                 <%--       <li>
                                             <span class="icon-barcode"></span>
                                             <div class="detail">
                                                 <div class="title">Trip Code</div>
                                                 <div class="desc">AD 23</div>
                                             </div>
-                                        </li>
-                                        <li>
+                                        </li>--%>
+                                 <%--       <li>
                                             <span class="icon-calendar"></span>
                                             <div class="detail">
                                                 <div class="title">Trek Days</div>
                                                 <div class="desc">18</div>
                                             </div>
-                                        </li>
-                                        <li>
+                                        </li>--%>
+                                      <%--  <li>
                                             <span class="icon-door-tag "></span>
                                             <div class="detail">
                                                 <div class="title">Accomodation</div>
                                                 <div class="desc">6 Night hotel, 3 night Tea House</div>
                                             </div>
-                                        </li>
-                                        <li>
+                                        </li>--%>
+                                       <%-- <li>
                                             <span class="icon-home"></span>
                                             <div class="detail">
                                                 <div class="title">Trek Accomodation</div>
                                                 <div class="desc">6 Night hotel, 3 night Tea House</div>
                                             </div>
-                                        </li>
+                                        </li>--%>
                                         <li>
                                             <span class="icon-bus"></span>
                                             <div class="detail">

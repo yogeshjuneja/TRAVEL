@@ -57,6 +57,7 @@ namespace TRAVEL.Site
                     lbltripdays.Text = objDataSet.Tables[0].Rows[0]["Days"].ToString();
                     lbldifficulty.Text = objDataSet.Tables[0].Rows[0]["Difficulty"].ToString();
                     lblTransaportation.Text = objDataSet.Tables[0].Rows[0]["Transpotation"].ToString();
+                    lblcost.Text = objDataSet.Tables[0].Rows[0]["Price"].ToString();
                 }
                 if (objDataSet.Tables[1].Rows.Count > 0)
                 {
