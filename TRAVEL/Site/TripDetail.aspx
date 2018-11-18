@@ -21,7 +21,7 @@
 
         .FilledStar {
             background-image: url(images/FilledStar.gif);
-            height: 17px;
+            height: 17px;       
             width: 17px;
         }
     </style>
@@ -134,6 +134,7 @@
                             <div class="col-sm-6">
                                 <h3>
                                     <asp:Label ID="lblTourName" runat="server" /></h3>
+                                <asp:HiddenField ID="hdnTourID" runat="server" ClientIDMode="Static" />
                                 <p>
                                     <asp:Label ID="lblTourInfo" runat="server"></asp:Label>
                                 </p>
@@ -591,7 +592,7 @@
                                 <label>Number of Person</label>
                                 <input type="text" name="number_person" id="number_person" class="form-control" value="2" required>
                             </div>
-                            <button class="btn btn-primary hvr-sweep-to-right">BooK Now</button>
+                            <button class="btn btn-primary hvr-sweep-to-right" id="btnBookNow">BooK Now</button>
 
 
                         </div>
@@ -617,7 +618,7 @@
     <script src="assets/js/main.js"></script>
 
 
-    <link href="assets/css/controlpanel.css" rel="stylesheet">
+    <link href="assets/css/controlpanel.css" rel="stylesheet" />
     <link href="vendor/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" type="text/css" />
     <link href="vendor/colorpicker/css/evol-colorpicker.min.css" rel="stylesheet" type="text/css" />
     <script src="vendor/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
@@ -631,4 +632,40 @@
 
     <!-- Current Page JS || Ajax Contact -->
     <script src="assets/js/book_trip.js"></script>
+
+    <script type="text/javascript">
+        $("#btnBookNow").click(function (event) {
+            event.preventDefault();
+            var formdata = {
+                name: $("#name").val(),
+                email: $("#email").val(),
+                phone: $("#phone").val(),
+                durationfrom: $("#from_date").val(),
+                duarationto: $("#to_date").val(),
+                noofperson: $("#number_person").val(),
+                TourID: $("#hdnTourID").val()
+            };
+            $.ajax({
+                type: "Post",
+                url: "/Enquiry.asmx/SaveEnquiry",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(formdata),
+                dataType: "json",
+                success: function (response, x, r) {
+                    debugger;
+                     
+                    alert(JSON.stringify(response));
+                },
+                error: function (r, x, y) {
+                    debugger;
+                    alert("error");
+                    alert(JSON.stringify(r));
+                    alert(x);
+                    alert(y);
+                }
+                 
+            });
+
+        });
+    </script>
 </asp:Content>

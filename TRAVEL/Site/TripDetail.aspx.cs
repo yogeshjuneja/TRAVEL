@@ -34,6 +34,8 @@ namespace TRAVEL.Site
         {
             if (!IsPostBack)
             {
+                hdnTourID.Value = TripID.ToString();
+
                 BindData();
                 BindSimilarTrips();
             }

@@ -70,11 +70,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Enquiry.aspx" />
     <Content Include="Admin\PackageMaster.aspx" />
     <Content Include="Admin\Reviews.aspx" />
     <Content Include="Admin\TourMaster.aspx" />
     <Content Include="Admin\TripTypeMaster.aspx" />
     <Content Include="Admin\ViewTourDetails.aspx" />
+    <Content Include="Enquiry.asmx" />
     <Content Include="packages.config" />
     <Content Include="Admin\assets\datepicker\js\jquery.datepick.ext.min.map" />
     <Content Include="Admin\assets\datepicker\js\jquery.datepick.lang.min.map" />
@@ -620,6 +622,13 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Enquiry.aspx.cs">
+      <DependentUpon>Enquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Enquiry.aspx.designer.cs">
+      <DependentUpon>Enquiry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\PackageMaster.aspx.cs">
       <DependentUpon>PackageMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -664,6 +673,10 @@
     </Compile>
     <Content Include="App_Code\TopClass.cs" />
     <Compile Include="CommonFunction.cs" />
+    <Compile Include="Enquiry.asmx.cs">
+      <DependentUpon>Enquiry.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Site\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

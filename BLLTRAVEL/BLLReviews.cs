@@ -33,8 +33,9 @@ namespace BLLTRAVEL
                     new SqlParameter("@IsActive",objBLLReviews.IsActive),
                     new SqlParameter("@Name",objBLLReviews.Name),
                     new SqlParameter("@Email",objBLLReviews.Email),
-                    new SqlParameter("@Rating",objBLLReviews.Rating)
-
+                    new SqlParameter("@Rating",objBLLReviews.Rating),
+                     new SqlParameter("@Createddate",objBLLReviews.Createddate),
+                       new SqlParameter("@IPaddress",objBLLReviews.IPaddress)
                 };
                 return SqlHelper.ExecuteDataset(_connection, CommandType.StoredProcedure, "sp_Reviews", _params);
             }
@@ -55,7 +56,10 @@ namespace BLLTRAVEL
                     new SqlParameter("@IsActive",objBLLReviews.IsActive),
                     new SqlParameter("@Name",objBLLReviews.Name),
                     new SqlParameter("@Email",objBLLReviews.Email),
-                    new SqlParameter("@Rating",objBLLReviews.Rating)
+                    new SqlParameter("@Rating",objBLLReviews.Rating),
+
+                     new SqlParameter("@Createddate",objBLLReviews.Createddate),
+                       new SqlParameter("@IPaddress",objBLLReviews.IPaddress)
                 };
                 return Convert.ToInt32(SqlHelper.ExecuteScalar(_connection, CommandType.StoredProcedure, "sp_Reviews", _params));
             }
