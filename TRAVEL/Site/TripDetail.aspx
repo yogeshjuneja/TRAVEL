@@ -21,7 +21,7 @@
 
         .FilledStar {
             background-image: url(images/FilledStar.gif);
-            height: 17px;       
+            height: 17px;
             width: 17px;
         }
     </style>
@@ -76,7 +76,8 @@
                         <span class="icon-calendar"></span>
                         <div class="txt">
                             <p>Trip Days</p>
-                            <h3><asp:Label ID="lbltripdays" runat="server"></asp:Label></h3>
+                            <h3>
+                                <asp:Label ID="lbltripdays" runat="server"></asp:Label></h3>
                         </div>
                     </div>
                 </div>
@@ -94,14 +95,15 @@
                         <span class="icon-easy"></span>
                         <div class="txt">
                             <p>Difficulty</p>
-                            <h3><asp:Label ID="lbldifficulty" runat="server"></asp:Label></h3>
+                            <h3>
+                                <asp:Label ID="lbldifficulty" runat="server"></asp:Label></h3>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="main-price">
-                
+
                 <div class="price">
                     <asp:Label ID="lblPrice" runat="server"></asp:Label>
                 </div>
@@ -152,7 +154,7 @@
                                 <div class="border-box">
                                     <div class="box-title">Trip Overview</div>
                                     <ul class="trip-overview">
-                                     <%--   <li>
+                                        <%--   <li>
                                             <span class="icon-road-sign"></span>
                                             <div class="detail">
                                                 <div class="title">Trip profile</div>
@@ -163,7 +165,9 @@
                                             <span class="icon-dollar"></span>
                                             <div class="detail">
                                                 <div class="title">Cost</div>
-                                                <div class="desc"> <asp:Label ID="lblcost" runat="server"></asp:Label></div>
+                                                <div class="desc">
+                                                    <asp:Label ID="lblcost" runat="server"></asp:Label>
+                                                </div>
                                             </div>
                                         </li>
                                         <li>
@@ -173,28 +177,28 @@
                                                 <div class="desc">Camping</div>
                                             </div>
                                         </li>
-                                 <%--       <li>
+                                        <%--       <li>
                                             <span class="icon-barcode"></span>
                                             <div class="detail">
                                                 <div class="title">Trip Code</div>
                                                 <div class="desc">AD 23</div>
                                             </div>
                                         </li>--%>
-                                 <%--       <li>
+                                        <%--       <li>
                                             <span class="icon-calendar"></span>
                                             <div class="detail">
                                                 <div class="title">Trek Days</div>
                                                 <div class="desc">18</div>
                                             </div>
                                         </li>--%>
-                                      <%--  <li>
+                                        <%--  <li>
                                             <span class="icon-door-tag "></span>
                                             <div class="detail">
                                                 <div class="title">Accomodation</div>
                                                 <div class="desc">6 Night hotel, 3 night Tea House</div>
                                             </div>
                                         </li>--%>
-                                       <%-- <li>
+                                        <%-- <li>
                                             <span class="icon-home"></span>
                                             <div class="detail">
                                                 <div class="title">Trek Accomodation</div>
@@ -486,13 +490,12 @@
             </div>
             <br>
             <br>
-           <%-- <div class="section-title center">
+            <%-- <div class="section-title center">
                 <h3>Find Map</h3>
             </div>
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37319.30096857599!2d-111.50394094053527!3d44.81298564157587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5351e55555555555%3A0xaca8f930348fe1bb!2sYellowstone+National+Park!5e0!3m2!1sen!2snp!4v1493435077252" style="width: 100%; border: 0" height="450" allowfullscreen></iframe>
             </div>--%>
-
         </div>
 
     </div>
@@ -504,7 +507,7 @@
                 <h3>Similar Trips</h3>
             </div>
             <div class="row item">
-                 <asp:Repeater ID="rptTours" runat="server">
+                <asp:Repeater ID="rptTours" runat="server">
                     <ItemTemplate>
                         <div class="col-sm-6 col-md-4">
                             <div class="item-grid">
@@ -517,15 +520,13 @@
                                     <div class="item-info">
                                         <span class="icon-easy"></span>
                                         <h4 class="title"><a href="#"><%#Eval("Place") %></a></h4>
-                                          <span class="location"><%#Eval("TourPlace") %></span>
+                                        <span class="location"><%#Eval("TourPlace") %></span>
                                     </div>
 
                                     <div class="sub-title">
                                         <span class="location"><%#Eval("TripName") %></span>
                                         <span class="grade">Easy</span>
                                     </div>
-
-                                    
 
                                     <div class="item-detail">
                                         <div class="left">
@@ -555,6 +556,9 @@
                     <h4 class="modal-title">Book Now</h4>
                 </div>
                 <div class="modal-body">
+                   
+
+
 
                     <div class="preview-wrap">
                         <div class="preview-img" style="background-image: url('assets/img/home_img/mountain.jpg')"></div>
@@ -564,37 +568,40 @@
                             <input type="hidden" name="trip" id="trip" value="annapurna">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name" value="" required>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name" value="" required />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="" required />
                             </div>
 
                             <div class="form-group">
                                 <label>Phone</label>
-                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number" value="" required>
+                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number" value="" required />
                             </div>
 
                             <div class="form-group">
                                 <label>Duration</label>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input type="text" name="from_date" id="from_date" class="form-control datepicker" placeholder="From" value="" required>
+                                        <input type="text" name="from_date" id="from_date" class="form-control datepicker" placeholder="From" value="" required />
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" name="to_date" id="to_date" class="form-control datepicker" placeholder="To" value="" required>
+                                        <input type="text" name="to_date" id="to_date" class="form-control datepicker" placeholder="To" value="" required />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Number of Person</label>
-                                <input type="text" name="number_person" id="number_person" class="form-control" value="2" required>
+                                <input type="text" name="number_person" id="number_person" class="form-control" value="2" required />
                             </div>
-                            <button class="btn btn-primary hvr-sweep-to-right" id="btnBookNow">BooK Now</button>
 
-
+                             <div id="divMsgPopup" style="display: none">
+                        <i class="fa fa-ok"></i>
+                        <span id="lblMessagepopup"></span>
+                    </div>
+                            <a class="btn btn-primary hvr-sweep-to-right" id="btnBookNow" href="#">BooK Now</a>
                         </div>
                     </div>
                 </div>
@@ -617,7 +624,6 @@
     <script src="assets/js/min/countnumbers.min.js"></script>
     <script src="assets/js/main.js"></script>
 
-
     <link href="assets/css/controlpanel.css" rel="stylesheet" />
     <link href="vendor/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" type="text/css" />
     <link href="vendor/colorpicker/css/evol-colorpicker.min.css" rel="stylesheet" type="text/css" />
@@ -635,7 +641,7 @@
 
     <script type="text/javascript">
         $("#btnBookNow").click(function (event) {
-            event.preventDefault();
+            debugger;
             var formdata = {
                 name: $("#name").val(),
                 email: $("#email").val(),
@@ -653,19 +659,39 @@
                 dataType: "json",
                 success: function (response, x, r) {
                     debugger;
-                     
-                    alert(JSON.stringify(response));
+                    var data = JSON.parse(JSON.stringify(response));
+                    $("#divMsgPopup").removeAttr("style");
+                    $("#divMsgPopup").removeClass();
+                     debugger;
+                    if (data.d == "success") {
+                        debugger;
+                        $("#divMsgPopup").addClass("successHandler alert alert-success");
+                        $("#lblMessagepopup").html("Thanks for your interest. You will got revert call back or email from our side soon");
+                        ClearControls();
+                    }
+                    else {
+
+                        $("#divMsgPopup").addClass("errorHandler alert alert-danger");
+                        $("#lblMessagepopup").html("Unable to connect to server. Please try again after some time");
+                    }
                 },
                 error: function (r, x, y) {
-                    debugger;
-                    alert("error");
-                    alert(JSON.stringify(r));
-                    alert(x);
-                    alert(y);
+                     debugger;
+                    $("#divMsgPopup").addClass("errorHandler alert alert-danger");
+                    $("#lblMessagepopup").html("Unable to connect to server. Please try again after some time");
                 }
-                 
             });
-
+              //event.preventDefault();
         });
+
+        function ClearControls() {
+            $("#name").val("");
+            $("#email").val("");
+            $("#phone").val("");
+            $("#from_date").val("");
+            $("#to_date").val("");
+            $("#number_person").val("");
+            $("#hdnTourID").val("");
+        }
     </script>
 </asp:Content>
