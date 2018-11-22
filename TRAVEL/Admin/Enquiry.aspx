@@ -110,7 +110,7 @@
                                                 <label class="control-label">
                                                     Name <span class="symbol required"></span>
                                                 </label>
-                                              
+                                              <asp:TextBox ID="txtname" runat="server" CssClass="form-control"></asp:TextBox>
 
                                             </div>
                                         </div>
@@ -118,12 +118,39 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    Tour Place <span class="symbol required"></span>
+                                                    Email <span class="symbol required"></span>
                                                 </label>
+                                                <asp:TextBox ID="txtemail" runat="server" CssClass="form-control"></asp:TextBox>
+                                          
+                                            </div>
+                                        </div>
 
-                                                <asp:DropDownList ID="ddlTourPlace" runat="server" CssClass="form-control"></asp:DropDownList>
+                                           <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Duration From  <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtDatefrom" runat="server" CssClass="form-control"></asp:TextBox>
+                                          
+                                            </div>
+                                        </div>
+                                           <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Duration To <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtDateTo" runat="server" CssClass="form-control"></asp:TextBox>
+                                          
+                                            </div>
+                                        </div>
 
-
+                                             <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    TourID <span class="symbol required"></span>
+                                                </label>
+                                                <asp:TextBox ID="txtTourID" runat="server" CssClass="form-control"></asp:TextBox>
+                                          
                                             </div>
                                         </div>
 
@@ -150,9 +177,8 @@
                                         <%-- Tour Details--%>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
-
                                                 <div>
-                                                    <asp:GridView ID="grdTourDtls" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false" OnRowCommand="grdTourDtls_RowCommand">
+                                                    <asp:GridView ID="grdEnquiryDetails" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false" OnRowCommand="grdEnquiryDetails_RowDataBound">
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="S#">
                                                                 <ItemTemplate>
@@ -160,56 +186,46 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
+                                                            <asp:TemplateField HeaderText="Name" SortExpression="Name">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("TourInfo") %>
+                                                                    <%#Eval("Name") %>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Days" SortExpression="Days">
+                                                            <asp:TemplateField HeaderText="Email" SortExpression="Email">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("Days") %>
+                                                                    <%#Eval("Email") %>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Nights" SortExpression="Nights">
+                                                            <asp:TemplateField HeaderText="Phone" SortExpression="Phone">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("Nights") %>
+                                                                    <%#Eval("Phone") %>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Discount" SortExpression="Discount">
+                                                            <asp:TemplateField HeaderText="DurationFrom" SortExpression="DurationFrom">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("Discount")%>
+                                                                    <%#Eval("DurationFrom")%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="TripName" SortExpression="TripName">
+                                                            <asp:TemplateField HeaderText="DurationTo" SortExpression="DurationTo">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("TripName")%>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="TourInfo" SortExpression="TourInfo">
-                                                                <ItemTemplate>
-                                                                    <%#Eval("TourInfo")%>
+                                                                    <%#Eval("DurationTo")%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="TourPlace" SortExpression="TourPlace">
+                                                            <asp:TemplateField HeaderText="TourPlace" SortExpression="TourID">
                                                                 <ItemTemplate>
                                                                     <%#Eval("TourPlace")%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Edit">
-                                                                <ItemTemplate>
-
-                                                                    <a href='<%#"AddTourDetails.aspx?TID=" + Eval("TourDetailsID") %>' class="btn btn-xs btn-blue tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
 
                                                             <asp:TemplateField HeaderText="Delete">
+
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Eval("TourDetailsID") %>' CssClass="btn btn-xs btn-red tooltips">
+                                                                    <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Eval("TourID") %>' CssClass="btn btn-xs btn-red tooltips">
                                                             <i class="fa fa-times fa fa-white"></i>
                                                                     </asp:LinkButton>
                                                                 </ItemTemplate>

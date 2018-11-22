@@ -59,7 +59,8 @@ namespace TRAVEL.Admin
         {
             try
             {
-                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData { Sptype = 2, TourID=Convert.ToInt32(ddlTourPlace.SelectedValue), TripTypeID=Convert.ToInt32(ddlTripType.SelectedValue)};
+                BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData
+                { Sptype = 2, TourID=Convert.ToInt32(ddlTourPlace.SelectedValue), TripTypeID=Convert.ToInt32(ddlTripType.SelectedValue)};
                 DataSet objDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
                 grdTourDtls.DataSource = objDataSet;
                 grdTourDtls.DataBind();
