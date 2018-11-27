@@ -14,12 +14,9 @@ namespace TRAVEL.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-             {
+            {
                 BindEnquerydetails();
-
             }
-             
-           
         }
 
         void BindEnquerydetails()
@@ -32,7 +29,6 @@ namespace TRAVEL.Admin
                     Name = txtname.Text,
                     Email = txtemail.Text,
                     
-
                 };
 
                 if (txtDatefrom.Text != "")

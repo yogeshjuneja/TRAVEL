@@ -108,7 +108,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    Name <span class="symbol required"></span>
+                                                    Name 
                                                 </label>
                                               <asp:TextBox ID="txtname" runat="server" CssClass="form-control"></asp:TextBox>
 
@@ -118,7 +118,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    Email <span class="symbol required"></span>
+                                                    Email 
                                                 </label>
                                                 <asp:TextBox ID="txtemail" runat="server" CssClass="form-control"></asp:TextBox>
                                           
@@ -128,7 +128,7 @@
                                            <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    Duration From  <span class="symbol required"></span>
+                                                    Duration From  
                                                 </label>
                                                 <asp:TextBox ID="txtDatefrom" runat="server" CssClass="form-control"></asp:TextBox>
                                           
@@ -137,7 +137,7 @@
                                            <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    Duration To <span class="symbol required"></span>
+                                                    Duration To 
                                                 </label>
                                                 <asp:TextBox ID="txtDateTo" runat="server" CssClass="form-control"></asp:TextBox>
                                           
@@ -147,37 +147,31 @@
                                              <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">
-                                                    TourID <span class="symbol required"></span>
+                                                    TourID 
                                                 </label>
                                                 <asp:TextBox ID="txtTourID" runat="server" CssClass="form-control"></asp:TextBox>
                                           
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div>
-                                                    <span class="symbol required"></span>Required Fields
-													
-                                                <hr>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                            </div>
-                                            <div class="col-md-4">
-
-                                                <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click">
-                                                 Save Details
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    &nbsp; 
+                                                </label>
+                                                 <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-yellow btn-block" ValidationGroup="Save" OnClick="btnSubmit_Click">
+                                                Search
                                                 </asp:LinkButton>
+                                          
                                             </div>
                                         </div>
+ 
+                                        
                                         <br />
                                         <%-- Tour Details--%>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
-                                                <div>
+                                                <div >
                                                     <asp:GridView ID="grdEnquiryDetails" runat="server" ShowFooter="true" CssClass="table table-bordered table-hover" AutoGenerateColumns="false" OnRowCommand="grdEnquiryDetails_RowDataBound">
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="S#">
@@ -206,31 +200,36 @@
 
                                                             <asp:TemplateField HeaderText="DurationFrom" SortExpression="DurationFrom">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("DurationFrom")%>
+                                                                    <%# Convert.ToDateTime(Eval("DurationFrom")).ToString("dd-MMM-yyyy")%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="DurationTo" SortExpression="DurationTo">
                                                                 <ItemTemplate>
-                                                                    <%#Eval("DurationTo")%>
+                                                                    <%# Convert.ToDateTime( Eval("DurationTo")).ToString("dd-MMM-yyyy")%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
                                                             <asp:TemplateField HeaderText="TourPlace" SortExpression="TourID">
                                                                 <ItemTemplate>
                                                                     <%#Eval("TourPlace")%>
+                                                                    <asp:HiddenField ID="hfCreatedDate" runat="server" Value='<%# Convert.ToDateTime(Eval("Createddate")).ToString("dd-MMM-yyyy") %>' />
+
+                                                                    <asp:HiddenField ID="hfPersons" runat="server"  Value='<%#Eval("Number_of_Person") %>' />
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
+                                                            
 
-                                                            <asp:TemplateField HeaderText="Delete">
 
+                                                             <asp:TemplateField HeaderText="View">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="btnDelete" runat="server" CommandName="iDelete" CommandArgument='<%#Eval("TourID") %>' CssClass="btn btn-xs btn-red tooltips">
-                                                            <i class="fa fa-times fa fa-white"></i>
-                                                                    </asp:LinkButton>
+                                                                     <a id="apopup"  href="#responsive" data-toggle="modal" class="demo btn btn-blue">View
+                                                                    </a>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
 
+
+                                                           
                                                         </Columns>
 
                                                     </asp:GridView>
@@ -257,5 +256,123 @@
         </div>
 
     </div>
+
+    <div id="responsive" class="modal extended-modal fade no-display" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+						
+                    </button>
+                    <h4 class="modal-title">Enquiry Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 table-responsive">
+                          
+                          <table class="table table-bordered table-hover" >
+                              <tr>
+                                  <td>
+                                      Name
+                                  </td>
+                                  <td id="tdName">
+
+                                  </td>
+                              </tr>
+
+                               <tr>
+                                  <td>
+                                      Email
+                                  </td>
+                                  <td id="tdEmail">
+
+                                  </td>
+                              </tr>
+
+                               <tr>
+                                  <td>
+                                      Phone
+                                  </td>
+                                  <td id="tdPhone">
+
+                                  </td>
+                              </tr>
+
+
+                                 <tr>
+                                  <td>
+                                      Duration From
+                                  </td>
+                                  <td id="tdDurationFrom">
+
+                                  </td>
+                              </tr>
+
+                                 <tr>
+                                  <td>
+                                      Duration To
+                                  </td>
+                                  <td id="tdDurationTo">
+
+                                  </td>
+                              </tr>
+
+                                 <tr>
+                                  <td>
+                                    Tour Place
+                                  </td>
+                                  <td id="tdTourPlace">
+
+                                  </td>
+                              </tr>
+
+                               <tr>
+                                  <td>
+                                   Persons
+                                  </td>
+                                  <td id="tdPersons">
+
+                                  </td>
+                              </tr>
+
+
+                                <tr>
+                                  <td>
+                                   Enquiry Date
+                                  </td>
+                                  <td id="tdcreateddate">
+
+                                  </td>
+                              </tr>
+                          </table>    
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-light-grey">
+                        Close
+                    </button>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script type="text/javascript">
+       $("td #apopup").click(function () {
+           $("#tdName").html($(this).closest("tr").find("td").eq(1).html());
+           $("#tdEmail").html($(this).closest("tr").find("td").eq(2).html());
+           $("#tdPhone").html($(this).closest("tr").find("td").eq(3).html());
+           $("#tdDurationFrom").html($(this).closest("tr").find("td").eq(4).html());
+           $("#tdDurationTo").html($(this).closest("tr").find("td").eq(5).html());
+           $("#tdTourPlace").html($(this).closest("tr").find("td").eq(6).html());
+           $("#tdPersons").html($(this).closest("tr").find("input[id*='hfPersons']").val());
+           $("#tdcreateddate").html($(this).closest("tr").find("input[id*='hfCreatedDate']").val());
+       });
+   </script>
+
+
 </asp:Content>
 
