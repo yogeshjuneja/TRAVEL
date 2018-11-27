@@ -196,6 +196,8 @@
 
 
         </div>
+         <%--<script src="assets/plugins/jQuery/jquery-2.1.1.min.js"></script>--%>
+        <script src="assets/plugins/jQuery/jquery-3.3.1.js"></script>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <footer class="inner">
@@ -213,7 +215,7 @@
     </form>
 
     <%--<script type="text/javascript" src="assets/plugins/jQuery/jquery-1.11.1.min.js"></script>--%>
-    <script src="assets/plugins/jQuery/jquery-2.1.1.min.js"></script>
+   
     <!--<![endif]-->
     <script src="assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
