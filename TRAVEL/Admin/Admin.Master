@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>SL accounts</title>
+    <title>Shapo Expeditions</title>
     <!-- start: META -->
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -67,7 +67,7 @@
                         <!-- start: LOGO -->
                         <a class="navbar-brand" href="index-2.html">
                             <div>
-                                <h3 style="margin-top: 0% !important">TRAVEL</h3>
+                                <h3 style="margin-top: 0% !important">SHAPO EXPEDITIONS</h3>
                             </div>
                         </a>
                         <!-- end: LOGO -->
@@ -163,7 +163,12 @@
                             </li>
 
                             <li>
-                                <a href="Reviews.aspx"><i class="fa fa-th-large"></i><span class="title">Reviews</span>  <span id="spnReview" runat="server" class="label label-default pull-right ">fjhjk</span></a>
+                                <a href="Reviews.aspx"><i class="fa fa-th-large"></i><span class="title">Reviews</span>  <span id="spnReview" runat="server" class="label label-default pull-right "></span></a>
+
+                            </li>
+
+                             <li>
+                                <a href="Enquiry.aspx"><i class="fa fa-th-large"></i><span class="title">Enquiry</span>  <span id="spnEnquiry" runat="server" class="label label-default pull-right "></span></a>
 
                             </li>
 

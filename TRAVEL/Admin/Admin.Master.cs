@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLLTRAVEL;
+using System.Data;
 
 namespace TRAVEL.Admin
 {
@@ -14,27 +15,37 @@ namespace TRAVEL.Admin
         {
             if(!IsPostBack)
             {
-                CheckReviews();
+                CheckReviewsEnquiry();
             }
         }
 
-        void CheckReviews()
+        void CheckReviewsEnquiry()
         {
             try
             {
                 BLLReviews objBLLReviews = new BLLReviews();
                 objBLLReviews.Sptype = 4;
-                int output = objBLLReviews.ExecuteNonQuery(objBLLReviews);
-                spnReview.Visible = output > 0;
-                if (output>0)
+                DataSet output = objBLLReviews.ExecuteDataSet(objBLLReviews);
+                int reviews = Convert.ToInt32(output.Tables[0].Rows[0][0]);
+                int enquiry = Convert.ToInt32(output.Tables[1].Rows[0][0]);
+                spnReview.Visible = reviews > 0;
+                if (reviews > 0)
                 {
-                    spnReview.InnerHtml = output.ToString();
-                   
+                    spnReview.InnerHtml = reviews.ToString();
                 }
                 else
                 {
                     spnReview.InnerHtml = "";
                 }
+                if (enquiry > 0)
+                {
+                    spnEnquiry.InnerHtml = enquiry.ToString();
+                }
+                else
+                {
+                    spnEnquiry.InnerHtml = "";
+                }
+
             }
             catch (Exception ex)
             {

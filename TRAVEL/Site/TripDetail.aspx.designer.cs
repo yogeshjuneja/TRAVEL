@@ -157,6 +157,15 @@ namespace TRAVEL.Site {
         protected global::System.Web.UI.UpdatePanel upd1;
         
         /// <summary>
+        /// rfvfullname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvfullname;
+        
+        /// <summary>
         /// txtFullName control.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,24 @@ namespace TRAVEL.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
+        
+        /// <summary>
+        /// rfvemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvemail;
+        
+        /// <summary>
+        /// revemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revemail;
         
         /// <summary>
         /// txtEmailAddress control.
@@ -182,6 +209,15 @@ namespace TRAVEL.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.Rating Rating1;
+        
+        /// <summary>
+        /// rfvcomment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcomment;
         
         /// <summary>
         /// txtCommentField control.

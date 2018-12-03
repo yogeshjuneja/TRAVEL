@@ -8,7 +8,7 @@
     <div class="main-img full-height stick-top">
         <div class="zooming with-overlay" style="background-image: url('assets/img/coast/1.jpg');">
             <div class="main-image-txt center-txt">
-                <h1 class="main-header">Wander Exotic places</h1>
+                <h1 class="main-header">SHAPO EXPEDITIONS</h1>
                 <hr />
                 <p class="sub-header">Wander Exotic places without getting lost.</p>
                 <a href="#" class="btn btn-lg btn-primary hvr-sweep-to-right">Explore Now</a>

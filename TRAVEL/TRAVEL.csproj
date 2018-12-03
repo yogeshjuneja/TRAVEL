@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\assets\js\Custom\TripDetail.js" />
     <Content Include="Admin\assets\plugins\jQuery\jquery-3.3.1.js" />
     <Content Include="Admin\Enquiry.aspx" />
     <Content Include="Admin\PackageMaster.aspx" />
@@ -97,6 +98,7 @@
     <Content Include="Admin\assets\plugins\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Admin\assets\plugins\weather-icons\font\weathericons-regular-webfontd41d.eot" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Site\assets\img\logo.png" />
     <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\yogesh.pubxml" />
     <Content Include="Site\Home.aspx" />

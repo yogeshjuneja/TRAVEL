@@ -371,6 +371,13 @@
            $("#tdPersons").html($(this).closest("tr").find("input[id*='hfPersons']").val());
            $("#tdcreateddate").html($(this).closest("tr").find("input[id*='hfCreatedDate']").val());
        });
+
+       $("#ContentPlaceHolder1_grdEnquiryDetails tr td:not('last')").click(function () {
+           var index = $(this).index();
+           if (index > 1) {
+               $(this).find("td:last").find("#apopup").click();
+           }
+       });
    </script>
 
 

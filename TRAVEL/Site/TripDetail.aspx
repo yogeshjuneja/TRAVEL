@@ -416,12 +416,25 @@
                                                 <div class="border-box">
                                                     <div class="box-title">Leave a Review</div>
                                                     <div class="form-group">
-                                                        <label>Full Name</label>
+                                                        <label>
+                                                            Full Name  
+                                                            <asp:RequiredFieldValidator ID="rfvfullname" runat="server" ValidationGroup="Save"
+                                                                ControlToValidate="txtFullName" ErrorMessage="Add Name" ForeColor="Red" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                                                        </label>
                                                         <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>
+
+
+
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Email Address</label>
+                                                        <label>
+                                                            Email Address        
+                                                            <asp:RequiredFieldValidator ID="rfvemail" runat="server" ValidationGroup="Save"
+                                                                ControlToValidate="txtEmailAddress" ErrorMessage="Add Email" ForeColor="Red" SetFocusOnError="true" />
+                                                            <asp:RegularExpressionValidator ID="revemail" runat="server" ControlToValidate="txtEmailAddress" ErrorMessage="Enter Valid Email" ValidationGroup="Save"
+                                                                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator></label>
                                                         <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="form-control"></asp:TextBox>
+
                                                     </div>
 
                                                     <div class="form-group">
@@ -434,9 +447,13 @@
                                                     </div>
                                                     <br />
                                                     <div class="form-group">
-                                                        <label>Add Comment</label>
+                                                        <label>
+                                                            Add Comment  
+                                                            <asp:RequiredFieldValidator ID="rfvcomment" runat="server" ControlToValidate="txtCommentField"
+                                                                ErrorMessage="Enter Comment" ForeColor="Red" ValidationGroup="Save" SetFocusOnError="true" /></label>
                                                         <asp:TextBox ID="txtCommentField" runat="server" CssClass="form-control" placeholder="Comment"></asp:TextBox>
-                                                        <asp:LinkButton ID="btnnSaveComment" runat="server" OnClick="btnnSaveComment_Click" CssClass="btn btn-primary" Text="Add Comment"></asp:LinkButton>
+
+                                                        <asp:LinkButton ID="btnnSaveComment" ValidationGroup="Save" runat="server" OnClick="btnnSaveComment_Click" CssClass="btn btn-primary" Text="Add Comment"></asp:LinkButton>
 
                                                         <br />
                                                         <div id="divMsg" runat="server" class="successHandler alert alert-success no-display">
@@ -480,7 +497,7 @@
                                         <span class="icon-search"></span>
                                     </div>
                                 </a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -504,7 +521,9 @@
     <div class="banner white">
         <div class="container">
             <div class="section-title center">
-                <h3>Similar Trips</h3>
+                <h3>
+                Similar Trips
+           
             </div>
             <div class="row item">
                 <asp:Repeater ID="rptTours" runat="server">
@@ -556,7 +575,7 @@
                     <h4 class="modal-title">Book Now</h4>
                 </div>
                 <div class="modal-body">
-                   
+
 
 
 
@@ -565,7 +584,7 @@
 
                         <div class="form-wrap">
                             <div id="form-messages" class="alert" role="alert" style="display: none;"></div>
-                            <input type="hidden" name="trip" id="trip" value="annapurna">
+
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name" value="" required />
@@ -597,11 +616,18 @@
                                 <input type="text" name="number_person" id="number_person" class="form-control" value="2" required />
                             </div>
 
-                             <div id="divMsgPopup" style="display: none">
-                        <i class="fa fa-ok"></i>
-                        <span id="lblMessagepopup"></span>
-                    </div>
+                            <div id="divMsgPopup" style="display: none">
+                                <i class="fa fa-ok"></i>
+                                <span id="lblMessagepopup"></span>
+                            </div>
                             <a class="btn btn-primary hvr-sweep-to-right" id="btnBookNow" href="#">BooK Now</a>
+                            <div class="progress progress-striped active hidden" id="progressbar">
+											<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+												
+											</div>
+                                <span class="sr-only"> Please Wait</span>
+										</div>
+
                         </div>
                     </div>
                 </div>
@@ -609,15 +635,15 @@
         </div>
     </div>
 
-    <script src="vendor/jquery/dist/jquery.min.js"></script>
-    <script src="vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="vendor/jquery.ui.touch-punch.min.js"></script>
+    <script src="vendor/Jquery/dist/Jquery.min.js"></script>
+    <script src="vendor/Jqueryui/Jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="vendor/Jquery.ui.touch-punch.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="vendor/waypoints/lib/Jquery.waypoints.min.js"></script>
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
     <script src="vendor/retina.min.js"></script>
-    <script src="vendor/jquery.imageScroll.min.js"></script>
+    <script src="vendor/Jquery.imageScroll.min.js"></script>
     <script src="assets/js/min/responsivetable.min.js"></script>
     <script src="assets/js/bootstrap-tabcollapse.js"></script>
 
@@ -625,9 +651,9 @@
     <script src="assets/js/main.js"></script>
 
     <link href="assets/css/controlpanel.css" rel="stylesheet" />
-    <link href="vendor/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/colpick-Jquery-Color-Picker-master/css/colpick.css" rel="stylesheet" type="text/css" />
     <link href="vendor/colorpicker/css/evol-colorpicker.min.css" rel="stylesheet" type="text/css" />
-    <script src="vendor/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
+    <script src="vendor/colpick-Jquery-Color-Picker-master/js/colpick.js"></script>
     <script src="vendor/colorpicker/js/evol-colorpicker.min.js"></script>
     <script src="assets/js/controlpanel.js"></script>
 
@@ -638,60 +664,6 @@
 
     <!-- Current Page JS || Ajax Contact -->
     <script src="assets/js/book_trip.js"></script>
-
-    <script type="text/javascript">
-        $("#btnBookNow").click(function (event) {
-            debugger;
-            var formdata = {
-                name: $("#name").val(),
-                email: $("#email").val(),
-                phone: $("#phone").val(),
-                durationfrom: $("#from_date").val(),
-                duarationto: $("#to_date").val(),
-                noofperson: $("#number_person").val(),
-                TourID: $("#hdnTourID").val()
-            };
-            $.ajax({
-                type: "Post",
-                url: "/Enquiry.asmx/SaveEnquiry",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(formdata),
-                dataType: "json",
-                success: function (response, x, r) {
-                    debugger;
-                    var data = JSON.parse(JSON.stringify(response));
-                    $("#divMsgPopup").removeAttr("style");
-                    $("#divMsgPopup").removeClass();
-                     debugger;
-                    if (data.d == "success") {
-                        debugger;
-                        $("#divMsgPopup").addClass("successHandler alert alert-success");
-                        $("#lblMessagepopup").html("Thanks for your interest. You will got revert call back or email from our side soon");
-                        ClearControls();
-                    }
-                    else {
-
-                        $("#divMsgPopup").addClass("errorHandler alert alert-danger");
-                        $("#lblMessagepopup").html("Unable to connect to server. Please try again after some time");
-                    }
-                },
-                error: function (r, x, y) {
-                     debugger;
-                    $("#divMsgPopup").addClass("errorHandler alert alert-danger");
-                    $("#lblMessagepopup").html("Unable to connect to server. Please try again after some time");
-                }
-            });
-              //event.preventDefault();
-        });
-
-        function ClearControls() {
-            $("#name").val("");
-            $("#email").val("");
-            $("#phone").val("");
-            $("#from_date").val("");
-            $("#to_date").val("");
-            $("#number_person").val("");
-            $("#hdnTourID").val("");
-        }
-    </script>
+    <script src="../Admin/assets/js/Custom/TripDetail.js"></script>
+       
 </asp:Content>
