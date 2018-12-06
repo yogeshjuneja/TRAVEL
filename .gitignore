@@ -242,3 +242,5 @@ ModelManifest.xml
 .fake/
 /TRAVEL/Theme/mold_discover
 /TRAVEL/Upload
+/TRAVEL/Properties/PublishProfiles/shapoexpeditions - FTP.pubxml
+/TRAVEL/Properties/PublishProfiles/shapoexpeditions - Web Deploy.pubxml
