@@ -1,11 +1,7 @@
 ﻿using DLLTRAVEL;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLLTRAVEL
 {
@@ -26,7 +22,10 @@ namespace BLLTRAVEL
         public DataTable dtIternaryDetail { get; set; }
         public string ShortDesc { get; set; }
         public int Difficulty { get; set; }
-        
+        public decimal StartPrice { get; set; }
+        public decimal ENDPrice { get; set; }
+        public string CATEGORY { get; set; }
+
 
         public DataSet ExecuteDataSet(BLLTourDetailsData objBLLTourDetailsData)
         {
@@ -49,11 +48,13 @@ namespace BLLTRAVEL
                     new SqlParameter("@Updateddate",objBLLTourDetailsData.Updateddate),
                     new SqlParameter("@IPaddress",base.IPaddress),
                     new SqlParameter("@Price",objBLLTourDetailsData.Price),
-            
                      new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation),
                        new SqlParameter("@ShortDesc",objBLLTourDetailsData.ShortDesc),
-                         new SqlParameter("@Difficulty",objBLLTourDetailsData.Difficulty)
-                       
+                         new SqlParameter("@Difficulty",objBLLTourDetailsData.Difficulty),
+                         new SqlParameter("@StartPrice",objBLLTourDetailsData.StartPrice),
+                         new SqlParameter("@ENDPrice",objBLLTourDetailsData.ENDPrice),
+                         new SqlParameter("@CATEGORY",objBLLTourDetailsData.CATEGORY)
+
 
 
                 };
@@ -62,7 +63,7 @@ namespace BLLTRAVEL
                     _params[_params.Length] = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
                     _params[_params.Length + 1] = new SqlParameter("@dtIternaryDetails", objBLLTourDetailsData.dtIternaryDetail);
                 }
-           
+
 
                 return SqlHelper.ExecuteDataset(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params);
             }
@@ -99,19 +100,22 @@ namespace BLLTRAVEL
                      new SqlParameter("@Transpotation",objBLLTourDetailsData.Transpotation),
                         new SqlParameter("@ShortDesc",objBLLTourDetailsData.ShortDesc),
                            new SqlParameter("@Difficulty",objBLLTourDetailsData.Difficulty),
+                            new SqlParameter("@StartPrice",objBLLTourDetailsData.StartPrice),
+                         new SqlParameter("@ENDPrice",objBLLTourDetailsData.ENDPrice),
+                         new SqlParameter("@CATEGORY",objBLLTourDetailsData.CATEGORY)
                 };
 
                 if (objBLLTourDetailsData.dtPackageDetails != null)
                 {
-                    Array.Resize(ref _params, _params.Length+1);
-                    _params[_params.Length-1] = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
+                    Array.Resize(ref _params, _params.Length + 1);
+                    _params[_params.Length - 1] = new SqlParameter("@dtPackageDetails", objBLLTourDetailsData.dtPackageDetails);
                 }
                 if (objBLLTourDetailsData.dtIternaryDetail != null)
                 {
-                    Array.Resize(ref _params, _params.Length+1);
-                    _params[_params.Length-1] = new SqlParameter("@dtIternaryDetails", objBLLTourDetailsData.dtIternaryDetail);
+                    Array.Resize(ref _params, _params.Length + 1);
+                    _params[_params.Length - 1] = new SqlParameter("@dtIternaryDetails", objBLLTourDetailsData.dtIternaryDetail);
                 }
-                
+
                 return Convert.ToInt32(SqlHelper.ExecuteScalar(_connection, CommandType.StoredProcedure, "sp_TourDetailsData", _params));
             }
         }
