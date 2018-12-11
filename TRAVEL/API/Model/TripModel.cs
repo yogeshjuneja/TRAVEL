@@ -5,6 +5,19 @@ using System.Web;
 
 namespace TRAVEL.API.Model
 {
+
+
+    public class TripInputModel
+    {
+        public string tourinfo { get; set; }
+        public int startprice { get; set; }
+        public int endprice { get; set; }
+        public int difficulty { get; set; }
+        public string category { get; set; }
+        public int days { get; set; }
+        public int nights { get; set; }
+    }
+
     public class TripModel
     {
         public Base Root { get; set; }

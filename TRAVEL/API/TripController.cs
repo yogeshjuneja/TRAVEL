@@ -12,18 +12,22 @@ namespace TRAVEL.API
 {
     public class TripController : ApiController
     {
-
-        public IHttpActionResult GetTrips()
+        
+      
+        public IHttpActionResult GetTrips([FromUri]TripInputModel data)
         {
             TripModel objTripModel = new TripModel();
             Base objBase = new Base();
             try
             {
                 BLLTourDetailsData objBLLTourDetailsData = new BLLTourDetailsData() { Sptype = 8 };
-                objBLLTourDetailsData.StartPrice = 0;
-                objBLLTourDetailsData.ENDPrice = 500000;
-                objBLLTourDetailsData.Difficulty = 0;
-                objBLLTourDetailsData.CATEGORY = "";
+                objBLLTourDetailsData.TourInfo =data.tourinfo;
+                objBLLTourDetailsData.StartPrice = data.startprice;
+                objBLLTourDetailsData.ENDPrice = data.endprice;
+                objBLLTourDetailsData.Difficulty = data.difficulty;
+                objBLLTourDetailsData.CATEGORY = data.category;
+                objBLLTourDetailsData.Days = data.days;
+                objBLLTourDetailsData.Nights = data.nights;
                 DataSet objDataSet = objBLLTourDetailsData.ExecuteDataSet(objBLLTourDetailsData);
                
                 if(objDataSet.Tables[0].Rows.Count>0)
