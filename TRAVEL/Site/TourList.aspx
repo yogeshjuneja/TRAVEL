@@ -3,6 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <style>
+        #loadingcircle {
+            position: absolute;
+            left:787px;
+            top: 538px;
+            z-index: 1;
+        }
+    </style>
+    <div id="loadingcircle" style="display:none">
+        <img src="assets/img/loading.gif" />
+    </div>
     <section class="page-img" style="background-image: url('assets/img/home_img/mountain.jpg');">
         <div class="container">
             <div class="col-sm-8">
@@ -35,7 +47,7 @@
                             </div>
                         </div>
 
-                       <%-- <div class="border-box">
+                        <%-- <div class="border-box">
                             <div class="box-title">Choose Country</div>
                             <select class="form-control selectpicker">
                                 <option value="">Choose</option>
@@ -81,9 +93,11 @@
 
                         <div class="border-box">
                             <div class="box-title">Category</div>
-                            <ul class="checklist">
+                            <asp:CheckBoxList ID="chkCategory" CssClass="checklist" runat="server" RepeatDirection="Vertical" RepeatLayout="UnorderedList"></asp:CheckBoxList>
+
+                          <%--  <ul >
                                 <li>
-                                    <input type="checkbox">
+                                    <input type="checkbox" value="hello hello hello">
                                     All Style</li>
                                 <li>
                                     <input type="checkbox">
@@ -97,7 +111,7 @@
                                 <li>
                                     <input type="checkbox">
                                     Adventure</li>
-                            </ul>
+                            </ul>--%>
                         </div>
 
                         <div class="border-box">
@@ -139,7 +153,7 @@
 
                 <div class="col-sm-8">
                     <div class="sort-wrap">
-                        <div class="sort-title"><span id="tripcount"></span> Matching Result</div>
+                        <div class="sort-title"><span id="tripcount"></span>Matching Result</div>
                         <div class="toogle-view">
                             <a href="trip_list.html" class="icon icon-list"></a>
                             <a href="trip_grid_withsidebar.html" class="icon icon-grid active"></a>
@@ -198,7 +212,7 @@
                         </nav>
                         <div class="clearfix"></div>
                     </div>
-                    
+
 
                 </div>
             </div>
@@ -210,21 +224,29 @@
 
     <script type="text/javascript">
 
+
+
         $(window).load(function () {
             GetTrips();
+            
+        $("#ContentPlaceHolder1_chkCategory").find("li:first >input").on('change',function () {
+
+            $("#ContentPlaceHolder1_chkCategory").find("input").attr("checked", $(this).prop("checked"));
+        });
         });
         $("#price-slider").on('mouseleave', function () {
 
             GetTrips();
         });
-       //mousedown
+        //mousedown
         function GetTrips() {
-            $("#trippdata").html("");
-            var MinPrice = $("#amount-min").html().replace('₹', "");    
+            $("#trippdata").fadeIn("slow").html("");
+            $("#loadingcircle").removeAttr("style");
+            var MinPrice = $("#amount-min").html().replace('₹', "");
             var MaxPrice = $("#amount-max").html().replace('₹', "");
             var tourinfo = $("#searchtrips").val();
             var APIURL = "/api/Trip/GetTrips?tourinfo=" + tourinfo + "&startprice=" + MinPrice + "&endprice=" + MaxPrice + "&difficulty=0&category=&days=0&nights=0";
-            
+
             $.ajax({
                 type: "Get",
                 url: APIURL,
@@ -232,23 +254,25 @@
                 dataType: "json",
                 success: function (response, x, r) {
                     debugger;
+
+                    $("#loadingcircle").css("display", "none");
                     var Trips = [];
                     var data = JSON.parse(JSON.stringify(response));
                     if (data.Root.Message == "success") {
                         Trips = data.TourData;
-                        $("#tripcount").text(Trips.length );
+                        $("#tripcount").text(Trips.length);
                         $.each(Trips, function (key, value) {
                             var Tour = value;
-                            var HTML = "<div class=\"col-sm-12 col-md-6\"><div class=\"item-grid\"><div class=\"item-img\" style=\"background-image: url('../../Upload/"+value.ImagePath+"');\" >";
+                            var HTML = "<div class=\"col-sm-12 col-md-6\"><div class=\"item-grid\"><div class=\"item-img\" style=\"background-image: url('../../Upload/" + value.ImagePath + "');\" >";
                             HTML += "<div class=\"item-overlay\">";
                             HTML += "<a href=\"trip_detail.html\"><span class=\"icon - binocular\"></span></a>";
                             HTML += "</div></div>";
                             HTML += "<div class=\"item-desc\">";
                             HTML += "<div class=\"item-info\">";
                             HTML += "<span class=\"icon-hard\"></span>";
-                            HTML += "<h4 class=\"title\"><a href=\"#\">"+value.Place+"</a></h4></div>";
+                            HTML += "<h4 class=\"title\"><a href=\"#\">" + value.Place + "</a></h4></div>";
                             HTML += "<div class=\"sub-title\">";
-                            HTML += "<span class=\"location\">"+value.TourPlace+"</span>";
+                            HTML += "<span class=\"location\">" + value.TourPlace + "</span>";
                             HTML += "<span class=\"grade\">Hard</span></div>";
                             HTML += "<div class=\"item-detail\">";
                             HTML += "<div class=\"left\">";
@@ -256,7 +280,7 @@
                             HTML += "<div class=\"night\"><span class=\"icon-moon\"></span>" + value.Nights + " Nights</div> </div>";
                             HTML += "<div class=\"right\">";
                             HTML += "<div class=\"price\">INR " + value.Price + "</div>";
-                            HTML += "<a href=\"TripDetail.aspx?TID="+value.TourDetailsID+"\" class=\"btn btn-primary hvr-sweep-to-right\">Book Now</a>";
+                            HTML += "<a href=\"TripDetail.aspx?TID=" + value.TourDetailsID + "\" class=\"btn btn-primary hvr-sweep-to-right\">Book Now</a>";
                             HTML += "</div></div></div></div></div>";
                             $("#trippdata").append(HTML);
 
