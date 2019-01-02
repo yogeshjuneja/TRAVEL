@@ -10,17 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Mold Discover . HTML Template</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <title>Shapo Expeditions</title>
+    <link rel="icon" type="image/png" href="../Site/assets/img/favicon.png" />
 
-    <link rel="stylesheet" href="assets/css/min/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="assets/css/jqueryui.css" media="all" />
-    <link rel="stylesheet" href="vendor/animate-css/animate.css" media="all" />
-    <link rel="stylesheet" href="assets/font/iconfont/iconstyle.css" media="all" />
-    <link rel="stylesheet" href="assets/font/font-awesome/css/font-awesome.css" media="all" />
-    <link rel="stylesheet" href="assets/css/main.css" media="all" id="maincss" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/assets/css/min/bootstrap.min.css") %>" media="all" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/assets/css/jqueryui.css") %>" media="all" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/vendor/animate-css/animate.css") %>" media="all" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/assets/font/iconfont/iconstyle.css") %>" media="all" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/assets/font/font-awesome/css/font-awesome.css") %>" media="all" />
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("~/Site/assets/css/main.css") %>" media="all" id="maincss" />
 
-    <script src="vendor/js-cookie/src/js.cookie.js"></script>
+    <script src="<%=Page.ResolveUrl("~/Site/vendor/js-cookie/src/js.cookie.js") %>"></script>
     <style id="moldcustomize">
     </style>
 
@@ -30,24 +30,24 @@
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-83435216-1', 'auto');
         ga('send', 'pageview');
 
 
-       
+
     </script>
 
 
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
 </head>
 <body>
-    
+
     <div class="pre-loader">
         <div class="loading-img"></div>
     </div>
@@ -56,8 +56,8 @@
         <nav class="navbar normal transparent">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Home.aspx">
-                        <img src="assets/img/logo.png" alt="Mold Discover Html Template">
+                    <a class="navbar-brand" href="http://shapoexpeditions.in/">
+                        <img src="../Site/assets/img/logo.png" alt="Shapo Expeditions">
                     </a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -70,11 +70,11 @@
                 <div class="navbar-collapse collapse" id="main-navbar">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="Home.aspx">Home</a>
+                            <a href="http://shapoexpeditions.in/">Home</a>
                         </li>
                         <li class="dropdown">
-                            <a href="TourList.aspx">Tour Pages</a>
-                            
+                            <a href="<%=Page.ResolveUrl("~/Site/TourList.aspx") %>">Tour Pages</a>
+
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">Features</a>
@@ -194,7 +194,7 @@
                             <a href="cart_page.html"><span class="icon-minicart"></span><span class="badge badge-danger">3</span></a>
                             <ul class="dropdown-menu  dropdown-menu-right cart-menu">
                                 <li>
-                                    <img src="assets/img/trip_detail/thumb_1.jpg" alt="" class="item-img">
+                                    <img src="../Site/assets/img/trip_detail/thumb_1.jpg" alt="" class="item-img">
                                     <span class="delete icon-trash"></span>
                                     <div class="text">
                                         Lorem ipsum dolor sit amet, consectetur.
@@ -202,7 +202,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="assets/img/trip_detail/thumb_2.jpg" alt="" class="item-img">
+                                    <img src="../Site/assets/img/trip_detail/thumb_2.jpg" alt="" class="item-img">
                                     <span class="delete icon-trash"></span>
                                     <div class="text">
                                         Lorem ipsum dolor sit amet, consectetur.
@@ -210,7 +210,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="assets/img/trip_detail/thumb_4.jpg" alt="" class="item-img">
+                                    <img src="../Site/assets/img/trip_detail/thumb_4.jpg" alt="" class="item-img">
                                     <span class="delete icon-trash"></span>
                                     <div class="text">
                                         Lorem ipsum dolor sit amet, consectetur.
@@ -225,10 +225,10 @@
         </nav>
     </header>
 
-     
 
 
-    <form id="form1" runat="server" style="margin-top:0px">
+
+    <form id="form1" runat="server" style="margin-top: 0px">
         <div>
 
 
@@ -240,14 +240,18 @@
 
 
 
-   <%-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37319.30096857599!2d-111.50394094053527!3d44.81298564157587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5351e55555555555%3A0xaca8f930348fe1bb!2sYellowstone+National+Park!5e0!3m2!1sen!2snp!4v1493435077252" style="width: 100%; border: 0" height="450" allowfullscreen></iframe>--%>
+    <%-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37319.30096857599!2d-111.50394094053527!3d44.81298564157587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5351e55555555555%3A0xaca8f930348fe1bb!2sYellowstone+National+Park!5e0!3m2!1sen!2snp!4v1493435077252" style="width: 100%; border: 0" height="450" allowfullscreen></iframe>--%>
 
     <footer id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-3">
-                    <h3>Mold Discover</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, quia, architecto? A, reiciendis eveniet! Esse est eaque adipisci natus rerum laudantium accusamus magni.</p>
+                    <h3>Shapo Expeditions</h3>
+                    <p>
+                        Shapo Expeditions is a tour operator and travel agency located in New Delhi.
+
+We specialize in tours to India but are always expanding and enhancing our wide range of offers, as well as adding new and exciting tours of Himachal, Uttrakhand, J & K, Uttranchal and Sikkim.
+                    </p>
                 </div>
                 <div class="col-sm-5 col-md-2">
                     <h3>Quick Link</h3>
@@ -273,70 +277,65 @@
                 <div class="col-sm-5 col-md-2">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li>Mold Discover</li>
-                        <li>info@moldthemes.com</li>
+                        <li>Shapo Expeditions</li>
+                        <li>info@shapoexpeditions.com</li>
                     </ul>
                     <div class="clearfix">
                         <div class="social-icon-list">
                             <ul>
-                                <li><a href="https://twitter.com/moldthemes" class="icon-twitter"></a></li>
-                                <li><a href="mailto:info@moldthemes.com" class="icon-mail"></a></li>
+                                <li><a href="#" class="icon-twitter"></a></li>
+                                <li><a href="mailto:info@shapoexpeditions.com" class="icon-mail"></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="copy"><span>&copy;</span> Copyright Mold Discover, 2017</div>
+        <div class="copy"><span>&copy;</span> Copyright Shapo Expeditions, 2018</div>
     </footer>
 
 
 
-    <script src="vendor/jquery/dist/jquery.min.js"></script>
-    <script src="vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="vendor/jquery.ui.touch-punch.min.js"></script>
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/jquery/dist/jquery.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/jquery.ui.touch-punch.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/bootstrap/dist/js/bootstrap.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/waypoints/lib/jquery.waypoints.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/owlcarousel/owl.carousel.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/retina.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/jquery.imageScroll.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/assets/js/min/responsivetable.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/assets/js/bootstrap-tabcollapse.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/assets/js/min/countnumbers.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/assets/js/main.js") %> "></script>
 
-    <script src="vendor/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-    <script src="vendor/retina.min.js"></script>
-    <script src="vendor/jquery.imageScroll.min.js"></script>
-    <script src="assets/js/min/responsivetable.min.js"></script>
-    <script src="assets/js/bootstrap-tabcollapse.js"></script>
+    <link href="<%=Page.ResolveUrl("~/Site/assets/css/controlpanel.css") %>" rel="stylesheet" />
+    <link href="<%=Page.ResolveUrl("~/Site/vendor/colpick-jQuery-Color-Picker-master/css/colpick.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=Page.ResolveUrl("~/Site/vendor/colorpicker/css/evol-colorpicker.min.css") %>" rel="stylesheet" type="text/css" />
 
-    <script src="assets/js/min/countnumbers.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-    <link href="assets/css/controlpanel.css" rel="stylesheet" />
-    <link href="vendor/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/colorpicker/css/evol-colorpicker.min.css" rel="stylesheet" type="text/css" />
-
- 
-
-    <script src="vendor/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
-    <script src="vendor/colorpicker/js/evol-colorpicker.min.js"></script>
-    <script src="assets/js/controlpanel.js"></script>
-
-    <!-- Current Page JS -->
-    <script src="assets/js/min/home.min.js"></script>
-    <script src="assets/js/min/priceslider.min.js"></script>
+      <script src=" <%=Page.ResolveUrl("~/Site/vendor/colpick-jQuery-Color-Picker-master/js/colpick.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/vendor/colorpicker/js/evol-colorpicker.min.js") %> "></script>
+    <script src=" <%=Page.ResolveUrl("~/Site/assets/js/controlpanel.js") %> "></script>
+     <script src=" <%=Page.ResolveUrl("~/Site/assets/js/min/home.min.js") %> "></script>
+     <script src=" <%=Page.ResolveUrl("~/Site/assets/js/min/priceslider.min.js") %> "></script>
+   
 
 </body>
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+<script type="text/javascript">
+    $(document).ready(function () {
 
-            var url = window.location;
-            if (url.toString().indexOf("home") != -1) {
-                $("header").css("background", "none");
-            }
-            else {
-                $("header").css("background", "#111111");
-            }
-        });
-    </script>
+        debugger;
+        var url = window.location;
+        if (url.toString().indexOf("home") != -1) {
+            $("header").css("background", "none");
+        }
+        else {
+            $("header").css("background", "#111111");
+        }
+    });
+</script>
 <%--<body>
     <form id="form1" runat="server">
     <div>

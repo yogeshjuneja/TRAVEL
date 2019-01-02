@@ -124,11 +124,11 @@
                         </div>
                         <div class="user-profile border-top padding-horizontal-10 block">
                             <div class="inline-block">
-                                <img src="assets/images/avatar-1.jpg">
+                                <img src="../upload/user.png" style="height:60px;width:60px;">
                             </div>
                             <div class="inline-block">
                                 <h5 class="no-margin">Welcome </h5>
-                                <h4 class="no-margin">Yogesh </h4>
+                                <h4 class="no-margin"><asp:Label ID="lblName" runat="server" ></asp:Label> </h4>
                                 <a class="btn user-options sb_toggle">
                                     <i class="fa fa-cog"></i>
                                 </a>
@@ -184,9 +184,10 @@
                         </a>
                     </div>
                     <div class="col-xs-6 text-right no-padding">
-                        <a class="btn btn-sm log-out text-right" href="login_login.html">
+
+                        <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn btn-sm log-out text-right" OnClick="btnLogout_Click">
                             <i class="fa fa-power-off"></i>Log Out
-                        </a>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </nav>

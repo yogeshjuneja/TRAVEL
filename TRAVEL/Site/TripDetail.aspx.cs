@@ -63,13 +63,20 @@ namespace TRAVEL.Site
                 }
                 if (objDataSet.Tables[1].Rows.Count > 0)
                 {
-                    DataTable dtInclude = objDataSet.Tables[1].Select("IncluExcluType=1").CopyToDataTable();
-                    rptPkgInclude.DataSource = dtInclude;
-                    rptPkgInclude.DataBind();
+                    try
+                    {
+                        DataTable dtInclude = objDataSet.Tables[1].Select("IncluExcluType=1").CopyToDataTable();
+                        rptPkgInclude.DataSource = dtInclude;
+                        rptPkgInclude.DataBind();
 
-                    DataTable dtExclude = objDataSet.Tables[1].Select("IncluExcluType=0").CopyToDataTable();
-                    rptExclude.DataSource = dtExclude;
-                    rptExclude.DataBind();
+                        DataTable dtExclude = objDataSet.Tables[1].Select("IncluExcluType=0").CopyToDataTable();
+                        rptExclude.DataSource = dtExclude;
+                        rptExclude.DataBind();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                   
 
                 }
                 if (objDataSet.Tables[2].Rows.Count > 0)

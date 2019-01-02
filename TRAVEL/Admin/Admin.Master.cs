@@ -1,25 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BLLTRAVEL;
+﻿using BLLTRAVEL;
+using System;
 using System.Data;
+using System.Web;
 
 namespace TRAVEL.Admin
 {
     public partial class Admin : System.Web.UI.MasterPage
     {
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (SessionManager.Admin == null)
+            {
+                Response.Redirect("/Admin/Login.aspx");
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+
+            if (SessionManager.Admin == null)
+            {
+                Response.Redirect("/Admin/Login.aspx");
+            }
+           
+            if (!IsPostBack)
             {
                 CheckReviewsEnquiry();
+                if (SessionManager.Admin != null)
+                {
+                    lblName.Text = SessionManager.Admin.NAME;
+                }
             }
         }
 
-        void CheckReviewsEnquiry()
+
+        private void CheckReviewsEnquiry()
         {
             try
             {
@@ -47,7 +62,21 @@ namespace TRAVEL.Admin
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HttpContext.Current.Session["AdminID"] = null;
+                Session.Abandon();
+            }
+            catch (Exception)
             {
 
                 throw;

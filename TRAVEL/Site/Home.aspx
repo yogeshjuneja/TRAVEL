@@ -5,11 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="main-img full-height stick-top">
-        <div class="zooming with-overlay" style="background-image: url('assets/img/coast/1.jpg');">
+        <div class="zooming with-overlay" style="background-image: url('../Site/assets/img/coast/1.jpg');">
             <div class="main-image-txt center-txt">
                 <h1 class="main-header">SHAPO EXPEDITIONS</h1>
                 <hr />
-                <p class="sub-header">Wander Exotic places without getting lost.</p>
+                <p class="sub-header">Beyond the Snowline.</p>
                 <%--<a href="#" class="btn btn-lg btn-primary hvr-sweep-to-right">Explore Now</a>--%>
             </div>
         </div>
@@ -45,8 +45,8 @@
 
     <section class="white">
         <div class="main-title">
-            <h2>Explore World</h2>
-            <p>Plan Your holiday with Mold discover</p>
+            <h2>Explore India </h2>
+            <p>Plan Your holiday with Shapo Expeditions</p>
         </div>
         <br>
         <br>
@@ -58,21 +58,21 @@
                     <span class="square-icon"><span class="icon-hand-scissor"></span></span>
                     <div class="desc">
                         <h4>Plan Adventure Guaranteed</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit fugit at facere, voluptatem accusamus similique autem.</p>
+                        <p>Amazing experiences across the Himalaya Check out our wide range of amazing adventure tour experiences.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-road-sign"></span></span>
                     <div class="desc">
                         <h4>Take Rare Path</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae laborum soluta quos praesentium, magni repellendus.</p>
+                        <p>Shapo Expeditions offer wonderful opportunities for trekking and hiking.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-map"></span></span>
                     <div class="desc">
                         <h4>Organise with Professional</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia blanditiis, deleniti necessitatibus doloribus vel.</p>
+                        <p>Young Professional Group Travel exclusively for 20s and 30s. Fun trips, awesome people, great times! Only with Travendly Young Professional Group Travel.</p>
                     </div>
                 </div>
 
@@ -80,21 +80,21 @@
                     <span class="square-icon"><span class="icon-deer"></span></span>
                     <div class="desc">
                         <h4>Closer To Wildlife</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam illo sit accusamus vel similique id quisquam, dolor maiores.</p>
+                        <p>There are a lot of photographers who love to travel and click wildlife . Get close and personal with the wildlife of this region as you stroll deep .</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-flower"></span></span>
                     <div class="desc">
                         <h4>Near to Nature</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil harum sapiente ipsa hic voluptas? Ut architecto eveniet possimus.</p>
+                        <p>Best natural places to visit within  India. Select from list of best nature places to visit in India as per your budget, duration & list of things to do.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-binocular"></span></span>
                     <div class="desc">
                         <h4>Behold Awesome Scenary</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quisquam esse quia, necessitatibus quos. Modi cum?</p>
+                        <p>See more ideas about Beautiful places, Beautiful landscapes and Natural.</p>
                     </div>
                 </div>
 
@@ -102,21 +102,21 @@
                     <span class="square-icon"><span class="icon-rock-climbing"></span></span>
                     <div class="desc">
                         <h4>Awesome &amp; Adventure</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam illo sit accusamus vel similique id quisquam, dolor maiores.</p>
+                        <p>From short tours to longer trips, across all india, find the perfect tour for your next holiday. Powered by  Shapo Expeditions.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-backpack"></span></span>
                     <div class="desc">
                         <h4>Grab Your Bag Pack</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil harum sapiente ipsa hic voluptas? Ut architecto eveniet possimus.</p>
+                        <p>Packing for an overnight trip or a couple of days out of town doesn't have to require a lot of thought. If you make such trips often.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <span class="square-icon"><span class="icon-tent"></span></span>
                     <div class="desc">
                         <h4>Nightout &amp; Camping</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quisquam esse quia, necessitatibus quos. Modi cum perspic-diamondiatis, labore?</p>
+                        <p>Longer trips require more planning and packing. You'll make plenty of memories and the kids will still have a blast even camping for one night.</p>
                     </div>
                 </div>
 
@@ -128,17 +128,17 @@
     <div class="banner base">
         <div class="container">
             <div class="line-box">
-                <div class="line-title">Lorem ipsum dolor sit</div>
+                <div class="line-title">Welcome to Shapo</div>
                 <h2>Great Places, Great Holiday</h2>
                 <a href="#" class="btn btn-primary btn-lg hvr-sweep-to-right">Book Now</a>
             </div>
         </div>
     </div>
 
-    <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover">
+    <section class="showcase" style="background: url('../Site/assets/img/worldmap.png') no-repeat center; background-size: cover">
         <div class="main-title">
-            <h2>Our Top Destination</h2>
-            <p>Consectetur adipisicing elit. Quisquam fugit ducimus, qui molestias.</p>
+            <h2>Our Destination</h2>
+            <p>You will have extreme fun with Shapo.</p>
         </div>
         <div class="container">
 
@@ -174,7 +174,7 @@
                                         </div>
                                         <div class="right">
                                             <div class="price">INR <%#Eval("Price") %></div>
-                                            <a href='<%#"TripDetail.aspx?TID="+Eval("TourDetailsID") %>' class="btn btn-primary hvr-sweep-to-right">Book Now</a>
+                                            <a href='<%#Page.ResolveUrl("~/Site/TripDetail.aspx?TID="+Eval("TourDetailsID")) %>' class="btn btn-primary hvr-sweep-to-right">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
 
               <%--  <div class="col-sm-6 col-md-4">
                     <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_2.jpg');">
+                        <div class="item-img" style="background-image: url('../Site/assets/img/trip_detail/thumb_2.jpg');">
                             <div class="item-overlay">
                                 <a href="trip_detail.html"><span class="icon-binocular"></span></a>
                             </div>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_3.jpg');">
+                        <div class="item-img" style="background-image: url('../Site/assets/img/trip_detail/thumb_3.jpg');">
                             <div class="item-overlay">
                                 <a href="trip_detail.html"><span class="icon-binocular"></span></a>
                             </div>
@@ -248,7 +248,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_4.jpg');">
+                        <div class="item-img" style="background-image: url('../Site/assets/img/trip_detail/thumb_4.jpg');">
                             <div class="item-overlay">
                                 <a href="trip_detail.html"><span class="icon-binocular"></span></a>
                             </div>
@@ -279,7 +279,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_5.jpg');">
+                        <div class="item-img" style="background-image: url('../Site/assets/img/trip_detail/thumb_5.jpg');">
                             <div class="item-overlay">
                                 <a href="trip_detail.html"><span class="icon-binocular"></span></a>
                             </div>
@@ -311,7 +311,7 @@
 
                 <div class="col-sm-6 col-md-4">
                     <div class="item-grid">
-                        <div class="item-img" style="background-image: url('assets/img/trip_detail/thumb_6.jpg');">
+                        <div class="item-img" style="background-image: url('../Site/assets/img/trip_detail/thumb_6.jpg');">
                             <div class="item-overlay">
                                 <a href="trip_detail.html"><span class="icon-binocular"></span></a>
                             </div>
@@ -371,11 +371,11 @@
         </div>
     </div>
 
-    <div class="testimonial-wrap" style="background-image: url('assets/img/home_img/mountain.jpg')">
+    <div class="testimonial-wrap" style="background-image: url('../Site/assets/img/home_img/mountain.jpg')">
         <div class="container">
             <div class="testimonial">
                 <div>
-                    <img src="assets/img/team/1-sm.jpg" alt="" class="avatar">
+                    <img src="../Site/assets/img/team/1-sm.jpg" alt="" class="avatar">
                     <div class="name">Kim L. Burney</div>
                     <div>U.S.A</div>
                     <div class="rating">
@@ -388,7 +388,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque minus maxime atque ea accusamus, delectus consequatur libero non mollitia fugiat!</p>
                 </div>
                 <div>
-                    <img src="assets/img/team/2-sm.jpg" alt="" class="avatar">
+                    <img src="../Site/assets/img/team/2-sm.jpg" alt="" class="avatar">
                     <div class="name">Shing Ch'in</div>
                     <div>China</div>
                     <div class="rating">

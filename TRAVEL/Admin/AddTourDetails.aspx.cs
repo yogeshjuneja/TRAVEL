@@ -207,6 +207,7 @@ namespace TRAVEL.Admin
             int i = 0;
             foreach (GridViewRow gvRow in gvIternary.Rows)
             {
+                //dtIternaryDetails.Rows[i]["DAY"] = ((HiddenField)gvRow.FindControl("hfDay")).Value;
                 dtIternaryDetails.Rows[i]["DAY"] = ((HiddenField)gvRow.FindControl("hfDay")).Value;
                 dtIternaryDetails.Rows[i]["ItnryDtlsID"] = ((HiddenField)gvRow.FindControl("hfIID")).Value;
                 dtIternaryDetails.Rows[i]["ItnryMainH"] = ((Label)gvRow.FindControl("lblHeading")).Text;

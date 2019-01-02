@@ -58,24 +58,21 @@
                             <div class="box-title">Difficulty</div>
                             <div>
                                 <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-default active" data-toggle="tooltip" data-placement="bottom" title="Easy">
-                                        <input type="radio" name="options" id="option1" checked>
-                                        <span class="icon-easy"></span>
-                                    </label>
+                                   
                                     <label class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Easy">
-                                        <input type="radio" name="options" id="option2">
+                                        <input type="radio" value="0" name="options" id="option2">
                                         <span class="icon-medium"></span>
                                     </label>
                                     <label class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Difficult">
-                                        <input type="radio" name="options" id="option3">
+                                        <input type="radio" name="options" value="1" id="option3">
                                         <span class="icon-difficult"></span>
                                     </label>
                                     <label class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Hard">
-                                        <input type="radio" name="options" id="option4">
+                                        <input type="radio" name="options" value="2" id="option4">
                                         <span class="icon-hard"></span>
                                     </label>
                                     <label class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Extreme">
-                                        <input type="radio" name="options" id="option5">
+                                        <input type="radio" name="options" value="3" id="option5">
                                         <span class="icon-extreme"></span>
                                     </label>
                                 </div>
@@ -223,14 +220,14 @@
     <script src="vendor/Jqueryui/Jquery-ui-1.10.3.custom.min.js"></script>
 
     <script type="text/javascript">
-
-
+        $(".btn-default").click(function () {
+            GetTrips();
+        });
 
         $(window).load(function () {
             GetTrips();
             
         $("#ContentPlaceHolder1_chkCategory").find("li:first >input").on('change',function () {
-
             $("#ContentPlaceHolder1_chkCategory").find("input").attr("checked", $(this).prop("checked"));
         });
         });
@@ -245,6 +242,14 @@
             var MinPrice = $("#amount-min").html().replace('₹', "");
             var MaxPrice = $("#amount-max").html().replace('₹', "");
             var tourinfo = $("#searchtrips").val();
+            var difficulty = $(".btn-group").find(".active").find("input").val();
+            debugger;
+            var difficulty = 0;
+            if ($(".btn-group").find(".active").length > 1) {
+                difficulty = $(".btn-group").find(".active").find("input").val();
+            }
+            
+           
             var APIURL = "/api/Trip/GetTrips?tourinfo=" + tourinfo + "&startprice=" + MinPrice + "&endprice=" + MaxPrice + "&difficulty=0&category=&days=0&nights=0";
 
             $.ajax({

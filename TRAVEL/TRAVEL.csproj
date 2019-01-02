@@ -86,6 +86,8 @@
     <Content Include="Admin\assets\js\Custom\TripDetail.js" />
     <Content Include="Admin\assets\plugins\jQuery\jquery-3.3.1.js" />
     <Content Include="Admin\Enquiry.aspx" />
+    <Content Include="Admin\Index.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\PackageMaster.aspx" />
     <Content Include="Admin\Reviews.aspx" />
     <Content Include="Admin\TourMaster.aspx" />
@@ -111,6 +113,7 @@
     <Content Include="Admin\assets\plugins\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Admin\assets\plugins\weather-icons\font\weathericons-regular-webfontd41d.eot" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Site\404.aspx" />
     <Content Include="Site\assets\css\bootstrap.css" />
     <Content Include="Site\assets\css\controlpanel.css" />
     <Content Include="Site\assets\css\font\glyphicons\glyphicons-halflings-regular.svg" />
@@ -238,88 +241,8 @@
     <Content Include="Site\vendor\owlcarousel\owl.carousel.min.js" />
     <Content Include="Site\vendor\retina.min.js" />
     <Content Include="Site\vendor\waypoints\lib\jquery.waypoints.min.js" />
-    <Content Include="Upload\636750742650535436_de.PNG" />
-    <Content Include="Upload\636759316876311003_card-paypal.png" />
-    <Content Include="Upload\636759316876640799_card-master.png" />
-    <Content Include="Upload\636759316876680786_card-paypal.png" />
-    <Content Include="Upload\636759316876700772_card-visa.png" />
-    <Content Include="Upload\636759316876750752_favicon.png" />
-    <Content Include="Upload\636759317882999396_bg.png" />
-    <Content Include="Upload\636759317883039345_calendar.png" />
-    <Content Include="Upload\636759317883069357_card-master.png" />
-    <Content Include="Upload\636759317883109320_card-paypal.png" />
-    <Content Include="Upload\636759317883159281_card-visa.png" />
-    <Content Include="Upload\636759319453936921_bg.png" />
-    <Content Include="Upload\636759319490013181_calendar.png" />
-    <Content Include="Upload\636759319830248650_card-master.png" />
-    <Content Include="Upload\636759319870446245_card-paypal.png" />
-    <Content Include="Upload\636759319894482466_card-visa.png" />
-    <Content Include="Upload\636759320882864059_bg.png" />
-    <Content Include="Upload\636759320934875454_calendar.png" />
-    <Content Include="Upload\636759320965168124_card-master.png" />
-    <Content Include="Upload\636759320982068705_card-paypal.png" />
-    <Content Include="Upload\636759322336150408_calendar.png" />
-    <Content Include="Upload\636759322369171561_calendar.png" />
-    <Content Include="Upload\636759322391898580_card-master.png" />
-    <Content Include="Upload\636759322412526808_card-paypal.png" />
-    <Content Include="Upload\636759322435753548_card-visa.png" />
-    <Content Include="Upload\636759324034991756_calendar.png" />
-    <Content Include="Upload\636759324056359545_bg.png" />
-    <Content Include="Upload\636759324073699671_calendar.png" />
-    <Content Include="Upload\636759324089600594_card-master.png" />
-    <Content Include="Upload\636759324114356446_card-paypal.png" />
-    <Content Include="Upload\636759325532018833_bg.png" />
-    <Content Include="Upload\636759325572235855_bg.png" />
-    <Content Include="Upload\636759325589406050_calendar.png" />
-    <Content Include="Upload\636759325607016008_card-master.png" />
-    <Content Include="Upload\636759328768147429_card-master.png" />
-    <Content Include="Upload\636759328818109570_bg.png" />
-    <Content Include="Upload\636759328867221530_calendar.png" />
-    <Content Include="Upload\636759328867261512_card-master.png" />
-    <Content Include="Upload\636761940443895162_1.jpg" />
-    <Content Include="Upload\636761940444025091_1.jpg" />
-    <Content Include="Upload\636761940444105045_c0ae49a0280d7a7041157f88a9c486f6.jpg" />
-    <Content Include="Upload\636761940444234970_IMG_0067.jpg" />
-    <Content Include="Upload\636761940444734682_maxresdefault.jpg" />
-    <Content Include="Upload\636761940444854623_simla4.jpg" />
-    <Content Include="Upload\636762811719953094_simla4.jpg" />
-    <Content Include="Upload\636763222536389497_1.jpg" />
-    <Content Include="Upload\636763232606634515_1.jpg" />
-    <Content Include="Upload\636763314030125070_1.jpg" />
-    <Content Include="Upload\636763314030414908_1.jpg" />
-    <Content Include="Upload\636763314030714739_c0ae49a0280d7a7041157f88a9c486f6.jpg" />
-    <Content Include="Upload\636763314030864650_IMG_0067.jpg" />
-    <Content Include="Upload\636763314031174474_maxresdefault.jpg" />
-    <Content Include="Upload\636763314031374365_simla4.jpg" />
-    <Content Include="Upload\636763518955886034_IMG_0067.jpg" />
-    <Content Include="Upload\636763525978571820_img.jpg" />
-    <Content Include="Upload\636763525978901630_1478249718581c4cf62a4b20_93588116.jpg" />
-    <Content Include="Upload\636763525979011611_Clouds-End-Jaypee-Manor-Mussoorie.jpg" />
-    <Content Include="Upload\636763525979141493_Desktop-apple-fruits-wallpaper-hd-1080p-download-620x349.jpg" />
-    <Content Include="Upload\636763525979231450_img.jpg" />
-    <Content Include="Upload\636763525979911053_Mussoorie_1.jpg" />
-    <Content Include="Upload\636763530393762932_124923_Labels-AMAZING-culture-HD-WALLPAPERS-india-leh-ladakh-LIFE_1600x1065-780x480.jpg" />
-    <Content Include="Upload\636763530393992816_1.jpg" />
-    <Content Include="Upload\636763530394452552_124923_Labels-AMAZING-culture-HD-WALLPAPERS-india-leh-ladakh-LIFE_1600x1065-780x480.jpg" />
-    <Content Include="Upload\636763530394652428_is-ladakh-safe.jpg" />
-    <Content Include="Upload\636763530394742380_Ladakh-Road_FLickr.jpg" />
-    <Content Include="Upload\636763530395002230_ladhakh.jpeg" />
-    <Content Include="Upload\636763531528911460_Ladakh-Road_FLickr.jpg" />
-    <Content Include="Upload\636763531529151346_1.jpg" />
-    <Content Include="Upload\636763531529401193_124923_Labels-AMAZING-culture-HD-WALLPAPERS-india-leh-ladakh-LIFE_1600x1065-780x480.jpg" />
-    <Content Include="Upload\636763531529531109_is-ladakh-safe.jpg" />
-    <Content Include="Upload\636763531529780969_Ladakh-Road_FLickr.jpg" />
-    <Content Include="Upload\636763531529950932_ladhakh.jpeg" />
-    <Content Include="Upload\636763532101070013_is-ladakh-safe.jpg" />
-    <Content Include="Upload\636763532101219901_1.jpg" />
-    <Content Include="Upload\636763532101309848_is-ladakh-safe.jpg" />
-    <Content Include="Upload\636763532101439796_Ladakh-Road_FLickr.jpg" />
-    <Content Include="Upload\636763532101559718_ladhakh.jpeg" />
-    <Content Include="Upload\636763532101929487_yesy.jpg" />
-    <Content Include="Upload\636774902752286464_a.jpg" />
-    <Content Include="Upload\636774904826332829_Ladakh-Road_FLickr.jpg" />
-    <Content Include="Upload\636774915353241385_c.jpg" />
     <Content Include="Upload\noimage.jpg" />
+    <Content Include="Upload\user.png" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Site\Home.aspx" />
     <Content Include="Site\images\FilledStar.gif" />
@@ -328,8 +251,6 @@
     <Content Include="Site\T.aspx" />
     <Content Include="Site\TestPage.aspx" />
     <Content Include="Site\Travel.Master" />
-    <None Include="Properties\PublishProfiles\shapoexpeditions - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\shapoexpeditions - Web Deploy.pubxml" />
     <Content Include="Site\assets\css\font\glyphicons\glyphicons-halflings-regular.eot" />
     <Content Include="Site\assets\css\font\glyphicons\glyphicons-halflings-regular.ttf" />
     <Content Include="Site\assets\css\font\glyphicons\glyphicons-halflings-regular.woff" />
@@ -350,19 +271,7 @@
     <Content Include="Site\assets\font\iconfont\iconfont_c9e42a7efd77776f6fdc94be4d492d76.ttf" />
     <Content Include="Site\assets\font\iconfont\iconfont_c9e42a7efd77776f6fdc94be4d492d76.woff" />
     <Content Include="Site\assets\font\iconfont\iconfont_c9e42a7efd77776f6fdc94be4d492d76d41d.eot" />
-    <Content Include="Upload\636763527621930934_" />
-    <Content Include="Upload\636763533270033154_" />
-    <Content Include="Upload\636763541180282455_" />
-    <Content Include="Upload\636763541307899602_" />
-    <Content Include="Upload\636763541634173332_" />
-    <Content Include="Upload\636763544826041440_" />
-    <Content Include="Upload\636763544902657712_" />
-    <Content Include="Upload\636763558027649014_" />
-    <Content Include="Upload\636763559640948019_" />
-    <Content Include="Upload\636763559725939452_" />
-    <Content Include="Upload\636763598773599231_" />
-    <Content Include="Upload\636763600517718476_" />
-    <Content Include="Upload\636763601081258002_" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -887,6 +796,20 @@
     <Compile Include="Admin\Enquiry.aspx.designer.cs">
       <DependentUpon>Enquiry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\PackageMaster.aspx.cs">
       <DependentUpon>PackageMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -932,6 +855,15 @@
     <Compile Include="API\Model\TripModel.cs" />
     <Compile Include="API\TripController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="PreInitModule .cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="Site\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\TourList.aspx.cs">
       <DependentUpon>TourList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

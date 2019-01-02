@@ -12,7 +12,7 @@ namespace DLLTRAVEL
         {
             get
             {
-                return "Server=shapodb.database.windows.net;uid=shapodb;pwd=$hapo@9811;Initial Catalog=ShapoDb;Integrated Security=False";
+                return "Server=5.196.175.110;uid=shapodb;pwd=Shapo@9811;Initial Catalog=shapoexpeditions;Integrated Security=False";
             }
         }
     }   

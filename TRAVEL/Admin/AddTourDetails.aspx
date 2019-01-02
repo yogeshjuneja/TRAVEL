@@ -344,7 +344,7 @@
                                                     <ItemTemplate>
                                                         <%#Container.DataItemIndex+1 %>
                                                         <asp:HiddenField ID="hfIID" runat="server" Value='<%#Eval("ItnryDtlsID") %>' />
-
+                                                        <asp:HiddenField ID="hfDay" runat="server" Value='<%#Container.DataItemIndex+1 %>' />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
 
