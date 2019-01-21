@@ -1,0 +1,242 @@
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using static Dapper.SqlMapper;
+
+namespace IndiaLends.Data.Helper
+{
+    public interface ISqlDBHelper : IBaseHelper
+    {
+        T Get<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        Task<T> GetScalarAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        Task<T> GetAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        List<T> GetList<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        List<T> GetQueryList<T>(SqlDBType sqlDBType, string queryString);
+        Task<List<T>> GetListAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        int Execute(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters);
+        List<object> QueryMultipleResult(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters, params Func<GridReader, object>[] readerFuncs);
+        List<object> QueryMultipleResultTVP(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, object parameter, params Func<GridReader, object>[] readerFuncs);
+    }
+
+    public class SqlDBHelper : BaseHelper, ISqlDBHelper
+    {
+        private readonly Dictionary<SqlDBType, string> connectionStrings;
+        private string oneTimeCon = "";
+        //ISqlDBHelper sql_helper = new ISqlDBHelper();
+
+
+        public SqlDBHelper(string conType = "")//string connectionString)
+        {
+
+            //TBD
+            if (conType.Equals(""))
+                //oneTimeCon = "Initial Catalog=;Data Source=;User ID=In;password=;Column Encryption Setting=Enabled;";
+               oneTimeCon = "Initial Catalog=;Data Source=;User ID=;password=;Column Encryption Setting=Enabled;";
+            else
+                oneTimeCon = "Initial Catalog=;Data Source=ion Timeout=30;";
+            SqlConnectionStringBuilder str_brle = new SqlConnectionStringBuilder();
+            str_brle.ConnectionString = oneTimeCon;
+            str_brle.ColumnEncryptionSetting = SqlConnectionColumnEncryptionSetting.Enabled;
+            oneTimeCon = str_brle.ConnectionString;
+        }
+
+        public T Get<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters) //where T:class
+        {
+            //using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            using (var connection = ReliableSqlConnection(oneTimeCon))
+            {
+                T item = default(T);
+                //Log(storedProcedureName, parameters, () =>
+                //{
+                //    item = BuildQueryFirstOrDefault<T>(connection, storedProcedureName, parameters);
+                //});
+                item = BuildQueryFirstOrDefault<T>(connection, storedProcedureName, parameters);
+                return item;
+            }
+        }
+
+        public List<T> GetList<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            using (var connection = ReliableSqlConnection(oneTimeCon))
+            {
+                IEnumerable<T> query = null;
+                //Log(storedProcedureName, parameters, () =>
+                //{
+                //    query = BuildQuery<T>(connection, storedProcedureName, parameters);
+                //});
+                query = BuildQuery<T>(connection, storedProcedureName, parameters);
+                return query?.ToList();
+            }
+        }
+        public List<T> GetQueryList<T>(SqlDBType sqlDBType, string queryString)
+        {
+            using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            {
+                var query = BuildSqlQuery<T>(connection, queryString);
+                return query?.ToList();
+            }
+        }
+        async Task<List<T>> ISqlDBHelper.GetListAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            {
+                var query = await BuildQueryAsync<T>(connection, storedProcedureName, parameters);
+                return query?.ToList();
+            }
+        }
+
+        async Task<T> ISqlDBHelper.GetScalarAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            {
+                return await BuildExecuteScalarAsync<T>(connection, storedProcedureName, parameters);
+            }
+        }
+
+        async Task<T> ISqlDBHelper.GetAsync<T>(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            {
+                return await BuildQueryFirstOrDefaultAsync<T>(connection, storedProcedureName, parameters);
+            }
+        }
+
+        int ISqlDBHelper.Execute(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            //using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            using (var connection = ReliableSqlConnection(oneTimeCon))
+            {
+                return ExecuteQuery(connection, storedProcedureName, parameters);
+            }
+        }
+
+        async Task<T> BuildExecuteScalarAsync<T>(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return await SqlMapper.ExecuteScalarAsync<T>(connection, storedProcedureName.ToString(), parameters, commandType: CommandType.StoredProcedure);
+        }
+
+
+        async Task<T> BuildQueryFirstOrDefaultAsync<T>(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return await SqlMapper.QueryFirstOrDefaultAsync<T>(connection, storedProcedureName.ToString(), parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        async Task<IEnumerable<T>> BuildQueryAsync<T>(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return await SqlMapper.QueryAsync<T>(connection, storedProcedureName.ToString(), parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        T BuildQueryFirstOrDefault<T>(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return SqlMapper.QueryFirstOrDefault<T>(connection, storedProcedureName.ToString(), parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        IEnumerable<T> BuildQuery<T>(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return SqlMapper.Query<T>(connection, storedProcedureName.ToString(), parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        int ExecuteQuery(IDbConnection connection, StoredProcedureName storedProcedureName, DynamicParameters parameters)
+        {
+            ThrowIfNull(connection, nameof(connection));
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+            return SqlMapper.Execute(cnn: connection, sql: storedProcedureName.ToString(), param: parameters, commandType: CommandType.StoredProcedure);
+        }
+
+
+        List<object> ISqlDBHelper.QueryMultipleResult(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, DynamicParameters parameters, params Func<GridReader, object>[] readerFuncs)
+        {
+            var returnResults = new List<object>();
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+
+            using (IDbConnection connection = ReliableSqlConnection(oneTimeCon))
+            {
+                var query = connection.QueryMultiple(storedProcedureName.ToString(), param: parameters, commandTimeout: 5000, commandType: CommandType.StoredProcedure);
+
+                foreach (var readerFunc in readerFuncs)
+                {
+                    var obj = readerFunc(query);
+                    returnResults.Add(obj);
+                }
+            }
+
+            return returnResults;
+        }
+
+
+        IEnumerable<T> BuildSqlQuery<T>(IDbConnection connection, string queryString)
+        {
+            ThrowIfNull(queryString, nameof(queryString));
+            ThrowIfNull(connection, nameof(connection));
+            return SqlMapper.Query<T>(connection, queryString, commandType: CommandType.Text);
+        }
+
+        protected IDbConnection ReliableSqlConnection(string connectionString)
+        {
+            //[TODO] Need add connection resilency logic
+            var db = new SqlConnection(connectionString);
+            db.Open();
+            return db;
+        }
+
+        protected void Log(StoredProcedureName storedProcedureName, DynamicParameters parameters, Action method)
+        {
+            var sw = new Stopwatch();
+            var startTime = DateTimeOffset.Now;
+            bool success = true;
+            string message = "";
+            try
+            {
+                sw.Start();
+                method?.Invoke();
+                sw.Stop();
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                message = ex.Message;
+            }
+            finally
+            {
+                //LogSPAndParameters(storedProcedureName, parameters, startTime, sw.ElapsedMilliseconds, success, message);
+            }
+        }
+
+        List<object> ISqlDBHelper.QueryMultipleResultTVP(SqlDBType sqlDBType, StoredProcedureName storedProcedureName, object parameter, params Func<GridReader, object>[] readerFuncs)
+        {
+            var returnResults = new List<object>();
+
+            ThrowIfNull(storedProcedureName, nameof(storedProcedureName));
+
+            using (IDbConnection connection = ReliableSqlConnection(connectionStrings[sqlDBType]))
+            {
+                var query = connection.QueryMultiple(storedProcedureName.ToString(), parameter, commandTimeout: 5000, commandType: CommandType.StoredProcedure);
+
+                foreach (var readerFunc in readerFuncs)
+                {
+                    var obj = readerFunc(query);
+                    returnResults.Add(obj);
+                }
+            }
+
+            return returnResults;
+        }
+    }
+
+
+}
